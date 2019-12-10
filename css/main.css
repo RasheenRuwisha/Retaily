@@ -99,3 +99,35 @@ img.forgot-password.Ipad-logo-size.logo-image {
 .product.ui-content {
     padding: 6em !important;
 }
+
+@media only screen and (max-device-width: 414px) {
+    .product-title-slideshow-container {
+        width: auto;
+        float: none;
+    }
+    .product-details-container {
+        margin-top: 2px;
+        height: auto;
+        float: none;
+        width: auto;
+    }
+
+    .w3-content {
+        max-width: 800px;
+    }
+
+    .w3-content,
+    .w3-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .product-details-container button{
+        height: 90px;
+        font-size: xx-large;
+    }
+
+    .product-details-container p{
+        font-size: x-large;
+    }
+}
