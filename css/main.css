@@ -1,0 +1,101 @@
+/* @font-face{
+    src: url(..//Resources/Fonts/Nexa light.otf);
+} */
+
+.login-labels{
+    font-size: 16px !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+button.login-button.rounded-button.ui-btn.ui-btn-inline{
+    width: 100% !important
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    img.Ipad-logo-size.logo-image{
+        width: 60%;
+        margin-bottom: -41px;
+    }
+    
+    .login.ui-content{
+        width: 50% !important;
+    }
+}
+img.Ipad-logo-size.logo-image {
+    margin-bottom: -20px;
+}
+img.register.Ipad-logo-size.logo-image {
+    margin-top: -20px;
+    margin-bottom: -50px;
+}
+img.forgot-password.Ipad-logo-size.logo-image {
+    margin-top: 10px;
+    margin-bottom: -50px;
+}
+.Register-Account-Text{
+    margin-top:-10px;
+}
+
+.mySlides {
+    display: none
+}
+
+.w3-left,
+.w3-right,
+.w3-badge {
+    cursor: pointer
+}
+
+.w3-badge {
+    height: 13px;
+    width: 13px;
+    padding: 0;
+    max-width: 433px !important;
+}
+
+.w3-content {
+    max-width: 343px;
+}
+
+.w3-content,
+.w3-auto {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.w3-white,
+.w3-hover-white:hover {
+    color: #000 !important;
+    background-color: #ef963a !important;
+}
+
+.w3-text-khaki,
+.w3-hover-text-khaki:hover {
+    color: #ef963a!important;
+}
+
+.w3-left,
+.w3-right {
+    color: #ef963a;
+}
+
+.product-title-slideshow-container {
+    width: auto;
+    float: left;
+}
+
+.product-details-container {
+    width: 50%;
+    /* margin-right: auto; */
+    margin-left: 29px;
+    float: left;
+    margin-top: 125px;
+    /* margin-bottom: auto; */
+    height: auto;
+}
+
+.product.ui-content {
+    padding: 6em !important;
+}
