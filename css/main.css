@@ -2,289 +2,340 @@
     src: url(..//Resources/Fonts/Nexa light.otf);
 } */
 
-.login-labels{
-    font-size: 16px !important;
-    font-family: Arial, Helvetica, sans-serif !important;
+.login-labels {
+  font-size: 16px !important;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
-button.login-button.rounded-button.ui-btn.ui-btn-inline{
-    width: 100% !important
+button.login-button.rounded-button.ui-btn.ui-btn-inline {
+  width: 100% !important;
 }
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-    img.Ipad-logo-size.logo-image{
-        width: 60%;
-        margin-bottom: -41px;
-    }
-    
-    .login.ui-content{
-        width: 50% !important;
-    }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  img.Ipad-logo-size.logo-image {
+    width: 60%;
+    margin-bottom: -41px;
+  }
+
+  .login.ui-content {
+    width: 50% !important;
+  }
 }
-@media only screen 
-  and (min-device-width: 414px) 
-  and (max-device-width: 736px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: landscape) { 
-    img.register.Ipad-logo-size.logo-image {
-        width: 50%;
-    }
-    .login.ui-content {
-        width: 60% !important;
-    }
-    img.Ipad-logo-size.logo-image{
-        width: 50%;
-        margin-bottom: -40px !important;
-        margin-top: -40px;
-    }
-    img.forgot-password.Ipad-logo-size.logo-image{
-        width: 50%;
-        margin-bottom: -40px !important;
-        margin-top: -40px !important;
-    }
-    iframe#gmap_canvas {
-        width: 480px;
-    }
-    p.About-Us.Register-Account-Text {
-        padding-right: 125px !important;
-        margin-top: 30px !important;
-    }
-    p.UserNavigation.User-Profile-Edit.Register-Account-Text {
-        padding-right: 145px !important;
-    }
-    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
-        padding-left: 145px !important;
-    }
-    ul.Profile-Navigation-List.ui-listview {
-        margin: 0em;
-        margin-top: 20px !important;
-        margin-bottom: 15px !important;
-    }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  img.register.Ipad-logo-size.logo-image {
+    width: 50%;
+  }
+  .login.ui-content {
+    width: 60% !important;
+  }
+  img.Ipad-logo-size.logo-image {
+    width: 50%;
+    margin-bottom: -40px !important;
+    margin-top: -40px;
+  }
+  img.forgot-password.Ipad-logo-size.logo-image {
+    width: 50%;
+    margin-bottom: -40px !important;
+    margin-top: -40px !important;
+  }
+  iframe#gmap_canvas {
+    width: 480px;
+  }
+  p.About-Us.Register-Account-Text {
+    padding-right: 125px !important;
+    margin-top: 30px !important;
+  }
+  p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+    padding-right: 145px !important;
+  }
+  .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+    padding-left: 145px !important;
+  }
+  ul.Profile-Navigation-List.ui-listview {
+    margin: 0em;
+    margin-top: 20px !important;
+    margin-bottom: 15px !important;
+  }
 }
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: portrait) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-    img.register.Ipad-logo-size.logo-image {
-        width: 65%;
-    }
-    img.Ipad-logo-size.logo-image{
-        width: 65%;
-    }
-    iframe#gmap_canvas {
-        width: 890px;
-    }
-    p.About-Us.Register-Account-Text {
-        padding-right: 60px !important;
-        margin-top: 30px !important;
-    }
-    p.UserNavigation.User-Profile-Edit.Register-Account-Text {
-        padding-right: 80px !important;
-    }
-    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
-        padding-left: 80px !important;
-    }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  img.register.Ipad-logo-size.logo-image {
+    width: 65%;
+  }
+  img.Ipad-logo-size.logo-image {
+    width: 65%;
+  }
+  iframe#gmap_canvas {
+    width: 890px;
+  }
+  p.About-Us.Register-Account-Text {
+    padding-right: 60px !important;
+    margin-top: 30px !important;
+  }
+  p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+    padding-right: 80px !important;
+  }
+  .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+    padding-left: 80px !important;
+  }
 }
 img.Ipad-logo-size.logo-image {
-    margin-bottom: -20px;
+  margin-bottom: -20px;
 }
 img.register.Ipad-logo-size.logo-image {
-    margin-top: -20px;
-    margin-bottom: -50px;
+  margin-top: -20px;
+  margin-bottom: -50px;
 }
 img.forgot-password.Ipad-logo-size.logo-image {
-    margin-top: 10px;
-    margin-bottom: -50px;
+  margin-top: 10px;
+  margin-bottom: -50px;
 }
-.Register-Account-Text{
-    margin-top:-10px;
+.Register-Account-Text {
+  margin-top: -10px;
 }
 
 .mySlides {
-    display: none
+  display: none;
 }
 
 .w3-left,
 .w3-right,
 .w3-badge {
-    cursor: pointer
+  cursor: pointer;
 }
 
 .w3-badge {
-    height: 13px;
-    width: 13px;
-    padding: 0;
-    max-width: 433px !important;
+  height: 13px;
+  width: 13px;
+  padding: 0;
+  max-width: 433px !important;
 }
 
 .w3-content {
-    max-width: 343px;
+  max-width: 343px;
 }
 
 .w3-content,
 .w3-auto {
-    margin-left: 0;
-    margin-right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .w3-white,
 .w3-hover-white:hover {
-    color: #000 !important;
-    background-color: #ef963a !important;
+  color: #000 !important;
+  background-color: #ef963a !important;
 }
 
 .w3-text-khaki,
 .w3-hover-text-khaki:hover {
-    color: #ef963a!important;
+  color: #ef963a !important;
 }
 
 .w3-left,
 .w3-right {
-    color: #ef963a;
+  color: #ef963a;
 }
 
 .product-title-slideshow-container {
-    width: auto;
-    float: left;
+  width: auto;
+  float: left;
 }
 
 .product-details-container {
-    width: 50%;
-    /* margin-right: auto; */
-    margin-left: 29px;
-    float: left;
-    margin-top: 125px;
-    /* margin-bottom: auto; */
-    height: auto;
+  width: 50%;
+  /* margin-right: auto; */
+  margin-left: 29px;
+  float: left;
+  margin-top: 125px;
+  /* margin-bottom: auto; */
+  height: auto;
 }
 
 .product.ui-content {
-    padding: 6em !important;
+  padding: 6em !important;
 }
 
 @media only screen and (max-device-width: 414px) {
-    .product-title-slideshow-container {
-        width: auto;
-        float: none;
-    }
-    .product-details-container {
-        margin-top: 2px;
-        height: auto;
-        float: none;
-        width: auto;
-    }
+  .product-title-slideshow-container {
+    width: auto;
+    float: none;
+  }
+  .product-details-container {
+    margin-top: 2px;
+    height: auto;
+    float: none;
+    width: auto;
+  }
 
-    .w3-content {
-        max-width: 800px;
-    }
+  .w3-content {
+    max-width: 800px;
+  }
 
-    .w3-content,
-    .w3-auto {
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .w3-content,
+  .w3-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .product-details-container button{
-        height: 90px;
-        font-size: xx-large;
-    }
+  .product-details-container button {
+    height: 90px;
+    font-size: xx-large;
+  }
 
-    .product-details-container p{
-        font-size: x-large;
-    }
+  .product-details-container p {
+    font-size: x-large;
+  }
 }
 
 p.User-Profile-Edit.Register-Account-Text {
-    float: right;
-    padding-right: 50px;
-    margin-top: 30px;
+  float: right;
+  padding-right: 50px;
+  margin-top: 30px;
 }
-.User-Reg-Header.ui-header.ui-bar-inherit{
-    border-style: none !important;
+.User-Reg-Header.ui-header.ui-bar-inherit {
+  border-style: none !important;
 }
-.header-image{
-    width: 30px;
+.header-image {
+  width: 30px;
 }
 img.User-registration.Ipad-logo-size.logo-image {
-    margin-bottom: -40px;
+  margin-bottom: -40px;
 }
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-    img.User-registration.Ipad-logo-size.logo-image{
-        width: 50%;
-        margin-bottom: -41px;
-    }
-    
-    .login.ui-content{
-        width: 50% !important;
-    }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  img.User-registration.Ipad-logo-size.logo-image {
+    width: 50%;
+    margin-bottom: -41px;
+  }
+
+  .login.ui-content {
+    width: 50% !important;
+  }
 }
 p.logout.User-Profile-Edit.Register-Account-Text {
-    float: left;
-    padding-left: 50px;
-    margin-top: 30px;
-}
-ul.Profile-Navigation-List.ui-listview{
-    margin-top: 20px;
-}
-.UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
-    padding-left: 40px;
-}
-p.UserNavigation.User-Profile-Edit.Register-Account-Text{
-    padding-right: 40px;
-}
-.UserNavigation-labels{
-    font-weight: bold !important;
+  float: left;
+  padding-left: 50px;
+  margin-top: 30px;
 }
 ul.Profile-Navigation-List.ui-listview {
+  margin-top: 20px;
+}
+.UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+  padding-left: 40px;
+}
+p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+  padding-right: 40px;
+}
+.UserNavigation-labels {
+  font-weight: bold !important;
+}
+ul.Profile-Navigation-List.ui-listview {
+  margin: 0em;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+    padding-left: 250px;
+  }
+  p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+    padding-right: 250px;
+  }
+  ul.Profile-Navigation-List.ui-listview {
     margin: 0em;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
-        padding-left: 250px;
-    }
-    p.UserNavigation.User-Profile-Edit.Register-Account-Text{
-        padding-right: 250px;
-    }
-    ul.Profile-Navigation-List.ui-listview {
-        margin: 0em;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
+p.About-Us.Register-Account-Text {
+  float: right;
+  padding-right: 25px;
+  margin-top: 10px;
 }
-p.About-Us.Register-Account-Text{
-    float: right;
-    padding-right:25px;
-    margin-top: 10px;
-}
-img.About-Us.User-registration.Ipad-logo-size.logo-image{
-    margin-top: -40px;
+img.About-Us.User-registration.Ipad-logo-size.logo-image {
+  margin-top: -40px;
 }
 
-@media only screen 
-  and (min-device-width: 768px) 
-  and (max-device-width: 1024px) 
-  and (orientation: landscape) 
-  and (-webkit-min-device-pixel-ratio: 1) {
-    iframe#gmap_canvas {
-        width: 510px;
-    }
-    p.About-Us.Register-Account-Text{
-        padding-right: 260px;
-    }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  iframe#gmap_canvas {
+    width: 510px;
+  }
+  p.About-Us.Register-Account-Text {
+    padding-right: 260px;
+  }
 }
-.footer-icons{
-width: 28px;
+.footer-icons {
+  width: 28px;
+}
+
+.footer-class {
+  position: fixed !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  right: 0px !important;
+  overflow: hidden !important;
+}
+
+.page-footer {
+  background-color: #282d42 !important;
+  border-color: #282d42 !important;
+  font-weight: 0 !important;
+}
+
+.header-class {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  right: 0px;
+  overflow: hidden;
+}
+
+.content-class {
+  position: absolute;
+  top: 70px;
+  bottom: 30px;
+  left: 0px;
+  right: 0px;
+  overflow: auto;
+}
+
+.btn-nav-bar {
+  border-color: #282d42 !important;
+}
+
+.btn-nav-bar img {
+  width: 35px;
+  height: 35px;
+}
+
+.header-title {
+  font-weight: 100 !important;
+  letter-spacing: 2px;
+  font-size: 2em !important;
+}
+
+.btn-home {
+  border: solid 0px transparent;
+  text-shadow: none;
+  background-color: transparent !important;
+  padding-top: 0px !important;
+  height: 140px !important;
+}
+
+.btn-home img {
+  width: 140px;
+  height: 140px;
+  margin-left: -25px;
+  margin-top: -50px;
+}
+
+.btn-userprofile {
+  border: solid 0px transparent;
+  text-shadow: none;
+  background-color: transparent !important;
+  padding-top: 0px !important;
+  height: 140px !important;
+}
+
+.btn-userprofile img {
+  height: 44px;
+  margin-right: 10px;
+  margin-top: -70px;
 }
