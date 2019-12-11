@@ -199,3 +199,24 @@ ul.Profile-Navigation-List.ui-listview {
         margin-bottom: 40px;
     }
 }
+p.About-Us.Register-Account-Text{
+    float: right;
+    padding-right:25px;
+    margin-top: 10px;
+}
+img.About-Us.User-registration.Ipad-logo-size.logo-image{
+    margin-top: -40px;
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    iframe#gmap_canvas {
+        width: 510px;
+    }
+    p.About-Us.Register-Account-Text{
+        padding-right: 260px;
+    }
+}
