@@ -131,3 +131,32 @@ img.forgot-password.Ipad-logo-size.logo-image {
         font-size: x-large;
     }
 }
+
+p.User-Profile-Edit.Register-Account-Text {
+    float: right;
+    padding-right: 50px;
+    margin-top: 30px;
+}
+.User-Reg-Header.ui-header.ui-bar-inherit{
+    border-style: none !important;
+}
+.header-image{
+    width: 30px;
+}
+img.User-registration.Ipad-logo-size.logo-image {
+    margin-bottom: -40px;
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    img.User-registration.Ipad-logo-size.logo-image{
+        width: 50%;
+        margin-bottom: -41px;
+    }
+    
+    .login.ui-content{
+        width: 50% !important;
+    }
+}
