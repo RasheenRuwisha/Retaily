@@ -160,3 +160,42 @@ img.User-registration.Ipad-logo-size.logo-image {
         width: 50% !important;
     }
 }
+p.logout.User-Profile-Edit.Register-Account-Text {
+    float: left;
+    padding-left: 50px;
+    margin-top: 30px;
+}
+ul.Profile-Navigation-List.ui-listview{
+    margin-top: 20px;
+}
+.UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+    padding-left: 40px;
+}
+p.UserNavigation.User-Profile-Edit.Register-Account-Text{
+    padding-right: 40px;
+}
+.UserNavigation-labels{
+    font-weight: bold !important;
+}
+ul.Profile-Navigation-List.ui-listview {
+    margin: 0em;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+        padding-left: 250px;
+    }
+    p.UserNavigation.User-Profile-Edit.Register-Account-Text{
+        padding-right: 250px;
+    }
+    ul.Profile-Navigation-List.ui-listview {
+        margin: 0em;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
