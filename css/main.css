@@ -23,6 +23,71 @@ button.login-button.rounded-button.ui-btn.ui-btn-inline{
         width: 50% !important;
     }
 }
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    img.register.Ipad-logo-size.logo-image {
+        width: 50%;
+    }
+    .login.ui-content {
+        width: 60% !important;
+    }
+    img.Ipad-logo-size.logo-image{
+        width: 50%;
+        margin-bottom: -40px !important;
+        margin-top: -40px;
+    }
+    img.forgot-password.Ipad-logo-size.logo-image{
+        width: 50%;
+        margin-bottom: -40px !important;
+        margin-top: -40px !important;
+    }
+    iframe#gmap_canvas {
+        width: 480px;
+    }
+    p.About-Us.Register-Account-Text {
+        padding-right: 125px !important;
+        margin-top: 30px !important;
+    }
+    p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        padding-right: 145px !important;
+    }
+    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+        padding-left: 145px !important;
+    }
+    ul.Profile-Navigation-List.ui-listview {
+        margin: 0em;
+        margin-top: 20px !important;
+        margin-bottom: 15px !important;
+    }
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    img.register.Ipad-logo-size.logo-image {
+        width: 65%;
+    }
+    img.Ipad-logo-size.logo-image{
+        width: 65%;
+    }
+    iframe#gmap_canvas {
+        width: 890px;
+    }
+    p.About-Us.Register-Account-Text {
+        padding-right: 60px !important;
+        margin-top: 30px !important;
+    }
+    p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        padding-right: 80px !important;
+    }
+    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+        padding-left: 80px !important;
+    }
+}
 img.Ipad-logo-size.logo-image {
     margin-bottom: -20px;
 }
