@@ -1,138 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
-    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
-    <link
-      rel="stylesheet"
-      href="../Resources/themes/main/jquery.mobile.icons.min.css"
-    />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link
-      rel="stylesheet"
-      href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"
-    />
 
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
+  <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
+  <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 
-  <body>
-    <div data-role="page" data-theme="d">
-      <div data-role="header" class="header-class">
-        <button
-          class="btn-home"
-          data-role="button"
-          data-shadow="false"
-          data-theme="none"
-        >
-          <img src="../Resources/images/Logos/Transparent.png" border="0" />
-        </button>
-        <h1 class="header-title">Dashboard</h1>
-        <button
-          class="btn-userprofile"
-          data-role="button"
-          data-shadow="false"
-          data-theme="none"
-        >
-          <img src="../Resources/images/icons/user.png" border="0" />
-        </button>
-      </div>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
 
-      <div role="main" class="ui-content content-class">
-        Example Content
+<body>
+  <div data-role="page" data-theme="d">
+    <div data-role="header" class="header-class">
+      <button class="btn-home" data-role="button" data-shadow="false" data-theme="none">
+        <img src="../Resources/images/Logos/Transparent.png" border="0" />
+      </button>
+      <h1 class="header-title">Home</h1>
+      <button class="btn-userprofile" data-role="button" data-shadow="false" data-theme="none">
+        <img src="../Resources/images/icons/header-userprofile.png" border="0" />
+      </button>
+    </div>
 
-        <div
-          class="page-footer footer-class"
-          data-role="footer"
-          style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;"
-        >
-          <div data-role="navbar" data-iconpos="bottom">
-            <ul>
-              <li>
-                <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                <button
-                  class="btn-nav-bar"
-                  data-role="button"
-                  data-shadow="false"
-                  data-theme="none"
-                >
-                  <img
-                    src="../Resources/images/icons/icons8-home-24.png"
-                    border="0"
-                    width="35px"
-                    height="35px"
-                  />
-                </button>
-              </li>
-              <li>
-                <button
-                  class="btn-nav-bar"
-                  data-role="button"
-                  data-shadow="false"
-                  data-theme="none"
-                >
-                  <img
-                    src="../Resources/images/icons/001-search.png"
-                    border="0"
-                    width="35px"
-                    height="35px"
-                  />
-                </button>
-              </li>
-              <li>
-                <button
-                  class="btn-nav-bar"
-                  data-role="button"
-                  data-shadow="false"
-                  data-theme="none"
-                >
-                  <img
-                    src="../Resources/images/icons/002-fire.png"
-                    border="0"
-                    width="35px"
-                    height="35px"
-                  />
-                </button>
-              </li>
-              <li>
-                <button
-                  class="btn-nav-bar"
-                  data-role="button"
-                  data-shadow="false"
-                  data-theme="none"
-                >
-                  <img
-                    src="../Resources/images/icons/003-shopping-cart.png"
-                    border="0"
-                    width="35px"
-                    height="35px"
-                  />
-                </button>
-              </li>
-              <li>
-                <button
-                  class="btn-nav-bar"
-                  data-role="button"
-                  data-shadow="false"
-                  data-theme="none"
-                >
-                  <img
-                    src="../Resources/images/icons/003-menu.png"
-                    border="0"
-                    width="35px"
-                    height="35px"
-                  />
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <div class="navbar-header" data-role="navbar">
+      <!-- /navbar -->
+      <ul>
+        <li><a href="#">Food</a></li>
+        <li><a href="#">Fashion</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Manga</a></li>
+      </ul>
+    </div>
+    <div role="main" class="ui-content content-class">
+
+
+    </div>
+
+    <div class="page-footer footer-class" data-role="footer"
+      style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+      <div data-role="navbar" data-iconpos="bottom">
+        <ul>
+          <li>
+            <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+              <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
+            </button>
+          </li>
+          <li>
+            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+              <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
+            </button>
+          </li>
+          <li>
+            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+              <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
+            </button>
+          </li>
+          <li>
+            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+              <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
+            </button>
+          </li>
+          <li>
+            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+              <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- /content -->
-  </body>
+  </div><!-- /content -->
+</body>
+
 </html>

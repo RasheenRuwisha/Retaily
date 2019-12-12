@@ -75,6 +75,9 @@ button.login-button.rounded-button.ui-btn.ui-btn-inline {
   .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
     padding-left: 80px !important;
   }
+  h1.header-title.ui-title {
+    font-size: 35px !important;
+}
 }
 img.Ipad-logo-size.logo-image {
   margin-bottom: -20px;
@@ -301,14 +304,13 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
 }
 
 .btn-nav-bar img {
-  width: 35px;
-  height: 35px;
+  width: 30px ;
+  height: auto;
 }
 
-.header-title {
-  font-weight: 100 !important;
-  letter-spacing: 2px;
-  font-size: 2em !important;
+h1.header-title.ui-title {
+    font-size: 30px !important;
+    font-weight: normal;
 }
 
 .btn-home {
@@ -320,10 +322,9 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
 }
 
 .btn-home img {
-  width: 140px;
-  height: 140px;
+  width: 110px;
   margin-left: -25px;
-  margin-top: -50px;
+  margin-top: -40px;
 }
 
 .btn-userprofile {
@@ -335,7 +336,9 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
 }
 
 .btn-userprofile img {
-  height: 44px;
-  margin-right: 10px;
+  height: 50px;
   margin-top: -70px;
+}
+.navbar-header.ui-navbar {
+    margin-top: -2px;
 }
