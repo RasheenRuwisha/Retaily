@@ -15,11 +15,11 @@
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
   <style>
-    
-  
-    
-  
-   
+
+
+
+
+
   </style>
 
 </head>
@@ -39,39 +39,92 @@
     <div class="navbar-header" data-role="navbar">
       <!-- /navbar -->
       <ul>
-        <li class="second-nav-header" ><a class="second-nav-header-radius" href="#">Food</a></li>
-        <li class="second-nav-header" ><a class="second-nav-header-radius" href="#">Fashion</a></li>
+        <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Food</a></li>
+        <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Fashion</a></li>
         <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Games</a></li>
         <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Manga</a></li>
       </ul>
     </div>
-    
+
     <div class="main">
       <div class="item">
-  
+        <div class="align-favourite">
+          <div class="add-to-cart-button-div style=" Style="background: none !important;">
+            <a href="#popupLogin" data-rel="popup" data-position-to="window"
+              class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
+                src="../Resources/images/icons/heart (1).png" border="0" /></a>  
+          </div>
+        </div>
+        <img class="product-image-items-display" src="../Resources/images/items/ps4 png.png" alt=" PS4"
+          style="width:100%" />
+        <p style="display: inline; text-decoration: line-through;" class="Product-Price">$400</p>
+        <p style="display: inline;" class="Product-Price"><b>$399</b></p>
+        <p class="Product-Price Product-Name">PlayStation 4</p>
+        <div class="align-addtocart">
+          <div class="add-to-cart-button-div">
+            <a href="#popupLogin" data-rel="popup" data-position-to="window"
+              class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
+                src="../Resources/images/icons/001-add White.png" border="0" /></a>
+            <div data-role="popup" id="popupLogin" data-theme="" class="ui-corner-all">
+              <div style="padding:10px 20px; width: 200px;">
+                            <h3 class="product-addtocart-popup">PlayStation 4 </h3>
+                <p class="price">Product Price :</p>
+                <p class="price float-price">$400</p>
+                <br>
+                <p class="price">Promotion Price :</p>
+                <p class="price float-price">$399</p>
+                <br>
+                <br>
+                <p class="price">Quantity :</p>
+                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
+                  data-theme="none">
+                  <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+                    width="35px" height="35px" />
+                </button>
+                <p class="price float-price">1</p>
+                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
+                  data-theme="none">
+                  <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
+                    height="35px" />
+                </button>
+                <br>
+                <br>
+                <p class="price">Total :</p>
+                <p class="price float-price">$399</p>
+                  <div class=" button-container">
+                  <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
+                </div>
+                        
+              </div>
+            </div>
+               
+          </div>
+        </div>
+
+
       </div>
-  
+
       <div class="item">
-  
+
       </div>
-  
+
       <div class="item">
-  
+
       </div>
-  
+
       <div class="item">
-  
+
       </div>
-  
+
       <div class="item">
-  
+
       </div>
-  
+
       <div class="item">
-  
+
       </div>
-  
-  </div>
+
+    </div>
 
     <div class="page-footer footer-class" data-role="footer"
       style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
