@@ -280,7 +280,7 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
   font-weight: 0 !important;
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) {
   .header-class {
     position: fixed !important;
     top: -3px;
@@ -288,6 +288,17 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
     right: 0px;
     overflow: hidden;
     height: 12%;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .header-class {
+    position: fixed !important;
+    top: -3px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    height: 15%;
   }
 }
 
