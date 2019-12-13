@@ -304,7 +304,7 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
 }
 
 .btn-nav-bar img {
-  width: 30px ;
+  width: 20px ;
   height: auto;
 }
 
@@ -341,4 +341,52 @@ h1.header-title.ui-title {
 }
 .navbar-header.ui-navbar {
     margin-top: -2px;
+}
+li.second-nav-header {
+    padding: 5px !important;
+}
+.navbar-header.ui-navbar {
+    margin-right: 5px;
+}
+a.second-nav-header-radius.ui-link.ui-btn {
+    border-radius: 5px;
+}
+.main{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.item{
+    margin: 20px;
+    background: #000;
+    width: 150px;
+    height: 150px;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    img.Ipad-logo-size.logo-image {
+      width: 60%;
+      margin-bottom: -41px;
+    }
+  
+    .login.ui-content {
+      width: 50% !important;
+    }
+  }
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    .main{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+  }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .main{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+  }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .main{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
 }
