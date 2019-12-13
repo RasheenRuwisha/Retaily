@@ -279,12 +279,37 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
   font-weight: 0 !important;
 }
 
-.header-class {
-  position: absolute;
-  top: -1px;
-  left: 0px;
-  right: 0px;
-  overflow: hidden;
+@media only screen and (orientation: landscape) {
+  .header-class {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    height: 12%;
+  }
+}
+
+@media only screen and (orientation: portrait) and (max-device-width: 414px) {
+  .header-class {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    height: 5%;
+  }
+}
+
+@media only screen and (orientation: portrait) and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .header-class {
+    position: absolute;
+    top: -1px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    height: 7%;
+  }
 }
 
 .content-class {
@@ -337,5 +362,5 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
 .btn-userprofile img {
   height: 44px;
   margin-right: 10px;
-  margin-top: -70px;
+  margin-top: -50px;
 }
