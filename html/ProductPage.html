@@ -47,7 +47,7 @@
           data-role="button"
           data-shadow="false"
           data-theme="none"
-          style="margin-top: -250px; margin-bottom: -200px; margin-left: 90%;"
+          style="margin-top: -255px; margin-bottom: -200px; margin-left: 90%;"
         >
           <img
             src="../Resources/images/icons/header-userprofile.png"
@@ -58,26 +58,28 @@
 
       <div role="main" class="product ui-content">
         <div class="product-title-slideshow-container">
-          <h1>Playstation Pro 1TB</h1>
-          <div class="w3-content w3-display-container">
+          <p class="single-product-page-title">Playstation Pro 1TB</p>
+          <div
+            class="single-product-background w3-content w3-display-container"
+          >
             <img
               class="mySlides"
-              src="../Resources/images/items/ps4problack.png"
-              style="width:100%"
+              src="../Resources/images/items/ps4 png.png"
+              style="width: 700px; height : 500px;"
             />
             <img
               class="mySlides"
-              src="../Resources/images/items/ps4white.png"
-              style="width:100%"
+              src="../Resources/images/items/PS4.jpg"
+              style="width: 700px; height: 500px;"
             />
             <img
               class="mySlides"
-              src="../Resources/images/items/ps4blackwithcontroller.png"
-              style="width:100%"
+              src="../Resources/images/items/ps4 png.png"
+              style="width: 700px; height: 500px;"
             />
             <div
               class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
-              style="width:100%"
+              style="width:80%"
             >
               <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">
                 &#10094;
@@ -86,22 +88,22 @@
                 &#10095;
               </div>
               <span
-                class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                class="single-product-page-photos-iconball w3-badge demo w3-border w3-transparent w3-hover-white"
                 onclick="currentDiv(1)"
               ></span>
               <span
-                class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                class="single-product-page-photos-iconball w3-badge demo w3-border w3-transparent w3-hover-white"
                 onclick="currentDiv(2)"
               ></span>
               <span
-                class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                class="single-product-page-photos-iconball w3-badge demo w3-border w3-transparent w3-hover-white"
                 onclick="currentDiv(3)"
               ></span>
             </div>
           </div>
         </div>
 
-        <div class="product-details-container">
+        <div class="single-product product-details-container">
           <p>
             The PS4 Pro is Sony’s supercharged version of the PS4. Not a true
             next-generation machine in terms of features or horsepower, but a
@@ -110,13 +112,43 @@
           </p>
 
           <div>
-            <p>Total</p>
-            <p>$300</p>
-          </div>
-
-          <div>
-            <p>Quantity:</p>
-            <p>- 1 +</p>
+            <p class="single-product price">Product Price :</p>
+            <p class="single-product price float-price">$400</p>
+            <br />
+            <p class="single-product price">Promotion Price :</p>
+            <p class="single-product price float-price">$399</p>
+            <br />
+            <br />
+            <p class="single-product price">Quantity :</p>
+            <button
+              class="single-product-page btn-nav-bar addmore-button-quantity-popup"
+              data-role="button"
+              data-shadow="false"
+              data-theme="none"
+            >
+              <img
+                class="single-product  product-popup-icon"
+                src="../Resources/images/icons/001-add.png"
+                border="0"
+                width="35px"
+                height="35px"
+              />
+            </button>
+            <p class="single-product price float-price">1</p>
+            <button
+              class="single-product-page btn-nav-bar addmore-button-quantity-popup"
+              data-role="button"
+              data-shadow="false"
+              data-theme="none"
+            >
+              <img
+                class="single-product product-popup-icon"
+                src="../Resources/images/icons/002-substract.png"
+                border="0"
+                width="35px"
+                height="35px"
+              />
+            </button>
           </div>
 
           <button>Add to cart</button>
