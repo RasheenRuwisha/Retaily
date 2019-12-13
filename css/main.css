@@ -554,3 +554,11 @@ img.single-product.product-popup-icon {
 button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
     margin-right: -10px;
 }
+
+.favourites.ui-content {
+    width: 100% !important;
+    padding: unset;
+}
+.email-list-button {
+    padding: 10px;
+}
