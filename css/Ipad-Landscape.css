@@ -1,0 +1,80 @@
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+
+
+    img.User-registration.Ipad-logo-size.logo-image {
+        width: 50%;
+        margin-bottom: -41px;
+    }
+    .login.ui-content {
+        width: 50% !important;
+    }
+
+
+    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+        padding-left: 250px;
+    }
+    p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        padding-right: 250px;
+    }
+    ul.Profile-Navigation-List.ui-listview {
+        margin: 0em;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    iframe#gmap_canvas {
+        width: 510px;
+    }
+    p.About-Us.Register-Account-Text {
+        padding-right: 260px;
+    }
+
+    img.Ipad-logo-size.logo-image {
+        width: 60%;
+        margin-bottom: -41px;
+    }
+    .login.ui-content {
+        width: 50% !important;
+    }
+    .w3-content {
+        max-width: 800px;
+    }
+    .product-details-container {
+        width: 100%;
+    }
+
+    .main {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .item {
+        margin-left: 35px;
+        margin-bottom: 30px;
+    }
+    .w3-content {
+        max-width: 850px;
+    }
+    .product-details-container {
+        width: 95%;
+    }
+    .single-product-background.w3-content.w3-display-container {
+        padding: 70px !important;
+    }
+    .single-product.price {
+        font-size: 20px;
+    }
+    .order-item-image {
+        width: 25% !important;
+    }
+    .order-item-text {
+        width: 74% !important;
+    }
+
+    img.Ipad-logo-size.logo-image {
+        width: 60%;
+        margin-bottom: -41px;
+    }
+    .login.ui-content {
+        width: 50% !important;
+    }
+}
