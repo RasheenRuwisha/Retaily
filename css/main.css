@@ -82,9 +82,7 @@ img.forgot-password.Ipad-logo-size.logo-image {
 }
 
 .product-details-container {
-    width: 50%;
-    /* margin-right: auto; */
-    margin-left: 29px;
+    width: 100%;
     float: left;
     height: auto;
 }
@@ -220,16 +218,14 @@ h1.header-title.ui-title {
     margin-top: -70px;
 }
 
-.navbar-header.ui-navbar {
-    margin-top: -2px;
-}
-
 li.second-nav-header {
     padding: 5px !important;
 }
 
 .navbar-header.ui-navbar {
     margin-right: 5px;
+    margin-top: -2px;
+    margin-top: 80px;
 }
 
 a.second-nav-header-radius.ui-link.ui-btn {
@@ -330,10 +326,6 @@ h3.heading.ui-content {
 
 /*ipad potrait*/
 
-button.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
-    font-size: 60px;
-}
-
 p.single-product-page-title {
     font-size: 25px;
     font-weight: 700;
@@ -342,7 +334,7 @@ p.single-product-page-title {
 
 .single-product-background.w3-content.w3-display-container {
     background: #6060602e;
-    padding: 60px;
+    padding: 30px;
     border-radius: 30px;
 }
 
@@ -356,14 +348,15 @@ span.single-product-page-photos-iconball.w3-badge.demo.w3-border.w3-transparent.
 }
 
 img.single-product.product-popup-icon {
-    width: 40px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: -50px;
+    width: 20px;
+    margin-left: 6px;
+    margin-right: 15px;
+    margin-top: 2px;
 }
 
 .single-product {
     font-size: 20px !important;
+    padding: 5px !important;
 }
 
 button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
@@ -440,7 +433,54 @@ button.remove-from-cart.ui-btn.ui-btn-none.ui-corner-all {
     margin-top: -2px !important;
 }
 
+.header-class.ui-header.ui-bar-inherit {
+    position: fixed;
+    z-index: 999;
+}
 
+.comment-user-icon {
+    width: 30px !important;
+}
+
+.comment-rating-icon {
+    width: 110px !important;
+}
+
+.comment-title {
+    font-size: 16px;
+}
+
+p.comment-description {
+    margin-top: -10px;
+}
+
+p.comment-description.single-product.price {
+    margin-top: -16px;
+}
+
+.comment-section-background {
+    background: #d9d9d987;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.product.ui-content {
+    width: 90% !important;
+}
+
+img.mySlides {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.w3-center.w3-container.w3-section.w3-large.w3-text-white.w3-display-bottommiddle {
+    width: 45%;
+    display: inline-flex;
+}
+
+
+/*Start of media queries/
 /*Ipad Landcaoe*/
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
@@ -493,7 +533,7 @@ button.remove-from-cart.ui-btn.ui-btn-none.ui-corner-all {
         max-width: 850px;
     }
     .product-details-container {
-        width: 95%;
+        width: 100%;
     }
     .single-product-background.w3-content.w3-display-container {
         padding: 70px !important;
@@ -562,6 +602,9 @@ button.remove-from-cart.ui-btn.ui-btn-none.ui-corner-all {
     h1.header-title.ui-title {
         font-size: 35px !important;
     }
+    .header-class.ui-header.ui-bar-inherit {
+        height: 78px;
+    }
 }
 
 
@@ -603,7 +646,6 @@ button.remove-from-cart.ui-btn.ui-btn-none.ui-corner-all {
         margin-bottom: 15px !important;
     }
     .header-class {
-        position: fixed !important;
         top: -3px;
         left: 0px;
         right: 0px;
@@ -632,5 +674,8 @@ button.remove-from-cart.ui-btn.ui-btn-none.ui-corner-all {
     }
     .order-item-text {
         width: 68% !important;
+    }
+    .header-class.ui-header.ui-bar-inherit {
+        height: 78px;
     }
 }
