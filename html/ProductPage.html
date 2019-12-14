@@ -6,21 +6,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Food</title>
-    <script type="text/javascript" src="../js/ProductPage.js"></script>
-    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
-    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
-    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-
-
+    <title>Fashion</title>
+    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
+    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css"/>
+    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-    <div data-role="page" data-theme="d">
+    <div data-role="page" data-theme="d" idPag="page-content">
         <div data-role="header" class="header-class">
             <button class="btn-home" data-role="button" data-shadow="false" data-theme="none">
         <img src="../Resources/images/Logos/Transparent.png" border="0" />
@@ -44,51 +42,8 @@
 
 
         <div role="main" class="product ui-content">
-            <div class="product-title-slideshow-container">
-                <p class="single-product-page-title">Playstation Pro 1TB</p>
+            <div class="products-item">
 
-                <div class="single-product-background w3-content w3-display-container">
-                    <img class="mySlides" src="../Resources/images/items/ps4 png.png" />
-                    <img class="mySlides" src="../Resources/images/items/PS4.jpg" />
-                    <img class="mySlides" src="../Resources/images/items/ps4 png.png" />
-                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:80%">
-                        <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">
-                            &#10094;
-                        </div>
-                        <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">
-                            &#10095;
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="single-product product-details-container">
-                <p>
-                    The PS4 Pro is Sony’s supercharged version of the PS4. Not a true next-generation machine in terms of features or horsepower, but a high-performance variant designed to dish out smoother frame rates, 4K pictures and high dynamic range (HDR).
-                </p>
-
-                <div>
-                    <p class="single-product price">Product Price :</p>
-                    <p class="single-product price float-price">$400</p>
-                    <br>
-                    <p class="single-product price">Promotion Price :</p>
-                    <p class="single-product price float-price">$399</p>
-                    <br>
-                    <br>
-                    <p class="single-product price">Quantity :</p>
-                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-            <img class="single-product  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
-              width="35px" height="35px" />
-          </button>
-                    <p class="single-product price float-price">1</p>
-                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-            <img class="single-product product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
-              width="35px" height="35px" />
-          </button>
-                </div>
-
-                <button>Add to cart</button>
             </div>
             <div class="comment-section-background">
                 <img class="comment-user-icon  product-popup-icon" src="../Resources/images/icons/header-userprofile.png" border="0" < />
@@ -141,5 +96,13 @@
             </div>
         </div>
 </body>
-
+<script type="text/javascript" src="../js/CategoryProducts.js"></script>
+<script type="text/javascript" src="../js/Categories.js"></script>
+<script type="text/javascript" src="../js/ProductPage.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+<script>
+    $("#page-content").on("swiperight", function (e) {
+        $.mobile.back();
+    });
+</script>
 </html>

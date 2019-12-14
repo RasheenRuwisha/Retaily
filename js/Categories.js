@@ -56,5 +56,5 @@ function addCategoryItem(name, image){
 function addToSessionStorage(categoryId){
     console.log(categoryId);
     sessionStorage.category = categoryId;
-    window.location = "fashion.html"
+    window.location  =("fashion.html")
 }

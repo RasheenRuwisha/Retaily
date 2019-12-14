@@ -1,6 +1,11 @@
-
 $(document).ready(function () {
+    var pathname = window.location.pathname;
+    if(pathname.includes("fashion")){
+        loadCategoryProducts()
+    }
+});
 
+function loadCategoryProducts(){
     $(".header-title").html(sessionStorage.category);
 
     var categories = "";
@@ -19,23 +24,21 @@ $(document).ready(function () {
     $.ajax(settings).done(function (response) {
         console.log(response);
         for(var i = 0; i< response.length; i++){
-            categories += addProducts(response[i].name, response[i].price, response[i].image, response[i].name)
+            categories += addProducts(response[i].name, response[i].price, response[i].image, response[i].name,response[i].productId)
         }
         $(".loader").remove();
         $(".products-items").html(categories);
         $(".products-items").trigger('create');
 
     });
-});
+}
 
-
-
-function addProducts(name, price, image, promotion, ){
+function addProducts(name, price, image, promotion,productId ){
 
     var productItem =
 
         `
-        <div class="item">
+        <div class="item" onclick='addProductToSessionStorage("${productId}")'>
           <div class="align-favourite">
             <div class="add-to-cart-button-div style=" Style="background: none !important;">
               <a href="#popupLogin" data-rel="popup" data-position-to="window"
@@ -93,4 +96,12 @@ function addProducts(name, price, image, promotion, ){
         `
 
     return productItem;
+}
+
+
+function addProductToSessionStorage(productId){
+    console.log(productId);
+    sessionStorage.product = productId;
+
+    window.location = "ProductPage.html"
 }

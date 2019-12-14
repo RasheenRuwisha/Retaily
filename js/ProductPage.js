@@ -1,91 +1,105 @@
-
 $(document).ready(function () {
+    var pathname = window.location.pathname;
+    if(pathname.includes("ProductPage")){
+        loadProduct()
+    }
+
+});
 
 
-    var categories = "";
-
+function loadProduct(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/productCategory",
+        "url": "https://retaily-api.herokuapp.com/product?productId=" + sessionStorage.product,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
-            "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+            "Postman-Token": "2203e45e-76d4-4929-bd85-9a0b33a0c78f"
         }
     }
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
-        for(var i = 0; i< response.length; i++){
-            categories += addProducts(response[i].name, response[i].price, response[i].image, response[i].name)
-        }
-        $(".products-items").html(categories);
+
+        var product = "";
+        product+= addProducts(response);
+
+        $(".products-item").html(product);
+        $(".products-item").trigger('create');
+        addProducts();
+        initSlider();
     });
-});
+}
 
+function addProducts(response) {
 
+    var images = '';
+    var dots = '';
 
-function addProducts(name, price, image, promotion, ){
+    for (var i = 0; i < response.image.length; i++) {
+        images += `
+            <img
+                        class="mySlides"
+                        src=${response.image[i]}
+                        style="width:100%"
+                />
+            `;
+
+        dots += ` <span
+                            class="w3-badge demo w3-border w3-transparent w3-hover-white"
+                            onclick="currentDiv(i)"
+                    ></span>`
+
+    }
+
 
     var productItem =
 
         `
-        <div class="item">
-                <div class="align-favourite">
-                    <div class="add-to-cart-button-div style=" Style="background: none !important;">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window"
-                           class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
-                                                                                                     src="../Resources/images/icons/heart (1).png" border="0" /></a>  
-                    </div>
-                </div>
-                <img class="product-image-items-display" src="${image}" alt=" PS4"
-                     style="width:100%" />
-                <p style="display: inline; text-decoration: line-through;" class="Product-Price">$ ${price}</p>
-                <p style="display: inline;" class="Product-Price"><b>$399</b></p>
-                <p class="Product-Price Product-Name">${name}</p>
-                <div class="align-addtocart">
-                    <div class="add-to-cart-button-div">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window"
-                           class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
-                                                                                                     src="../Resources/images/icons/001-add White.png" border="0" /></a>
-                        <div data-role="popup" id="popupLogin" data-theme="" class="ui-corner-all">
-                            <div style="padding:10px 20px; width: 200px;">
-                                            <h3 class="product-addtocart-popup">PlayStation 4 </h3>
-                                <p class="price">Product Price :</p>
-                                <p class="price float-price">$400</p>
-                                <br>
-                                <p class="price">Promotion Price :</p>
-                                <p class="price float-price">$399</p>
-                                <br>
-                                <br>
-                                <p class="price">Quantity :</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
-                                        data-theme="none">
-                                    <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
-                                         width="35px" height="35px" />
-                                </button>
-                                <p class="price float-price">1</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
-                                        data-theme="none">
-                                    <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
-                                         height="35px" />
-                                </button>
-                                <br>
-                                <br>
-                                <p class="price">Total :</p>
-                                <p class="price float-price">$399</p>
-                                  <div class=" button-container">
-                                <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
-                            </div>
-                                        
-                            </div>
+        <div class="product-title-slideshow-container">
+                <p class="single-product-page-title">${response.name}</p>
+
+                <div class="single-product-background w3-content w3-display-container">
+                   ${images}
+                   
+                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:80%">
+                        <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">
+                            &#10094;
                         </div>
-                           
+                        <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">
+                            &#10095;
+                        </div>
+ ${dots}
                     </div>
                 </div>
+            </div>
 
+            <div class="single-product product-details-container">
+                <p>
+                     ${response.description}
+                </p>
 
+                <div>
+                    <p class="single-product price">Product Price :</p>
+                    <p class="single-product price float-price">$ ${response.price}</p>
+                    <br>
+                    <p class="single-product price">Promotion Price :</p>
+                    <p class="single-product price float-price">$399</p>
+                    <br>
+                    <br>
+                    <p class="single-product price">Quantity :</p>
+                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
+            <img class="single-product  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
+              width="35px" height="35px" />
+          </button>
+                    <p class="single-product price float-price">1</p>
+                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
+            <img class="single-product product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+              width="35px" height="35px" />
+          </button>
+                </div>
+
+                <button>Add to cart</button>
             </div>
         `
 
@@ -93,7 +107,7 @@ function addProducts(name, price, image, promotion, ){
 }
 
 
-function initSlider(){
+function initSlider() {
     var slideIndex = 1;
     showDivs(slideIndex);
 
@@ -109,8 +123,12 @@ function initSlider(){
         var i;
         var x = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("demo");
-        if (n > x.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = x.length }
+        if (n > x.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = x.length
+        }
         for (i = 0; i < x.length; i++) {
             x[i].style.display = "none";
         }
@@ -138,8 +156,12 @@ function showDivs(n) {
     var i;
     var x = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("demo");
-    if (n > x.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = x.length }
+    if (n > x.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = x.length
+    }
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
