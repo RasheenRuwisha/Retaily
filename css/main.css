@@ -255,13 +255,6 @@ img.category-image-items-display {
     margin-top: 20px;
 }
 
-img.product-image-items-display {
-    height: 60%;
-    border-width: 0;
-    width: 50%;
-    margin: 20px 0px 0px 30px;
-}
-
 p.Product-Price {
     text-align: left;
     line-height: 3px;
@@ -335,16 +328,18 @@ h3.heading.ui-content {
     margin-bottom: -20px !important;
 }
 
-.loader{
+.loader {
     display: block;
     margin: auto;
     text-align: center;
     width: 100%;
     margin-top: 70px;
 }
-.loader-gif{
-    width:60%;
+
+.loader-gif {
+    width: 60%;
 }
+
 
 /*ipad potrait*/
 
@@ -424,6 +419,7 @@ button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-b
 img.order-product.product-image-items-display {
     width: 120% !important;
     margin-left: -25px;
+    margin-top: 30px;
 }
 
 .orderhistpru.ui-content {
@@ -499,6 +495,11 @@ img.mySlides {
 .w3-center.w3-container.w3-section.w3-large.w3-text-white.w3-display-bottommiddle {
     width: 45%;
     display: inline-flex;
+}
+
+img.product-image-items-display {
+    width: 110%;
+    margin-left: -20px;
 }
 
 
@@ -712,7 +713,7 @@ img.mySlides {
     .header-class.ui-header.ui-bar-inherit {
         height: 78px;
     }
-    .loader{
+    .loader {
         margin-top: 0px;
     }
     .loader-gif {
