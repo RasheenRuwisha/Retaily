@@ -246,8 +246,20 @@ a.second-nav-header-radius.ui-link.ui-btn {
     height: 190px;
 }
 
-img.product-image-items-display {
+img.category-image-items-display {
+    height: 67%;
+    border-width: 0;
+    width: 67%;
+    display: block;
+    margin: auto;
     margin-top: 20px;
+}
+
+img.product-image-items-display {
+    height: 60%;
+    border-width: 0;
+    width: 50%;
+    margin: 20px 0px 0px 30px;
 }
 
 p.Product-Price {
@@ -323,6 +335,16 @@ h3.heading.ui-content {
     margin-bottom: -20px !important;
 }
 
+.loader{
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    margin-top: 70px;
+}
+.loader-gif{
+    width:60%;
+}
 
 /*ipad potrait*/
 
@@ -554,6 +576,12 @@ img.mySlides {
     .login.ui-content {
         width: 50% !important;
     }
+    .loader-gif {
+        width: 30%;
+    }
+    .loader {
+        margin-top: 92px;
+    }
 }
 
 
@@ -604,6 +632,12 @@ img.mySlides {
     }
     .header-class.ui-header.ui-bar-inherit {
         height: 78px;
+    }
+    .loader-gif {
+        width: 40%;
+    }
+    .loader {
+        margin-top: 210px;
     }
 }
 
@@ -677,5 +711,11 @@ img.mySlides {
     }
     .header-class.ui-header.ui-bar-inherit {
         height: 78px;
+    }
+    .loader{
+        margin-top: 0px;
+    }
+    .loader-gif {
+        width: 22%;
     }
 }
