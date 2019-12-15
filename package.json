@@ -1,0 +1,23 @@
+{
+  "name": "retaily",
+  "version": "1.0.0",
+  "description": "mobile ui ux coursework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RasheenRuwisha/Retaily.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RasheenRuwisha/Retaily/issues"
+  },
+  "homepage": "https://github.com/RasheenRuwisha/Retaily#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "stripe": "^7.14.0"
+  }
+}

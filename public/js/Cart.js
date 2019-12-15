@@ -1,14 +1,15 @@
 
 
+var cartTotal;
+
 $(document).ready(function () {
     var pathname = window.location.pathname;
-    if(pathname.includes("Cart")){
+    if (pathname.includes("Cart")) {
         loadCart()
     }
 });
 
-function loadCart(){
-    console.log('Incoming change');
+function loadCart() {
     $(".header-title").html(sessionStorage.category);
 
     var categories = "";
@@ -25,13 +26,14 @@ function loadCart(){
     }
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
-        if(response.cartItemsList.length >0){
-            for(var i = 0; i< response.cartItemsList.length; i++){
+        cartTotal = response.total * 100;
+        console.log(cartTotal);
+        if (response.cartItemsList.length > 0) {
+            for (var i = 0; i < response.cartItemsList.length; i++) {
                 categories += addProducts(response.cartItemsList[i])
             }
 
-        }else{
+        } else {
             categories +=
 
                 `
@@ -46,13 +48,13 @@ function loadCart(){
         $(".order-main").html(categories);
         $(".order-main").trigger('create');
         $("#btn-checkout").html(`    <div class="checkout-btn-cart">
-                <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Pay $<span id="price">${response.total}</span></button>
+                <button onclick="payAmount()" type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Pay $<span id="price">${response.total}</span></button>
             </div>`);
 
     });
 }
 
-function addProducts(response ){
+function addProducts(response) {
 
     var productItem =
 
@@ -83,11 +85,11 @@ function addProducts(response ){
 
 
 
-function removeCartItem(id){
+function removeCartItem(id) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/removeCart?id="+id,
+        "url": "https://retaily-api.herokuapp.com/removeCart?id=" + id,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
@@ -97,8 +99,40 @@ function removeCartItem(id){
 
     $.ajax(settings).done(function (response) {
         console.log(response);
-        if(response === 2006){
+        if (response === 2006) {
             loadCart();
         }
     });
 }
+
+var stripeHandler = StripeCheckout.configure({
+    key: stripePublicKey,
+    locale: 'auto',
+    token: function (token) {
+        console.log(token);
+        fetch('/purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                stripeTokenId: token.id,
+                price: cartTotal
+            })
+        }).then(function (res) {
+            return res.json()
+        }).then(function (data) {
+            alert(data.message)
+        }).catch(function (error) {
+            console.error(error)
+        })
+    }
+})
+
+function payAmount() {
+    stripeHandler.open({
+        amount: cartTotal
+    })
+}
+
