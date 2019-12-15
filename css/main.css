@@ -2,6 +2,10 @@
     src: url(..//Resources/Fonts/Nexa light.otf);
 } */
 
+.ui-content{
+    width: 90% !important;
+}
+
 .login-labels {
     font-size: 16px !important;
     font-family: Arial, Helvetica, sans-serif !important;
@@ -402,8 +406,8 @@ button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-b
 
 .order-item-image {
     background: #6060602e;
-    width: 48%;
-    height: 190px;
+    width: 35%;
+    height: 136px;
     display: inline-block;
     border-radius: 20px;
     margin-right: 2px;
@@ -411,7 +415,7 @@ button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-b
 
 .order-item-text {
     width: 50%;
-    height: 190px;
+    height: 129px;
     display: inline-block;
     overflow: auto;
 }
@@ -704,11 +708,14 @@ img.product-image-items-display {
     button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
         margin-right: 0px;
     }
+    .order-item {
+        width: 60%;
+    }
     .order-item-image {
-        width: 30% !important;
+        width: 33% !important;
     }
     .order-item-text {
-        width: 68% !important;
+        width: 61% !important;
     }
     .header-class.ui-header.ui-bar-inherit {
         height: 78px;
