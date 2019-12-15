@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
   <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
   <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/caresoul.css" />
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -45,7 +46,38 @@
         <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Manga</a></li>
       </ul>
     </div>
-    
+
+
+
+    <div class="ui-content">
+
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="../images/background1.png" style="width:100%; height: 200px;">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../images/background1.png" style="width:100%; height: 200px;">
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../images/background1.png" style="width:100%; height: 200px;">
+        </div>
+
+        <a data-theme="a" class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+        <a data-theme="a" class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+
+        <div style="text-align:center;margin-top: -30px;">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+    </div>
+
+
     <h3 class="heading ui-content">Best Sellers</h3>
     <div class="main">
       <div class="item">
@@ -277,5 +309,35 @@
     </div>
   </div><!-- /content -->
 </body>
+
+
+
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function plusSlides(n, no) {
+        showSlides(slideIndex[no] += n, no);
+    }
+
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 7000); // Change image every 2 seconds
+    }
+</script>
 
 </html>

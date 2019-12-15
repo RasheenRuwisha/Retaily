@@ -2,6 +2,10 @@
     src: url(..//Resources/Fonts/Nexa light.otf);
 } */
 
+.ui-content{
+    width: 90% !important;
+}
+
 .login-labels {
   font-size: 16px !important;
   font-family: Arial, Helvetica, sans-serif !important;
@@ -417,19 +421,19 @@ button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-b
 }
 
 .order-item-image {
-  background: #6060602e;
-  width: 48%;
-  height: 190px;
-  display: inline-block;
-  border-radius: 20px;
-  margin-right: 2px;
+    background: #6060602e;
+    width: 35%;
+    height: 136px;
+    display: inline-block;
+    border-radius: 20px;
+    margin-right: 2px;
 }
 
 .order-item-text {
-  width: 50%;
-  height: 190px;
-  display: inline-block;
-  overflow: auto;
+    width: 50%;
+    height: 129px;
+    display: inline-block;
+    overflow: auto;
 }
 
 img.order-product.product-image-items-display {
@@ -659,77 +663,80 @@ img.product-image-items-display {
 /*Iphone Landscape*/
 
 @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
-  img.register.Ipad-logo-size.logo-image {
-    width: 50%;
-  }
-  .login.ui-content {
-    width: 60% !important;
-  }
-  img.Ipad-logo-size.logo-image {
-    width: 50%;
-    margin-bottom: -40px !important;
-    margin-top: -40px;
-  }
-  img.forgot-password.Ipad-logo-size.logo-image {
-    width: 50%;
-    margin-bottom: -40px !important;
-    margin-top: -40px !important;
-  }
-  iframe#gmap_canvas {
-    width: 480px;
-  }
-  p.About-Us.Register-Account-Text {
-    padding-right: 125px !important;
-    margin-top: 30px !important;
-  }
-  p.UserNavigation.User-Profile-Edit.Register-Account-Text {
-    padding-right: 145px !important;
-  }
-  .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
-    padding-left: 145px !important;
-  }
-  ul.Profile-Navigation-List.ui-listview {
-    margin: 0em;
-    margin-top: 20px !important;
-    margin-bottom: 15px !important;
-  }
-  .header-class {
-    top: -3px;
-    left: 0px;
-    right: 0px;
-    overflow: hidden;
-    height: 15%;
-  }
-  .main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .item {
-    margin-left: 30px;
-    margin-bottom: 30px;
-  }
-  .w3-content {
-    max-width: 850px;
-  }
-  .product-details-container {
-    width: 100%;
-  }
-  button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
-    margin-right: 0px;
-  }
-  .order-item-image {
-    width: 30% !important;
-  }
-  .order-item-text {
-    width: 68% !important;
-  }
-  .header-class.ui-header.ui-bar-inherit {
-    height: 78px;
-  }
-  .loader {
-    margin-top: 0px;
-  }
-  .loader-gif {
-    width: 22%;
-  }
+    img.register.Ipad-logo-size.logo-image {
+        width: 50%;
+    }
+    .login.ui-content {
+        width: 60% !important;
+    }
+    img.Ipad-logo-size.logo-image {
+        width: 50%;
+        margin-bottom: -40px !important;
+        margin-top: -40px;
+    }
+    img.forgot-password.Ipad-logo-size.logo-image {
+        width: 50%;
+        margin-bottom: -40px !important;
+        margin-top: -40px !important;
+    }
+    iframe#gmap_canvas {
+        width: 480px;
+    }
+    p.About-Us.Register-Account-Text {
+        padding-right: 125px !important;
+        margin-top: 30px !important;
+    }
+    p.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        padding-right: 145px !important;
+    }
+    .UserNavigation.logout.User-Profile-Edit.Register-Account-Text {
+        padding-left: 145px !important;
+    }
+    ul.Profile-Navigation-List.ui-listview {
+        margin: 0em;
+        margin-top: 20px !important;
+        margin-bottom: 15px !important;
+    }
+    .header-class {
+        top: -3px;
+        left: 0px;
+        right: 0px;
+        overflow: hidden;
+        height: 15%;
+    }
+    .main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .item {
+        margin-left: 30px;
+        margin-bottom: 30px;
+    }
+    .w3-content {
+        max-width: 850px;
+    }
+    .product-details-container {
+        width: 100%;
+    }
+    button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
+        margin-right: 0px;
+    }
+    .order-item {
+        width: 60%;
+    }
+    .order-item-image {
+        width: 33% !important;
+    }
+    .order-item-text {
+        width: 61% !important;
+    }
+    .header-class.ui-header.ui-bar-inherit {
+        height: 78px;
+    }
+    .loader {
+        margin-top: 0px;
+    }
+    .loader-gif {
+        width: 22%;
+    }
 }
