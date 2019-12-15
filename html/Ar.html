@@ -1,22 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="../css/ar.css">
 </head>
-
-<!-- include A-Frame obviously -->
-<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-<!-- include ar.js for A-Frame -->
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="../js/models.js"></script>
+<script src="../js/userState.js"></script>
+<script src="../js/interaction.js"></script>
 <body style='margin : 0px; overflow: hidden;'>
-<a-scene embedded arjs>
-    <!-- create your content here. just a box for now -->
-    <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera preset='hiro'></a-marker-camera>
+<div class='speech-bubble'></div>
+<a-scene embedded arjs cursor="rayOrigin: mouse" accepts-clicks>
+
+    <a-marker id="pyra-marker" type="pattern" url="../builder-markers/pyra.patt">
+        <a-entity id="pyra" gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)"  scale="0.15 0.15 0.15"  position="0 0 0.5" ></a-entity>
+    </a-marker>
+    <a-marker id="biggie-marker" type="pattern" url="../builder-markers/biggie.patt">
+        <a-entity id="biggie" gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="frenchie-marker" type="pattern" url="../builder-markers/frenchie.patt">
+        <a-entity id="frenchie"  gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)"material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="toob-marker" type="pattern" url="../builder-markers/toob.patt">
+        <a-entity id="toob"  gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="lil-marker" type="pattern" url="../builder-markers/lil.patt">
+        <a-entity id="lil"  gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)"material="color: green" rotation="0 180 0" position="0 0 0.5" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="hammer-marker" type="pattern" url="../builder-markers/hammer.patt">
+        <a-entity id="hammer"  gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="90 -45 0" position="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="screwdriver-marker" type="pattern" url="../builder-markers/screwdriver.patt">
+        <a-entity id="screwdriver"  gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="0 45 0" position="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="blocks-marker" type="pattern" url="../builder-markers/blocks.patt">
+        <a-entity id="blocks"  gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="90 -45 45" position="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="hat-marker" type="pattern" url="../builder-markers/hat.patt">
+        <a-entity id="hat" gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="180 0 0" position="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="wrench-marker" type="pattern" url="../builder-markers/wrench.patt">
+        <a-entity id="wrench" gltf-model="url(../Resources/3dmodels/game/minecraft_-_steve/scene.gltf)" material="color: green" rotation="90 -45 0" position="0 0 0" scale="0.15 0.15 0.15"></a-entity>
+    </a-marker>
+    <a-marker id="demo-marker" type="pattern" url="../builder-markers/demo.patt">
+        <a-box id="demo" position="0 0.5 0" scale="0.5 0.5 0.5" material='color: green;'></a-box>
+    </a-marker>
+    <a-entity camera></a-entity>
 </a-scene>
 </body>
-
-
 </html>
