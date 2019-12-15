@@ -46,3 +46,7 @@ function doLogin(){
 function navigateToCategories(){
     $.mobile.navigate( "Catagories.html", { transition: "slideup"} , event = loadCategories());
 }
+
+function navigateToCart() {
+    $.mobile.navigate( "Cart.html", { transition: "slideup"} , event = loadCart());
+}

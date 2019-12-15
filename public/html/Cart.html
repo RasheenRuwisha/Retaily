@@ -18,7 +18,6 @@
 
     <script>
         var stripePublicKey = "pk_test_cM8DxCiD5tSFOUeJ9NGNJoWx004OyUVS3K";
-        var stripeSecretKey = "sk_test_NKKtnsoFg4ilg3s3mHp9Rhho00Hx7vv9LK";
     </script>
 
     <script src="../js/Cart.js" defer></script>
@@ -50,58 +49,59 @@
             <div class="order-main">
 
                 <div class="loader">
-                    <img class="loader-gif" src="../images/pupper2.gif">
+                    <img class="loader-gif" src="../Resources/images/pupper2.gif">
                     <p>The goodest boi is getting you cart items...</p>
 
                 </div>
             </div>
 
-            <div class="checkout-btn-cart">
-                <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button" onclick="payAmount()">Pay $15000</button>
+            <div id="btn-checkout">
+
             </div>
         </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="page-footer footer-class" data-role="footer" style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
-                <div data-role="navbar" data-iconpos="bottom">
-                    <ul>
-                        <li>
-                            <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="page-footer footer-class" data-role="footer"
+            style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li>
+                        <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+                        <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
                             <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px"
                                 height="35px" />
                         </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                    </li>
+                    <li>
+                        <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
                             <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
                         </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                    </li>
+                    <li>
+                        <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
                             <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
                         </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                    </li>
+                    <li>
+                        <button onclick="navigateToCart()" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
                             <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px"
                                 height="35px" />
                         </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                    </li>
+                    <li>
+                        <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
                             <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
                         </button>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
-        <!-- /content -->
+    </div>
+    <!-- /content -->
 </body>
-<script type="text/javascript" src="../js/Cart.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
+
 
 </html>

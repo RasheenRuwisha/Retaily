@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     var pathname = window.location.pathname;
     if(pathname.includes("Cart")){
@@ -6,6 +8,7 @@ $(document).ready(function () {
 });
 
 function loadCart(){
+    console.log('Incoming change');
     $(".header-title").html(sessionStorage.category);
 
     var categories = "";
