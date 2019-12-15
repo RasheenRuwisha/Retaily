@@ -43,7 +43,7 @@ function loadCart(){
         $(".order-main").html(categories);
         $(".order-main").trigger('create');
         $("#btn-checkout").html(`    <div class="checkout-btn-cart">
-                <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Pay $<span id="price">${response.total}</span></button>
+                <button onclick="proceedToPayment()" class="login-button ui-btn ui-btn-inline rounded-button">Pay $<span id="price">${response.total}</span></button>
             </div>`);
 
     });
@@ -98,4 +98,9 @@ function removeCartItem(id){
             loadCart();
         }
     });
+}
+
+function proceedToPayment(){
+    window.location = "payment.html"
+    sessionStorage.total = $("#price").text();
 }
