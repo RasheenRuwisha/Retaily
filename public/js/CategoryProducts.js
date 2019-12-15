@@ -52,10 +52,10 @@ function addProducts(name, price, image, promotion,productId ){
           <p class="Product-Price Product-Name">${name}</p>
           <div class="align-addtocart">
             <div class="add-to-cart-button-div">
-              <a href="#popupLogin" data-rel="popup" data-position-to="window"
+              <a href="#${productId}" data-rel="popup" data-position-to="window"
                 class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
                   src="../Resources/images/icons/001-add White.png" border="0" /></a>
-              <div data-role="popup" id="popupLogin" data-theme="" class="ui-corner-all">
+              <div data-role="popup" id="${productId}" data-theme="" class="ui-corner-all">
                 <div style="padding:10px 20px; width: 200px;">
                               <h3 class="product-addtocart-popup">${name} </h3>
                   <p class="price">Product Price :</p>
