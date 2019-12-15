@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Games</title>
+    <title>Fashion</title>
     <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
     <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
     <link
@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <div data-role="page" data-theme="d">
+    <div data-role="page" data-theme="d" id="page-content">
       <div data-role="header" class="header-class">
         <button
           class="btn-home"
@@ -31,7 +31,7 @@
         >
           <img src="../Resources/images/Logos/Transparent.png" border="0" />
         </button>
-        <h1 class="header-title">Promotions</h1>
+        <h1 class="header-title"></h1>
 
         <button
           class="btn-userprofile"
@@ -146,6 +146,7 @@
             </li>
             <li>
               <button
+                onclick="navigateToCategories()"
                 class="btn-nav-bar"
                 data-role="button"
                 data-shadow="false"
@@ -165,7 +166,7 @@
     </div>
     <!-- /content -->
   </body>
-  <script type="text/javascript" src="../js/Promotions.js"></script>
+  <script type="text/javascript" src="../js/PromotionProducts.js"></script>
   <script type="text/javascript" src="../js/main.js"></script>
 
   <script>
