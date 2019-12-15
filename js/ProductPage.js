@@ -88,12 +88,12 @@ function addProducts(response) {
                     <br>
                     <br>
                     <p class="single-product price">Quantity :</p>
-                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
+                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="incrementQuantity()">
             <img class="single-product  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
               width="35px" height="35px" />
           </button>
-                    <p class="single-product price float-price">1</p>
-                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
+                    <p id="productQuantity" class="single-product price float-price">1</p>
+                    <button class="single-product-page btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="decrementQuantity()">
             <img class="single-product product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
               width="35px" height="35px" />
           </button>
@@ -172,3 +172,16 @@ function showDivs(n) {
     dots[slideIndex - 1].className += " w3-white";
 }
 
+function incrementQuantity() {
+    var currentQuantity = document.getElementById('productQuantity').innerHTML.valueOf();
+    currentQuantity++;
+    document.getElementById('productQuantity').innerHTML = currentQuantity;
+}
+
+function decrementQuantity() {
+    var currentQuantity = document.getElementById('productQuantity').innerHTML.valueOf();
+    if (!(currentQuantity == 1)) {
+        currentQuantity--;
+        document.getElementById('productQuantity').innerHTML = currentQuantity;
+    } 
+}
