@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var pathname = window.location.pathname;
     if (pathname.includes("Cart")) {
         loadCart();
@@ -13,8 +13,7 @@ function loadCart() {
     var settings = {
         async: true,
         crossDomain: true,
-        url:
-            "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha12@gmail.com",
+        url: "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha12@gmail.com",
         method: "GET",
         headers: {
             "cache-control": "no-cache",
@@ -22,13 +21,13 @@ function loadCart() {
         }
     };
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
         if (response.cartItemsList.length > 0) {
             for (var i = 0; i < response.cartItemsList.length; i++) {
                 categories += addProducts(response.cartItemsList[i]);
             }
-        }else {
+        } else {
             categories += `
                  <div class="loader">
                     <img class="loader-gif" src="../images/ezgif.com-gif-maker.gif">
@@ -42,8 +41,8 @@ function loadCart() {
         $(".loader").remove();
         $(".order-main").html(categories);
         $(".order-main").trigger('create');
-        $("#btn-checkout").html(`    <div class="checkout-btn-cart">
-                <button onclick="proceedToPayment()" class="login-button ui-btn ui-btn-inline rounded-button">Pay $<span id="price">${response.total}</span></button>
+        $("#btn-checkout").html(`  <div class="payment-button-div">  <div class="checkout-btn-cart">
+                <button onclick="proceedToPayment()" class="checkout-button-std-sht login-button ui-btn ui-btn-inline rounded-button"><p class="this-will-work "> Total : $<span id="price" s>${response.total}</span></p> <p class="payment-button0pay-label">CheckOut ></p></button></div>
                 `);
     });
 }
@@ -62,7 +61,6 @@ function addProducts(response) {
     <br>
     <p class="price">Quantity :</p>
 <p class="price float-price">${response.qty}</p>
-    <br>
     <br>
     <button onclick="removeCartItem('${response.id}')" class="remove-from-cart" data-role="button" data-shadow="false" data-theme="none">
     Remove
@@ -91,7 +89,7 @@ function removeCartItem(id) {
         }
     };
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
         if (response === 2006) {
             loadCart();
