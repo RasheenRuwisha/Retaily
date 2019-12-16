@@ -11,8 +11,6 @@
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
-
-
 /*Sheen css*/
 
 
@@ -21,6 +19,37 @@
   grid-template-columns: repeat(2,1fr);
   grid-gap: 5rem;
 }
+
+.text-box-error{
+  border: 1px solid #ff647c !important;
+}
+
+.processing-btn{
+  text-align: center;
+  justify-content: center;
+  display: none !important;
+  grid-template-columns: 4% 40%;
+  padding : 3px !important;
+  border: none;
+}
+
+.processing-text{
+  width: auto;
+  display: inline-block;
+  padding: 0px !important;
+  margin: unset;
+  margin-top: 10px;
+  padding-top: -10px !important;
+}
+
+.processing-btn-important{
+  display: grid !important;
+}
+
+.review-container{
+  padding: 5px;
+}
+
 
 /*Sheen css ends*/
 

@@ -3,8 +3,8 @@
 
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Food</title>
     <title>Fashion</title>
     <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
@@ -18,102 +18,142 @@
 </head>
 
 <body>
-    <div data-role="page" data-theme="d" idPag="page-content">
-        <div data-role="header" class="header-class">
-            <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
-                <button class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/logos/Transparent.png" border="0">
-                </button>
+<div data-role="page" data-theme="d" idPag="page-content">
+    <div data-role="header" class="header-class">
+        <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
+            <button class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false"
+                    data-theme="none">
+                <img src="../Resources/images/logos/Transparent.png" border="0">
+            </button>
 
-                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
+            <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
 
-                <button class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
-                </button>
-                <button class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
-                </button>
-            </div>
+            <button class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false"
+                    data-theme="none">
+                <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+            </button>
+            <button class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false"
+                    data-theme="none">
+                <img src="../Resources/images/icons/header-userprofile.png" border="0">
+            </button>
         </div>
+    </div>
 
-        <div class="navbar-header" data-role="navbar">
-            <!-- /navbar -->
+    <div class="navbar-header" data-role="navbar">
+        <!-- /navbar -->
+        <ul>
+            <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Food</a></li>
+            <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Fashion</a></li>
+            <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Games</a></li>
+            <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Manga</a></li>
+        </ul>
+    </div>
+
+
+    <div role="main" class="product ui-content">
+        <div id="content"  style="display: none">
+            <div style="width: 90%;padding:10px 20px;height: 246px;" data-role="popup" id="add-review" data-theme=""
+                 class="ui-corner-all">
+                <div style="padding:10px 20px;">
+                    <label class="login-labels orange-label" for="title">Title</label>
+                    <input class="input-white-background" type="text" name="title" id="title" placeholder="Title"
+                           value="">
+                    <label class="login-labels orange-label" for="review">Review</label>
+                    <textarea class="input-white-background" rows="4" cols="50" name="review" id="review">
+                </textarea>
+                    <button id="add-review-btn" onclick="addReview()">Add Review</button>
+                    <div id="processing-btn" onclick="addReview()"
+                         class="ui-btn ui-shadow ui-corner-all processing-btn ">
+                        <img src="../Resources/images/loader.gif"
+                             style="display: inline-block;width: 33px;height: 33px;" alt="">
+                        <p class="processing-text">Processing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="popup" id="cart-success" data-theme="" class="ui-corner-all">
+                <div style="padding:10px 20px;">
+                    <img style=" width: 200px;margin: auto;display: block;"
+                         src="../Resources/images/addtocart-success.gif"
+                         alt="">
+                    <h2 style="color: #93dfca;">Item added to cart.</h2>
+                </div>
+            </div>
+
+
+            <div data-role="popup" id="cart-error" data-theme="" class="ui-corner-all">
+                <div style="padding:10px 20px;">
+                    <img style="width: 200px;margin: auto;display: block;" src="../Resources/images/AW331857_12.gif"
+                         alt="">
+                    <h2 style="color: #ff647c;">Something went wrong.</h2>
+                </div>
+            </div>
+
+
+            <div class="products-item" style="display: grid;">
+
+            </div>
+
+            <div class="review-container">
+                <div class="add-review-container">
+                    <button onclick="addReviewProduct()">Add Review</button>
+                </div>
+
+
+                <div id="reviews">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="loader">
+        <img class="loader-gif" src="./../Resources/images/giphy.gif">
+        <p> The goodest bois are finding the product details...</p>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="page-footer footer-class" data-role="footer"
+         style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+        <div data-role="navbar" data-iconpos="bottom">
             <ul>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Food</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Fashion</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Games</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Manga</a></li>
+                <li>
+                    <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                        <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px"/>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                        <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px"/>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                        <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px"/>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                        <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px"
+                             height="35px"/>
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                        <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px"/>
+                    </button>
+                </li>
             </ul>
         </div>
-
-
-        <div role="main" class="product ui-content">
-
-            <div  id="${productId}" data-theme="" class="ui-corner-all">
-                <div style="padding:10px 20px;">
-                    <img style=" width: 200px;" src="../Resources/images/addtocart-success.gif" alt="">
-                </div>
-            </div>
-
-
-            <div class="products-item">
-
-            </div>
-
-            <div class="add-review-container">
-                <button onclick="addToCart('${response.productId}')">Add to cart</button>
-                <button onclick="addToCart('${response.productId}')">Add to cart</button>
-            </div>
-            <div class="comment-section-background">
-                <img class="comment-user-icon  product-popup-icon" src="../Resources/images/icons/header-userprofile.png" border="0" < />
-                <p class=" price"><b>Ruchila</b></p>
-                <br>
-                <img class="comment-rating-icon  product-popup-icon" src="../Resources/images/icons/Stars png.png" border="0" </div> <br>
-                <p class="comment-title price review-title"><b>Title</b></p>
-                <br>
-                <p class="comment-description review-comment">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                    book.
-                </p>
-            </div>
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <div class="page-footer footer-class" data-role="footer" style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
-                <div data-role="navbar" data-iconpos="bottom">
-                    <ul>
-                        <li>
-                            <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
-              </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
-              </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
-              </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
-              </button>
-                        </li>
-                        <li>
-                            <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
-              </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="../js/CategoryProducts.js"></script>
 <script type="text/javascript" src="../js/Categories.js"></script>
