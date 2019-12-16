@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     var pathname = window.location.pathname;
     if (pathname.includes("ProductPage")) {
         loadProduct();
@@ -12,7 +12,7 @@ function loadReviews() {
         "async": true,
         "crossDomain": true,
         "url": "https://retaily-api.herokuapp.com/getReviews?productId=" +
-        sessionStorage.product,
+            sessionStorage.product,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
@@ -20,7 +20,7 @@ function loadReviews() {
         }
     }
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
         var reviews = "";
         for (var i = 0; i < response.length; i++) {
@@ -41,7 +41,7 @@ function loadReviews() {
         }
         $("#reviews").html(reviews);
         $("#reviews").trigger("create");
-        $("#content").css("display","block");
+        $("#content").css("display", "block");
         $(".loader").remove();
     });
 }
@@ -50,9 +50,8 @@ function loadProduct() {
     var settings = {
         async: true,
         crossDomain: true,
-        url:
-        "https://retaily-api.herokuapp.com/product?productId=" +
-        sessionStorage.product,
+        url: "https://retaily-api.herokuapp.com/product?productId=" +
+            sessionStorage.product,
         method: "GET",
         headers: {
             "cache-control": "no-cache",
@@ -60,7 +59,7 @@ function loadProduct() {
         }
     };
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         var product = "";
         product += addProducts(response);
 
@@ -248,30 +247,29 @@ function addToCart(productid) {
             "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
         },
         processData: false,
-        data:
-        '{\n\t"email":"sheen.ruwisha12@gmail.com",\n\t"productId":"' +
-        productid +
-        '",\n     "qty":' +
-        parseInt(value) +
-        "\n}\n"
+        data: '{\n\t"email":"sheen.ruwisha12@gmail.com",\n\t"productId":"' +
+            productid +
+            '",\n     "qty":' +
+            parseInt(value) +
+            "\n}\n"
     };
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
         if (response === 2005) {
             $("#cart-success").popup("open");
-            setTimeout(function () {
+            setTimeout(function() {
                 $("#cart-success").popup("close");
             }, 2000);
         } else if (response === 3006) {
             $("#cart-error").popup("open");
-            setTimeout(function () {
+            setTimeout(function() {
                 $("#cart-error").popup("close");
             }, 2000);
         }
-    }).error(function () {
+    }).error(function() {
         $("#cart-error").popup("open");
-        setTimeout(function () {
+        setTimeout(function() {
             $("#cart-error").popup("close");
         }, 2000);
     });
@@ -318,11 +316,18 @@ function addReview() {
             "data": "{\n\t\"email\":\"sheen.ruwisha@gmail.com\",\n\t\"productId\":\"" + sessionStorage.product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
         }
 
-        $.ajax(settings).done(function (response) {
+        $.ajax(settings).done(function(response) {
             console.log(response);
-
-        }).error(function () {
-
+            $("#add-review").popup("open");
+            setTimeout(function() {
+                $("#add-review").popup("close");
+            }, 2000);
+            location.reload();
+        }).error(function() {
+            $("#add-review").popup("open");
+            setTimeout(function() {
+                $("#add-review").popup("close");
+            }, 2000);
         });
 
     }
@@ -330,4 +335,3 @@ function addReview() {
     $("#add-review-btn").css("display", "block");
 
 }
-

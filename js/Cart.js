@@ -27,6 +27,9 @@ function loadCart() {
             for (var i = 0; i < response.cartItemsList.length; i++) {
                 categories += addProducts(response.cartItemsList[i]);
             }
+            $("#btn-checkout").html(`  <div class="payment-button-div">  <div class="checkout-btn-cart">
+            <button onclick="proceedToPayment()" class="checkout-button-std-sht login-button ui-btn ui-btn-inline rounded-button"><p class="this-will-work "> Total : $<span id="price" s>${response.total}</span></p> <p class="payment-button0pay-label">CheckOut ></p></button></div>
+            `);
         } else {
             categories += `
                  <div class="loader">
@@ -41,9 +44,7 @@ function loadCart() {
         $(".loader").remove();
         $(".order-main").html(categories);
         $(".order-main").trigger('create');
-        $("#btn-checkout").html(`  <div class="payment-button-div">  <div class="checkout-btn-cart">
-                <button onclick="proceedToPayment()" class="checkout-button-std-sht login-button ui-btn ui-btn-inline rounded-button"><p class="this-will-work "> Total : $<span id="price" s>${response.total}</span></p> <p class="payment-button0pay-label">CheckOut ></p></button></div>
-                `);
+
     });
 }
 

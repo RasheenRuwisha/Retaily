@@ -2,117 +2,116 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fashion</title>
-    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
-    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css"/>
-    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css"/>
-    <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../css/stripe.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
+    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
+    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/stripe.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-<div data-role="page" data-theme="d" id="page-content">
-    <div data-role="header" class="header-class">
-        <button class="btn-home" data-role="button" data-shadow="false" data-theme="none">
+    <div data-role="page" data-theme="d" id="page-content">
+        <div data-role="header" class="header-class">
+            <button class="btn-home" data-role="button" data-shadow="false" data-theme="none">
             <img src="../Resources/images/Logos/Transparent.png" border="0"/>
         </button>
-        <h1 class="header-title"></h1>
+            <h1 class="header-title"></h1>
 
-        <button class="btn-userprofile" data-role="button" data-shadow="false" data-theme="none">
+            <button class="btn-userprofile" data-role="button" data-shadow="false" data-theme="none">
             <img src="../Resources/images/icons/header-userprofile.png" border="0"/>
         </button>
-    </div>
+        </div>
 
 
-    <div role="main" class="favourites ui-content">
-        <script src="https://js.stripe.com/v3/"></script>
-        <form>
-            <label>
+        <div role="main" class="favourites ui-content">
+            <script src="https://js.stripe.com/v3/"></script>
+            <form>
+                <label>
                 <span>Name</span>
                 <input name="cardholder-name" placeholder="Jane Doe" />
             </label>
-            <label>
+                <label>
                 <span>Email</span>
                 <input  placeholder="(123) 456-7890" type="email" />
             </label>
-            <label>
+                <label>
                 <span>Address Line 1</span>
                 <input name="address-line1" placeholder="94110" />
             </label>
-            <label>
+                <label>
                 <span>Address Line 2</span>
                 <input name="address-line2" placeholder="94110" />
             </label>
-            <label>
+                <label>
                 <span>State</span>
                 <input name="address-state" placeholder="94110" />
             </label>
-            <label>
+                <label>
                 <span>Sity</span>
                 <input name="address-city" placeholder="94110" />
             </label>
-            <label>
+                <label>
                 <span>ZIP code</span>
                 <input name="address-zip" placeholder="94110" />
             </label>
-            <label>
+                <label>
                 <span>Card</span>
                 <div id="card-element" class="field"></div>
             </label>
-            <button type="submit">Pay $ <span id="price">25</span></button>
-        </form>
+                <button type="submit">Pay $ <span id="price">25</span></button>
+            </form>
 
 
 
-        <br>
-        <br>
-        <br>
-        <br>
+            <br>
+            <br>
+            <br>
+            <br>
 
 
-    </div>
+        </div>
 
-    <div class="page-footer footer-class" data-role="footer"
-         style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
-        <div data-role="navbar" data-iconpos="bottom">
-            <ul>
-                <li>
-                    <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                        <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px"/>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                        <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px"/>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                        <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px"/>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                        <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px"
-                             height="35px"/>
-                    </button>
-                </li>
-                <li>
-                    <button onclick="navigateToCategories()" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                        <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px"/>
-                    </button>
-                </li>
-            </ul>
+        <div class="page-footer footer-class" data-role="footer" style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li>
+                        <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+                        <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div><!-- /content -->
+    <!-- /content -->
 </body>
 <script type="text/javascript" src="../js/CategoryProducts.js"></script>
 <script type="text/javascript" src="../js/Categories.js"></script>
@@ -120,8 +119,9 @@
 <script type="text/javascript" src="../js/stripe.js"></script>
 
 <script>
-    $("#page-content").on("swiperight", function (e) {
+    $("#page-content").on("swiperight", function(e) {
         $.mobile.back();
     });
 </script>
+
 </html>

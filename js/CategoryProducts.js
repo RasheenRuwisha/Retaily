@@ -1,54 +1,59 @@
 $(document).ready(function() {
-  var pathname = window.location.pathname;
-  if (pathname.includes("fashion")) {
-    loadCategoryProducts();
-  }
+    var pathname = window.location.pathname;
+    if (pathname.includes("fashion")) {
+        loadCategoryProducts();
+    }
 });
 
 function loadCategoryProducts() {
-  $(".header-title").html(sessionStorage.category);
+    $(".header-title").html(sessionStorage.category);
 
-  var categories = "";
+    var categories = "";
 
-  try {
-    var settings = {
-      async: true,
-      crossDomain: true,
-      url:
-        "https://retaily-api.herokuapp.com/categoryProducts?category=" +
-        sessionStorage.category,
-      method: "GET",
-      headers: {
-        "cache-control": "no-cache",
-        "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-      }
-    };
+    try {
+        var settings = {
+            async: true,
+            crossDomain: true,
+            url: "https://retaily-api.herokuapp.com/categoryProducts?category=" +
+                sessionStorage.category,
+            method: "GET",
+            headers: {
+                "cache-control": "no-cache",
+                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+            }
+        };
 
-    $.ajax(settings).done(function(response) {
-      console.log(response);
-      for (var i = 0; i < response.length; i++) {
-        categories += addProducts(
-          response[i].name,
-          response[i].price,
-          response[i].image,
-          response[i].name,
-          response[i].productId
-        );
-      }
-      $(".loader").remove();
-      $(".products-items").html(categories);
-      $(".products-items").trigger("create");
-    });
-  } catch (err) {
-    console.log("loadCategoryProducts failed");
-    console.log(err);
-  }
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            for (var i = 0; i < response.length; i++) {
+                categories += addProducts(
+                    response[i].name,
+                    response[i].price,
+                    response[i].image,
+                    response[i].name,
+                    response[i].productId
+                );
+            }
+            $("#drop-select").html(` <select name="select-native-2" id="select-native-3" data-iconpos="right">
+                    <option value="1" style="width: 100px !important;">Price From Lowest to the Highest</option>
+                    <option value="2" style="width: 100px !important;">Price From Highest to the Lowest
+            </option>
+                </select>`)
+            $(".loader").remove();
+            $(".products-items").html(categories);
+            $("#drop-select").trigger("create");
+            $(".products-items").trigger("create");
+        });
+    } catch (err) {
+        console.log("loadCategoryProducts failed");
+        console.log(err);
+    }
 }
 
 function addProducts(name, price, image, promotion, productId) {
-  try {
-    var productItem = `
-        <div class="item" onclick='addProductToSessionStorage("${productId}")'>
+    try {
+        var productItem = `
+        <div class="item">
           <div class="align-favourite">
             <div class="add-to-cart-button-div style=" Style="background: none !important;">
               <a href="#popupLogin" data-rel="popup" data-position-to="window"
@@ -56,10 +61,10 @@ function addProducts(name, price, image, promotion, productId) {
                   src="../Resources/images/icons/heart (1).png" border="0" /></a>  
             </div>
           </div>
-          <img class="product-image-items-display" src="${image}" alt=" PS4" />
+          <img class="product-image-items-display" onclick='addProductToSessionStorage("${productId}")' src="${image}" alt=" PS4" />
           <p style="display: inline; text-decoration: line-through;" class="Product-Price">$ ${price}</p>
           <p style="display: inline;" class="Product-Price"><b>$399</b></p>
-          <p class="Product-Price Product-Name">${name}</p>
+          <p class="Product-Price Product-Name" onclick='addProductToSessionStorage("${productId}")'>${name}</p>
           <div class="align-addtocart">
             <div class="add-to-cart-button-div">
               <a href="#${productId}" data-rel="popup" data-position-to="window"
@@ -76,13 +81,13 @@ function addProducts(name, price, image, promotion, productId) {
                   <br>
                   <br>
                   <p class="price">Quantity :</p>
-                  <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
+                  <button onclick="decrementQuantity('qty-${productId}')" class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                     data-theme="none">
                     <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
                       width="35px" height="35px" />
                   </button>
-                  <p class="price float-price">1</p>
-                  <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
+                  <p class="price float-price" id="qty-${productId}">1</p>
+                  <button onclick="incrementQuantity('qty-${productId}')"  class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                     data-theme="none">
                     <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
                       height="35px" />
@@ -92,7 +97,7 @@ function addProducts(name, price, image, promotion, productId) {
                   <p class="price">Total :</p>
                   <p class="price float-price">$399</p>
                     <div class=" button-container">
-                    <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
+                    <button onclick=addToCart("${productId}") type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
                   </div>
                           
                 </div>
@@ -105,16 +110,77 @@ function addProducts(name, price, image, promotion, productId) {
         </div>
         `;
 
-    return productItem;
-  } catch (err) {
-    console.log("addProducts failed");
-    console.log(err);
-  }
+        return productItem;
+    } catch (err) {
+        console.log("addProducts failed");
+        console.log(err);
+    }
 }
 
 function addProductToSessionStorage(productId) {
-  console.log(productId);
-  sessionStorage.product = productId;
+    console.log(productId);
+    sessionStorage.product = productId;
 
-  window.location = "ProductPage.html";
+    window.location = "ProductPage.html";
+}
+
+
+function addToCart(productid) {
+    var value = $(`#qty-${productid}`).text();
+    var settings = {
+        async: true,
+        crossDomain: true,
+        url: "https://retaily-api.herokuapp.com/addToCart",
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
+        },
+        processData: false,
+        data: '{\n\t"email":"sheen.ruwisha12@gmail.com",\n\t"productId":"' +
+            productid +
+            '",\n     "qty":' +
+            parseInt(value) +
+            "\n}\n"
+    };
+
+    $.ajax(settings).done(function(response) {
+        console.log(response);
+        if (response === 2005) {
+            $(`#${productid}`).popup("close");
+            $("#cart-success").popup("open");
+            setTimeout(function() {
+                $("#cart-success").popup("close");
+            }, 10000);
+        } else if (response === 3006) {
+            $("#cart-error").popup("open");
+            setTimeout(function() {
+                $("#cart-error").popup("close");
+            }, 2000);
+        }
+    }).error(function() {
+        $("#cart-error").popup("open");
+        setTimeout(function() {
+            $("#cart-error").popup("close");
+        }, 2000);
+    });
+}
+
+function incrementQuantity(id) {
+    var currentQuantity = document
+        .getElementById(id)
+        .innerHTML.valueOf();
+    currentQuantity++;
+    document.getElementById(id).innerHTML = currentQuantity;
+}
+
+function decrementQuantity(id) {
+    var currentQuantity = document
+        .getElementById(id)
+        .innerHTML.valueOf();
+    if (!(currentQuantity == 1)) {
+        currentQuantity--;
+        document.getElementById(id).innerHTML = currentQuantity;
+    }
 }
