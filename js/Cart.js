@@ -14,7 +14,7 @@ function loadCart() {
         async: true,
         crossDomain: true,
         url:
-            "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha@gmail.com",
+            "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha12@gmail.com",
         method: "GET",
         headers: {
             "cache-control": "no-cache",

@@ -20,14 +20,20 @@
 <body>
     <div data-role="page" data-theme="d" idPag="page-content">
         <div data-role="header" class="header-class">
-            <button class="btn-home" data-role="button" data-shadow="false" data-theme="none">
-        <img src="../Resources/images/Logos/Transparent.png" border="0" />
-      </button>
-            <h1 class="header-title">Product</h1>
+            <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
+                <button class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/logos/Transparent.png" border="0">
+                </button>
 
-            <button class="btn-userprofile" data-role="button" data-shadow="false" data-theme="none">
-        <img src="../Resources/images/icons/header-userprofile.png" border="0" />
-      </button>
+                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
+
+                <button class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+                </button>
+                <button class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
+                </button>
+            </div>
         </div>
 
         <div class="navbar-header" data-role="navbar">
@@ -42,17 +48,30 @@
 
 
         <div role="main" class="product ui-content">
+
+            <div  id="${productId}" data-theme="" class="ui-corner-all">
+                <div style="padding:10px 20px;">
+                    <img style=" width: 200px;" src="../Resources/images/addtocart-success.gif" alt="">
+                </div>
+            </div>
+
+
             <div class="products-item">
 
+            </div>
+
+            <div class="add-review-container">
+                <button onclick="addToCart('${response.productId}')">Add to cart</button>
+                <button onclick="addToCart('${response.productId}')">Add to cart</button>
             </div>
             <div class="comment-section-background">
                 <img class="comment-user-icon  product-popup-icon" src="../Resources/images/icons/header-userprofile.png" border="0" < />
                 <p class=" price"><b>Ruchila</b></p>
                 <br>
                 <img class="comment-rating-icon  product-popup-icon" src="../Resources/images/icons/Stars png.png" border="0" </div> <br>
-                <p class="comment-title price"><b>Title</b></p>
+                <p class="comment-title price review-title"><b>Title</b></p>
                 <br>
-                <p class="comment-description ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
+                <p class="comment-description review-comment">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
                     book.
                 </p>
             </div>

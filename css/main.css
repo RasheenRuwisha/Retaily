@@ -11,6 +11,19 @@
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+
+
+/*Sheen css*/
+
+
+.add-review-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 5rem;
+}
+
+/*Sheen css ends*/
+
 button.login-button.rounded-button.ui-btn.ui-btn-inline {
   width: 100% !important;
 }
@@ -191,35 +204,56 @@ img.About-Us.User-registration.Ipad-logo-size.logo-image {
 }
 
 h1.header-title.ui-title {
-  font-size: 30px !important;
+  font-size: 22px !important;
   font-weight: normal;
 }
 
 .btn-home {
+  display: inline-block;
+  margin-top: 11px !important;
   border: solid 0px transparent;
   text-shadow: none;
   background-color: transparent !important;
   padding-top: 0px !important;
-  height: 140px !important;
+  height: 30px !important;
 }
 
 .btn-home img {
-  width: 110px;
-  margin-left: -25px;
-  margin-top: -40px;
+  margin-top: -17px;
+  margin-left: -21px;
+  height: 64px;
 }
 
 .btn-userprofile {
+  display: inline-block;
+  margin-top: 11px !important;
   border: solid 0px transparent;
   text-shadow: none;
   background-color: transparent !important;
   padding-top: 0px !important;
-  height: 140px !important;
+  height: 30px !important;
 }
 
 .btn-userprofile img {
-  height: 50px;
-  margin-top: -70px;
+  margin-right: -28px;
+  margin-top: -2px;
+  height: 36px;
+}
+
+.btn-camera {
+  margin-right: -43px !important;
+  display: inline-block;
+  margin-top: 11px !important;
+  border: solid 0px transparent;
+  text-shadow: none;
+  background-color: transparent !important;
+  padding-top: 0px !important;
+  height: 30px !important;
+}
+
+.btn-camera img {
+  margin-right: -48px;
+  height: 32px;
 }
 
 li.second-nav-header {
@@ -229,7 +263,7 @@ li.second-nav-header {
 .navbar-header.ui-navbar {
   margin-right: 5px;
   margin-top: -2px;
-  margin-top: 80px;
+  margin-top: 57px;
 }
 
 a.second-nav-header-radius.ui-link.ui-btn {
@@ -718,6 +752,47 @@ img.product-image-items-display {
     .product-details-container {
         width: 100%;
     }
+    .products-item{
+      display: grid;
+      grid-template-columns: 40% 60%;
+    }
+  .single-product {
+    font-size: 14px !important;
+    margin-top: 30px;
+  }
+    .single-product-background{
+      width: 57%;
+      height: 158px;
+    }
+  .navbar-header.ui-navbar {
+    margin-top: 46px;
+  }
+  img.single-product.product-popup-icon {
+    width: 14px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 2px;
+  }
+  .review-title{
+    padding:10px;
+  }
+  .review-comment{
+    padding: 5px;
+  }
+    .minus-icon{
+      margin-top: -8px !important;
+    }
+    .plus-icon{
+      margin-top: -8px !important;
+    }
+  .price {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1px;
+    font-weight: 100;
+    margin-top: 0px !important;
+    margin-left: -5px;
+  }
     button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
         margin-right: 0px;
     }
@@ -731,7 +806,7 @@ img.product-image-items-display {
         width: 61% !important;
     }
     .header-class.ui-header.ui-bar-inherit {
-        height: 78px;
+        height: 48px;
     }
     .loader {
         margin-top: 0px;

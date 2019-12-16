@@ -69,7 +69,7 @@ function chargeUser(token){
         "data": {
             "amount": sessionStorage.total * 100,
             "currency": "usd",
-            "description": "Checkout by sheen.ruwisha@gmail.com",
+            "description": "Checkout by sheen.ruwisha12@gmail.com",
             "source": token,
             "statement_descriptor": "Custom descriptor",
             "": ""
