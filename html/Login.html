@@ -17,18 +17,37 @@
 <body>
     <div data-role="page">
         <div role="main" class="login ui-content">
+
+            <div data-role="popup" id="server-error"  class="ui-corner-all">
+                <div style="padding:10px 20px;">
+                    <img style="width: 200px;margin: auto;display: block;" src="../Resources/images/fail.gif"
+                         alt="">
+                    <h2 style="color: #ff647c;text-align: center">Something went wrong. Its not you it's us!</h2>
+                </div>
+            </div>
+
             <img class="Ipad-logo-size logo-image" src="../Resources/images/Logos/Transparent.png" alt="">
 
-            <label class="login-labels orange-label" for="username">Username</label>
-            <input class="input-white-background" type="text" name="username" id="username" placeholder="Username"
+            <p class="error-message" id="error"></p>
+
+            <label class="login-labels orange-label" for="email"><span id="username-label">Email</span> <span class="error-message" id="username-error">Email Cannot be empty</span></label>
+            <input class="input-white-background" type="text" min="1" name="email" id="email" placeholder="Email"
                 value="">
-            <label class="login-labels orange-label" for="password">Password</label>
-            <input class="input-white-background" type="text" name="password" id="password" placeholder="Password"
+            <label class="login-labels orange-label" for="password"><span id="password-label">Password</span> <span class="error-message" id="password-error">Password Cannot be empty</span></label>
+            <input class="input-white-background" type="password" min="1" name="password" id="password" placeholder="Password"
                 value="">
 
             <div class=" button-container">
-                <button onclick="doLogin()" class="login-button ui-btn ui-btn-inline rounded-button">Login</button>
+                <button onclick="doLogin()" id="login-btn" class="login-button ui-btn ui-btn-inline rounded-button">Login</button>
+                <div id="processing-btn" onclick="addReview()"
+                     class="ui-btn ui-shadow ui-corner-all login-processing login-button" >
+                    <img src="../Resources/images/loader.gif"
+                         style="display: inline-block;width: 33px;height: 33px;" alt="">
+                    <p class="processing-text">Processing</p>
+                </div>
             </div>
+
+
 
             <a href="">Forgot Password?</a>
             <p>Don't have an account? <a href="Register.html">Register NOW!</a></p>
@@ -36,4 +55,6 @@
     </div><!-- /content -->
 </body>
 
+
+<script src="../js/main.js"></script>
 </html>

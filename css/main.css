@@ -11,16 +11,65 @@
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
-<<<<<<< Updated upstream=======>>>>>>>Stashed changes
-/*Sheen css*/
-
-.add-review-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5rem;
+input{
+    color:#000 !important;
 }
 
+/*Sheen css*/
 
+
+.add-review-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 5rem;
+}
+
+.text-box-error{
+  border: 1px solid #ff647c !important;
+}
+
+.login-processing{
+    margin-top: 1em !important;
+    margin-bottom: 2em !important;
+    text-align: center;
+    justify-content: center;
+    display: none !important;
+    grid-template-columns: 4% 40%;
+    border: 1px solid #ef963a !important;
+    border-radius: 9px !important;
+    padding: 2px !important;
+}
+
+.processing-btn{
+  text-align: center;
+  justify-content: center;
+  display: none !important;
+  grid-template-columns: 4% 40%;
+  padding : 3px !important;
+  border: none;
+}
+
+.processing-text{
+  width: auto;
+  display: inline-block;
+  padding: 0px !important;
+  margin: unset;
+  margin-top: 10px;
+  padding-top: -10px !important;
+}
+
+.processing-btn-important{
+  display: grid !important;
+}
+
+.review-container{
+  padding: 5px;
+}
+
+.error-message{
+    color: #ff647c !important;
+    display: none;
+}
 /*Sheen css ends*/
 
 button.login-button.rounded-button.ui-btn.ui-btn-inline {
@@ -445,51 +494,51 @@ button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-b
 }
 
 .order-main {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 }
 
 .order-item {
-    border-radius: 20px;
-    width: 100%;
-    height: auto;
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
 }
 
 .order-item-image {
-    background: #6060602e;
-    width: 48%;
-    height: 170px;
-    display: inline-block;
-    border-radius: 20px;
-    margin-right: 2px;
+  background: #6060602e;
+  width: 35%;
+  height: 136px;
+  display: inline-block;
+  border-radius: 20px;
+  margin-right: 2px;
 }
 
 .order-item-text {
-    width: 50%;
-    height: 170px;
-    display: inline-block;
-    overflow: auto;
+  width: 50%;
+  height: 129px;
+  display: inline-block;
+  overflow: auto;
 }
 
 img.order-product.product-image-items-display {
-    width: 120% !important;
-    margin-left: -25px;
-    margin-top: 30px;
+  width: 120% !important;
+  margin-left: -25px;
+  margin-top: 30px;
 }
 
 .orderhistpru.ui-content {
-    width: 90% !important;
+  width: 90% !important;
 }
 
 p.order-product-desctiption {
-    margin-top: -15px;
+  margin-top: -15px;
 }
 
 .order-item {
-    border: 2px solid;
-    margin: 8px;
-    margin-left: -12px;
-    padding: 10px;
+  border: 2px solid;
+  margin: 8px;
+  margin-left: -12px;
+  padding: 10px;
 }
 
 .checkout-btn-cart {
@@ -562,7 +611,7 @@ img.mySlides {
 
 img.product-image-items-display {
     width: 110%;
-    margin-left: -20px;
+    margin-left: -10px;
 }
 
 p.this-will-work {
@@ -575,16 +624,14 @@ p.this-will-work {
     margin-top: 8px;
 }
 
-.payment-button-div {
-    background: #bdbcbc8c;
-    height: 74px;
-}
 
 button.checkout-button-std-sht.login-button.ui-btn.ui-btn-inline.rounded-button {
     position: fixed;
+    bottom:3%;
     width: 95% !important;
     z-index: 99;
-    margin: 10px;
+    left:50%;
+    transform: translate(-50%,-3%);
 }
 
 

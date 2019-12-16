@@ -1,72 +1,181 @@
 function doRegister() {
-  try {
-    var settings = {
-      async: true,
-      crossDomain: true,
-      url: "https://retaily-api.herokuapp.com/register",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "cache-control": "no-cache",
-        "Postman-Token": "ec19489e-5281-4aec-a7fa-2b48c9770f81"
-      },
-      processData: false,
-      data:
-        '{\n\t"username":"' +
-        $("#username").val +
-        '",\n\t"email":"' +
-        $("#email").val +
-        '",\n\t"password":"' +
-        $("#password").val +
-        '"\n}'
-    };
 
-    $.ajax(settings).done(function(response) {
-      if (response === 2001) {
-        $.mobile.changePage("Login.html", { transition: "slideup" });
-      }
-    });
-  } catch (err) {
-    console.log("doRegister failed");
-    console.log(err);
-  }
+    $("#error-message").css("display","none")
+
+    var username = $("#username").val().trim();
+    var password = $("#password").val().trim();
+    var email = $("#email").val().trim();
+    var confirmpass = $("#confpassword").val().trim();
+
+    if (username === "") {
+        $("#username").addClass("text-box-error");
+        $("#username-error").css("display","inline")
+        $("#username-label").css("display","none")
+    } else {
+        $("#username").removeClass("text-box-error")
+        $("#username-error").css("display","none")
+        $("#username-label").css("display","inline")
+    }
+
+    if (password === "") {
+        $("#password").addClass("text-box-error")
+        $("#password-error").css("display","inline")
+        $("#password-label").css("display","none")
+    } else {
+        $("#password").removeClass("text-box-error")
+        $("#password-error").css("display","none")
+        $("#password-label").css("display","inline")
+    }
+
+    if (email === "") {
+        $("#email").addClass("text-box-error");
+        $("#email-error").css("display","inline")
+        $("#email-label").css("display","none")
+    } else {
+        $("#email").removeClass("text-box-error")
+        $("#email-error").css("display","none")
+        $("#email-label").css("display","inline")
+    }
+
+    if (confirmpass === "") {
+        $("#confpassword").addClass("text-box-error")
+        $("#confpassword-error").css("display","inline")
+        $("#confpassword-label").css("display","none")
+    } else {
+        $("#confpassword").removeClass("text-box-error")
+        $("#confpassword-error").css("display","none")
+        $("#confpassword-label").css("display","inline")
+    }
+
+
+    if((confirmpass !== "" && password !== "")&&(confirmpass !== password)){
+        $("#confpassword-error-mis").css("display","inline")
+        $("#confpassword-label").css("display","none")
+    }else{
+        $("#confpassword-error-mis").css("display","none")
+        if(confirmpass !== ""){
+            $("#confpassword-label").css("display","inline")
+        }
+    }
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://retaily-api.herokuapp.com/register",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "Postman-Token": "a335e3b8-b1df-4a65-8ec7-6c48448d06d1"
+        },
+        "processData": false,
+        "data": "{\n\t\"username\":\""+username+"\",\n\t\"email\":\""+email+"\",\n\t\"password\":\""+password+"\",\n\t\"completion\":[\"false\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"]\n}"
+    }
+
+
+    if(username !== "" && email !== "" && (confirmpass !== "" && password !== "")&&(confirmpass === password)){
+        $("#login-btn").css("display", "none");
+        $("#processing-btn").addClass("processing-btn-important");
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            if (response === 2000) {
+                sessionStorage.email =  $("#email").val()
+                window.location = ("Dashboard.html");
+            }else if (response === 3001) {
+                $("#error-message").css("display","inline")
+                $("#error-message").html("Email associated with another account!")
+            }
+            else if (response === 3000) {
+                $("#error-message").css("display","inline")
+                $("#error-message").html("Registration failed")
+            }
+            $("#login-btn").css("display", "inline");
+            $("#processing-btn").removeClass("processing-btn-important");
+        }).error(function(){
+            $("#login-btn").css("display", "inline");
+            $("#processing-btn").removeClass("processing-btn-important");
+        });
+    }
+
+
 }
 
 function doLogin() {
-  try {
-    var settings = {
-      async: true,
-      crossDomain: true,
-      url: "https://retaily-api.herokuapp.com/login",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "cache-control": "no-cache",
-        "Postman-Token": "32dc8b85-292f-4687-9ed0-6122f09befaf"
-      },
-      processData: false,
-      data:
-        '{\n\t"email":"' +
-        $("#username").val() +
-        '",\n\t"password":"' +
-        $("#password").val() +
-        '"\n}'
-    };
 
-    $.ajax(settings).done(function(response) {
-      if (response === 2001) {
-        $.mobile.changePage("Main.html", { transition: "slideup" });
-      }
-    });
-  } catch (err) {
-    console.log("doLogin failed");
-    console.log(err);
-  }
+
+    var username = $("#email").val().trim();
+    var password = $("#password").val().trim();
+
+    if (username === "") {
+        $("#email").addClass("text-box-error");
+        $("#username-error").css("display","inline")
+        $("#username-label").css("display","none")
+    } else {
+        $("#email").removeClass("text-box-error")
+        $("#username-error").css("display","none")
+        $("#username-label").css("display","inline")
+    }
+
+    if (password === "") {
+        $("#password").addClass("text-box-error")
+        $("#password-error").css("display","inline")
+        $("#password-label").css("display","none")
+    } else {
+        $("#password").removeClass("text-box-error")
+        $("#password-error").css("display","none")
+        $("#password-label").css("display","inline")
+    }
+
+    if(username !== "" && password !== ""){
+        $("#error-message").css("display","none")
+        $("#login-btn").css("display", "none");
+        $("#processing-btn").addClass("processing-btn-important");
+        var settings = {
+            async: true,
+            crossDomain: true,
+            url: "https://retaily-api.herokuapp.com/login",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Postman-Token": "32dc8b85-292f-4687-9ed0-6122f09befaf"
+            },
+            processData: false,
+            data:
+            '{\n\t"email":"' +
+            $("#email").val() +
+            '",\n\t"password":"' +
+            $("#password").val() +
+            '"\n}'
+        };
+
+        $.ajax(settings).done(function(response) {
+
+            if (response === 2001) {
+                sessionStorage.email =  $("#email").val()
+                window.location = ("Dashboard.html");
+            }else if(response === 3003) {
+                $("#error-message").css("display","inline")
+                $("#error-message").html("Invalid Email or Password!")
+            }
+            $("#login-btn").css("display", "inline");
+            $("#processing-btn").removeClass("processing-btn-important");
+        }).error(function(){
+            $("#server-error").popup("open");
+            setTimeout(function () {
+                $("#server-error").popup("close");
+            }, 3000);
+            $("#login-btn").css("display", "inline");
+            $("#processing-btn").removeClass("processing-btn-important");
+        })
+    }
+
+
 }
 
 function navigateToCategories() {
   $.mobile.navigate(
-    "Catagories.html",
+    "Dashboard.html",
     { transition: "slideup" },
     (event = loadCategories())
   );
