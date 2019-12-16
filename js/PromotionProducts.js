@@ -6,39 +6,44 @@ $(document).ready(function() {
 });
 
 function loadPromotionProducts() {
-  $(".header-title").html(sessionStorage.promotion);
+  try {
+    $(".header-title").html("Promotional Products");
 
-  var promotions = "";
+    var promotions = "";
 
-  var settings = {
-    async: true,
-    crossDomain: true,
-    url:
-      "https://retaily-api.herokuapp.com/getPromotionsItems?id=" +
-      sessionStorage.promotion,
-    method: "GET",
-    headers: {
-      "cache-control": "no-cache",
-      "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-    }
-  };
+    var settings = {
+      async: true,
+      crossDomain: true,
+      url:
+        "https://retaily-api.herokuapp.com/getPromotionsItems?id=" +
+        sessionStorage.promotion,
+      method: "GET",
+      headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+      }
+    };
 
-  $.ajax(settings).done(function(response) {
-    console.log(response);
-    for (var i = 0; i < response.length; i++) {
-      promotions += addProducts(
-        response[i].productId,
-        response[i].name,
-        response[i].image,
-        response[i].description,
-        response[i].price,
-        response[i].discountPrice
-      );
-    }
-    $(".loader").remove();
-    $(".products-items").html(promotions);
-    $(".products-items").trigger("create");
-  });
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      for (var i = 0; i < response.length; i++) {
+        promotions += addProducts(
+          response[i].productId,
+          response[i].name,
+          response[i].image,
+          response[i].description,
+          response[i].price,
+          response[i].discountPrice
+        );
+      }
+      $(".loader").remove();
+      $(".products-items").html(promotions);
+      $(".products-items").trigger("create");
+    });
+  } catch (error) {
+    console.log("loadPromotionProducts failed");
+    console.log(error);
+  }
 }
 
 function addProducts(
@@ -49,7 +54,8 @@ function addProducts(
   price,
   discountPrice
 ) {
-  var productItem = `
+  try {
+    var productItem = `
         <div class="item" onclick='addProductToSessionStorage("${productId}")'>
           <div class="align-favourite">
             <div class="add-to-cart-button-div style=" Style="background: none !important;">
@@ -107,7 +113,11 @@ function addProducts(
         </div>
         `;
 
-  return productItem;
+    return productItem;
+  } catch (error) {
+    console.log("addProducts failed");
+    console.log(error);
+  }
 }
 
 function addProductToSessionStorage(productId) {

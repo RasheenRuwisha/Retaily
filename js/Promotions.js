@@ -1,65 +1,45 @@
 $(document).ready(function() {
-  //   var settings = {
-  //     async: true,
-  //     crossDomain: true,
-  //     url: "https://retaily-api.herokuapp.com/getPromotions",
-  //     method: "GET",
-  //     headers: {
-  //       "cache-control": "no-cache",
-  //       "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-  //     }
-  //   };
-
-  //   $.ajax(settings).done(function(response) {
-  //     console.log(response);
-  //     for (var i = 0; i < response.length; i++) {
-  //       promotions += addProducts(
-  //         response[i].name,
-  //         response[i].price,
-  //         response[i].image,
-  //         response[i].name,
-  //         response[i].productId
-  //       );
-  //     }
-  //     $(".loader").remove();
-  //     $(".products-items").html(promotions);
-  //     $(".products-items").trigger("create");
-  //   });
   loadPromotionProducts();
 });
 
 function loadPromotionProducts() {
   var promotions = "";
 
-  var settings = {
-    async: true,
-    crossDomain: true,
-    url: "https://retaily-api.herokuapp.com/getPromotions",
-    method: "GET",
-    headers: {
-      "cache-control": "no-cache",
-      "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-    }
-  };
+  try {
+    var settings = {
+      async: true,
+      crossDomain: true,
+      url: "https://retaily-api.herokuapp.com/getPromotions",
+      method: "GET",
+      headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+      }
+    };
 
-  $.ajax(settings).done(function(response) {
-    console.log(response);
-    for (var i = 0; i < response.length; i++) {
-      promotions += addProducts(
-        response[i].promotionId,
-        response[i].name,
-        response[i].description,
-        response[i].image
-      );
-    }
-    $(".loader").remove();
-    $(".products-items").html(promotions);
-    $(".products-items").trigger("create");
-  });
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      for (var i = 0; i < response.length; i++) {
+        promotions += addProducts(
+          response[i].promotionId,
+          response[i].name,
+          response[i].description,
+          response[i].image
+        );
+      }
+      $(".loader").remove();
+      $(".products-items").html(promotions);
+      $(".products-items").trigger("create");
+    });
+  } catch (error) {
+    console.log("loadPromotionProducts failed");
+    console.log(error);
+  }
 }
 
 function addProducts(promotionId, name, description, image) {
-  var productItem = `
+  try {
+    var productItem = `
         <div class="main">
           <div class="pr-card">
             <div
@@ -83,7 +63,11 @@ function addProducts(promotionId, name, description, image) {
         </div>
         `;
 
-  return productItem;
+    return productItem;
+  } catch (error) {
+    console.log("addProdutcs failed");
+    console.log(error);
+  }
 }
 
 function addToSessionStorage(promotionId) {

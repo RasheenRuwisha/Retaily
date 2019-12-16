@@ -1,43 +1,53 @@
-$(document).ready(function () {
-    var pathname = window.location.pathname;
-    if(pathname.includes("fashion")){
-        loadCategoryProducts()
-    }
+$(document).ready(function() {
+  var pathname = window.location.pathname;
+  if (pathname.includes("fashion")) {
+    loadCategoryProducts();
+  }
 });
 
-function loadCategoryProducts(){
-    $(".header-title").html(sessionStorage.category);
+function loadCategoryProducts() {
+  $(".header-title").html(sessionStorage.category);
 
-    var categories = "";
+  var categories = "";
 
+  try {
     var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/categoryProducts?category=" + sessionStorage.category,
-        "method": "GET",
-        "headers": {
-            "cache-control": "no-cache",
-            "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-        }
-    }
+      async: true,
+      crossDomain: true,
+      url:
+        "https://retaily-api.herokuapp.com/categoryProducts?category=" +
+        sessionStorage.category,
+      method: "GET",
+      headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+      }
+    };
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        for(var i = 0; i< response.length; i++){
-            categories += addProducts(response[i].name, response[i].price, response[i].image, response[i].name,response[i].productId)
-        }
-        $(".loader").remove();
-        $(".products-items").html(categories);
-        $(".products-items").trigger('create');
-
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      for (var i = 0; i < response.length; i++) {
+        categories += addProducts(
+          response[i].name,
+          response[i].price,
+          response[i].image,
+          response[i].name,
+          response[i].productId
+        );
+      }
+      $(".loader").remove();
+      $(".products-items").html(categories);
+      $(".products-items").trigger("create");
     });
+  } catch (err) {
+    console.log("loadCategoryProducts failed");
+    console.log(err);
+  }
 }
 
-function addProducts(name, price, image, promotion,productId ){
-
-    var productItem =
-
-        `
+function addProducts(name, price, image, promotion, productId) {
+  try {
+    var productItem = `
         <div class="item" onclick='addProductToSessionStorage("${productId}")'>
           <div class="align-favourite">
             <div class="add-to-cart-button-div style=" Style="background: none !important;">
@@ -93,15 +103,18 @@ function addProducts(name, price, image, promotion,productId ){
   
   
         </div>
-        `
+        `;
 
     return productItem;
+  } catch (err) {
+    console.log("addProducts failed");
+    console.log(err);
+  }
 }
 
+function addProductToSessionStorage(productId) {
+  console.log(productId);
+  sessionStorage.product = productId;
 
-function addProductToSessionStorage(productId){
-    console.log(productId);
-    sessionStorage.product = productId;
-
-    window.location = "ProductPage.html"
+  window.location = "ProductPage.html";
 }
