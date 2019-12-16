@@ -1,40 +1,43 @@
-$(window).ready(function () {
-    var pathname = window.location.pathname;
-    if(pathname.includes("Catagories")){
-        loadCategories()
-    }
+$(window).ready(function() {
+  var pathname = window.location.pathname;
+  if (pathname.includes("Catagories")) {
+    loadCategories();
+  }
 });
 
+function loadCategories() {
+  console.log("Sakke");
+  var categories = "";
 
-function loadCategories(){
-    console.log("Sakke")
-    var categories = "";
-
+  try {
     var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/categories",
-        "method": "GET",
-        "headers": {
-            "cache-control": "no-cache",
-            "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-        }
-    }
+      async: true,
+      crossDomain: true,
+      url: "https://retaily-api.herokuapp.com/categories",
+      method: "GET",
+      headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+      }
+    };
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        for(var i = 0; i< response.length; i++){
-            categories += addCategoryItem(response[i].name, response[i].image)
-        }
-        $(".category-items").html(categories);
-        $(".category-items").trigger('create');
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      for (var i = 0; i < response.length; i++) {
+        categories += addCategoryItem(response[i].name, response[i].image);
+      }
+      $(".category-items").html(categories);
+      $(".category-items").trigger("create");
     });
+  } catch (err) {
+    console.log("loadCategories failed");
+    console.log(err);
+  }
 }
 
-function addCategoryItem(name, image){
-    var categoryItem =
-
-        `
+function addCategoryItem(name, image) {
+  try {
+    var categoryItem = `
         <div class="item">
                     <div class="align-favourite">
 
@@ -48,13 +51,16 @@ function addCategoryItem(name, image){
                             class="Product-Price Product-Name">${name}</p>
                     </a>
                 </div>
-        `
+        `;
     return categoryItem;
+  } catch (err) {
+    console.log("addCategoryItem failed");
+    console.log(err);
+  }
 }
 
-
-function addToSessionStorage(categoryId){
-    console.log(categoryId);
-    sessionStorage.category = categoryId;
-    window.location  =("fashion.html")
+function addToSessionStorage(categoryId) {
+  console.log(categoryId);
+  sessionStorage.category = categoryId;
+  window.location = "fashion.html";
 }

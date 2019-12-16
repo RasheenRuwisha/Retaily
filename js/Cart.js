@@ -1,59 +1,59 @@
-$(document).ready(function () {
-    var pathname = window.location.pathname;
-    if(pathname.includes("Cart")){
-        loadCart()
-    }
+$(document).ready(function() {
+  var pathname = window.location.pathname;
+  if (pathname.includes("Cart")) {
+    loadCart();
+  }
 });
 
-function loadCart(){
-    $(".header-title").html(sessionStorage.category);
+function loadCart() {
+  $(".header-title").html(sessionStorage.category);
 
-    var categories = "";
+  var categories = "";
 
+  try {
     var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha@gmail.com",
-        "method": "GET",
-        "headers": {
-            "cache-control": "no-cache",
-            "Postman-Token": "e029cdb2-7f8f-4b48-b4c6-d56a44dfa180"
+      async: true,
+      crossDomain: true,
+      url:
+        "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha@gmail.com",
+      method: "GET",
+      headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "e029cdb2-7f8f-4b48-b4c6-d56a44dfa180"
+      }
+    };
+
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      if (response.cartItemsList.length > 0) {
+        for (var i = 0; i < response.cartItemsList.length; i++) {
+          categories += addProducts(response.cartItemsList[i]);
         }
-    }
-
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        if(response.cartItemsList.length >0){
-            for(var i = 0; i< response.cartItemsList.length; i++){
-                categories += addProducts(response.cartItemsList[i])
-            }
-
-        }else{
-            categories +=
-
-                `
+      } else {
+        categories += `
                  <div class="loader">
                     <img class="loader-gif" src="../images/ezgif.com-gif-maker.gif">
                     <p>This pupper is lonely because you have no items in cart! Add some now...</p>
                 </div>
-                `
-        }
-        $("#price").html(response.total);
-        $(".loader").remove();
-        $(".order-main").html(categories);
-        $(".order-main").trigger('create');
-        $("#btn-checkout").html(`    <div class="checkout-btn-cart">
+                `;
+      }
+      $("#price").html(response.total);
+      $(".loader").remove();
+      $(".order-main").html(categories);
+      $(".order-main").trigger("create");
+      $("#btn-checkout").html(`    <div class="checkout-btn-cart">
                 <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Pay $<span id="price">${response.total}</span></button>
             </div>`);
-
     });
+  } catch (err) {
+    console.log(err);
+    console.log("loadCart failed");
+  }
 }
 
-function addProducts(response ){
-
-    var productItem =
-
-        `
+function addProducts(response) {
+  try {
+    var productItem = `
 <div class="order-item">
     <div class="order-item-image">
     <img class="order-product product-image-items-display" src="${response.productImage}" alt=" PS4" style="width:70%; float: left;" />
@@ -73,29 +73,36 @@ function addProducts(response ){
 
     </div>
     </div>
-        `
+        `;
 
     return productItem;
+  } catch (err) {
+    console.log(err);
+    console.log("addProducts failed");
+  }
 }
 
-
-
-function removeCartItem(id){
+function removeCartItem(id) {
+  try {
     var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/removeCart?id="+id,
-        "method": "GET",
-        "headers": {
-            "cache-control": "no-cache",
-            "Postman-Token": "1a2a59f4-16b1-481a-aa97-0cce767a1092"
-        }
-    }
+      async: true,
+      crossDomain: true,
+      url: "https://retaily-api.herokuapp.com/removeCart?id=" + id,
+      method: "GET",
+      headers: {
+        "cache-control": "no-cache",
+        "Postman-Token": "1a2a59f4-16b1-481a-aa97-0cce767a1092"
+      }
+    };
 
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-        if(response === 2006){
-            loadCart();
-        }
+    $.ajax(settings).done(function(response) {
+      console.log(response);
+      if (response === 2006) {
+        loadCart();
+      }
     });
+  } catch (err) {
+    console.log("removeCardItem failed");
+    console.log(err);
+  }
 }
