@@ -5,59 +5,13 @@ $(document).ready(function() {
     var pathname = window.location.pathname;
     product = getUrlParam("id","Empty");
     product = product.split("%")[0];
-    if (pathname.includes("fashion")) {
-        getFav();
+    if (pathname.includes("Favourite")) {
+        loadCategoryProducts();
     }
 });
 
 
 function sortHighLow(){
-    $(".loader").css("display","block");
-    $(".products-items").css("display","none");
-    $("#drop-select").css("display","none");
-    
-        var categories = "";
-    
-        try {
-            var settings = {
-                async: true,
-                crossDomain: true,
-                url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
-                product,
-                method: "GET",
-                headers: {
-                    "cache-control": "no-cache",
-                    "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-                }
-            };
-    
-            $.ajax(settings).done(function(response) {
-                console.log(response);
-                for (var i = 0; i < response.length; i++) {
-                    categories += addProducts(
-                        response[i].name,
-                        response[i].price,
-                        response[i].image,
-                        response[i].hasDiscount,
-                        response[i].productId,
-                        response[i].discountPrice,
-                    );
-                }
-                $("#drop-select").css("display","inline");
-
-                $(".loader").css("display","none");
-                $(".products-items").css("display","grid");
-                $(".products-items").html(categories);
-                $("#drop-select").trigger("create");
-                $(".products-items").trigger("create");
-            });
-        } catch (err) {
-            console.log("loadCategoryProducts failed");
-            console.log(err);
-        }
-}
-
-function sortLowtoHigh(){
     $(".loader").css("display","block");
     $(".products-items").css("display","none");
     $("#drop-select").css("display","none");
@@ -68,7 +22,7 @@ function sortLowtoHigh(){
         var settings = {
             async: true,
             crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/sortLow?category=" +
+            url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
             product,
             method: "GET",
             headers: {
@@ -104,7 +58,6 @@ function sortLowtoHigh(){
 }
 
 
-
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
@@ -131,16 +84,16 @@ function loadCategoryProducts() {
 
     try {
         var settings = {
-            async: true,
-            crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/categoryProducts?category=" +
-            product,
-            method: "GET",
-            headers: {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://retaily-api.herokuapp.com/getFav?email=sheen.ruwisha12@gmail.com",
+            "method": "GET",
+            "headers": {
                 "cache-control": "no-cache",
-                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+                "Postman-Token": "441e902d-98ba-422d-8dfb-e1318729a41d"
             }
-        };
+        }
+
 
         $.ajax(settings).done(function(response) {
             console.log(response);
@@ -178,26 +131,6 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
         name += "...";
     }
 
-    var favIcon = "";
-
-
-
-    if(fav.includes(productId)){
-        favIcon += `
-         <div onclick="removeFav('sheen.ruwisha12@gmail.com${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
-              <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
-                  src="../Resources/images/icons/valentines-heart.png" border="0" />
-            </div>
-        `
-    }else{
-        favIcon += `
-         <div onclick="addToFav('${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
-              <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
-                  src="../Resources/images/icons/heart%20(1).png" border="0" />
-            </div>
-        `
-    }
-
 
 
     if(promotion){
@@ -224,10 +157,13 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
 
 
 
-        var productItem = `
+    var productItem = `
         <div class="item">
           <div class="align-favourite">
-           ${favIcon}
+          <div onclick="removeFav('sheen.ruwisha12@gmail.com${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
+              <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
+                  src="../Resources/images/icons/valentines-heart.png" border="0" />
+            </div>
           </div>
           <a style="font-weight:300;color:black"   href='ProductPage.html?id=${productId}' rel='external'><img class="product-image-items-display" src="${image}" alt=" PS4" /></a>
         ${mainPrice}
@@ -275,7 +211,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
         </div>
         `;
 
-        return productItem;
+    return productItem;
 }
 
 
@@ -294,10 +230,10 @@ function addToCart(productid) {
         },
         processData: false,
         data: '{\n\t"email":"sheen.ruwisha12@gmail.com",\n\t"productId":"' +
-            productid +
-            '",\n     "qty":' +
-            parseInt(value) +
-            "\n}\n"
+        productid +
+        '",\n     "qty":' +
+        parseInt(value) +
+        "\n}\n"
     };
 
     $.ajax(settings).done(function(response) {
@@ -326,15 +262,15 @@ function incrementQuantity(id,total,incr) {
     var currentQuantity = document
         .getElementById(id)
         .innerHTML.valueOf();
-        var price = document
+    var price = document
         .getElementById(total)
-        .innerHTML.valueOf();   
-        price =   parseInt(price)
-        var incr = document
+        .innerHTML.valueOf();
+    price =   parseInt(price)
+    var incr = document
         .getElementById(incr)
-        .innerHTML.valueOf();   
-        incr =   parseInt(incr)
-        price +=  incr; 
+        .innerHTML.valueOf();
+    incr =   parseInt(incr)
+    price +=  incr;
     currentQuantity++;
     document.getElementById(id).innerHTML = currentQuantity;
     document.getElementById(total).innerHTML = price;
@@ -345,15 +281,15 @@ function decrementQuantity(id,total,incr) {
     var currentQuantity = document
         .getElementById(id)
         .innerHTML.valueOf();
-        var price = document
+    var price = document
         .getElementById(total)
-        .innerHTML.valueOf();  
-        price =   parseInt(price)
-        var incr = document
+        .innerHTML.valueOf();
+    price =   parseInt(price)
+    var incr = document
         .getElementById(incr)
-        .innerHTML.valueOf();   
-        incr =   parseInt(incr)
-        price -=  incr; 
+        .innerHTML.valueOf();
+    incr =   parseInt(incr)
+    price -=  incr;
     if (!(currentQuantity == 1)) {
         currentQuantity--;
         document.getElementById(id).innerHTML = currentQuantity;
@@ -408,29 +344,6 @@ function removeFav(id,image){
         }
     });
 }
-
-
-function getFav(){
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url":"https://retaily-api.herokuapp.com/getFav?email=sheen.ruwisha12@gmail.com",
-        "method": "GET",
-        "headers": {
-            "cache-control": "no-cache",
-            "Postman-Token": "0a1a48a6-bc98-4b3e-ad58-3da2ff13fcf5"
-        }
-    }
-
-    $.ajax(settings).done(function (response) {
-        for(var i=0;i<response.length;i++){
-            fav.push(response[i].productId);
-        }
-        loadCategoryProducts();
-
-    });
-}
-
 
 
 

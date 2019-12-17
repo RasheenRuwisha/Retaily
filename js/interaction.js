@@ -31,10 +31,10 @@ function handleClickEvent() {
     var builderMarker = document.querySelector("#" + builder.name + "-marker");
     if (builderMarker && builderMarker.object3D.visible) {
       if (searchForBuilderTool(builder)){
-          if(builder.name === "pyra"){
-              updateProgress();
-          }
           toggleSpeechBubble(builder.successDialogue);
+          if(builder.name === "pyra"){
+            updateProgress();
+        }
       } else {
           toggleSpeechBubble(builder.dialogue);
       }
@@ -69,21 +69,21 @@ function searchForBuilderTool(builder) {
 
 
 function updateProgress(){
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/updateTreasureHunt",
-        "method": "GET",
-        "headers": {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "cache-control": "no-cache",
-            "Postman-Token": "3892279c-ff35-4ba5-be6b-cea07fd5492e"
-        },
-        "processData": false,
-        "data": "{\n    \"email\": \"sheen.ruwisha12@gmail.com\",\n    \"completion\": [\"true\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"]\n}"
-    }
-
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-    });
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://retaily-api.herokuapp.com/updateTreasureHunt",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json",
+      "cache-control": "no-cache",
+      "Postman-Token": "540e1b4c-027e-4ea4-b7f0-9d3769c7ad40"
+    },
+    "processData": false,
+    "data": "{\n    \"email\": \"sheen.ruwisha12@gmail.com\",\n    \"completion\": [\"true\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"]\n}"
+  }
+  
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
 }

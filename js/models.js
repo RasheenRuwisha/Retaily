@@ -33,7 +33,7 @@ function initiateModels() {
     var buildersArray = [
       {
         name: 'pyra',
-        dialogue: 'Hi there, I\'m the steve...! I beed your help to build my house!',
+        dialogue: 'Hi there, I\'m the steve...! I have lost my chicken',
         tool: new Tool('hammer', 'You have found Pyra\'s hammer!'),
         successDialogue: 'Thanks for my hammer!'
       },
