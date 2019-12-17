@@ -409,7 +409,8 @@ img.add-to-cart-plus-icon {
 .align-favourite {
     float: right;
     margin-right: 10px;
-    margin-bottom: -30px;
+    margin-bottom: -26px;
+    margin-top: -2px;
 }
 
 h3.heading.ui-content {
@@ -630,7 +631,8 @@ img.mySlides {
 img.product-image-items-display {
     width: 110%;
     margin-left: -10px;
-    margin-bottom: -5px;
+    margin-bottom: -15px;
+    margin-top: 15px
 }
 
 p.this-will-work {
@@ -761,7 +763,7 @@ span.payment-lable-name {
     font-weight: 700;
 }
 
-labe
+
 /*Start of media queries/
 /*Ipad Landcaoe*/
 
