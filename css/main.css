@@ -416,6 +416,14 @@ h3.heading.ui-content {
     margin-bottom: -20px !important;
 }
 
+.search {
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    margin-top: 70px;
+}
+
 .loader {
     display: block;
     margin: auto;
@@ -814,6 +822,9 @@ p.user-point.float-price {
     .loader {
         margin-top: 92px;
     }
+    .search {
+        margin-top: 92px;
+    }
     button.checkout-button-std-sht.login-button.ui-btn.ui-btn-inline.rounded-button {
         width: 98% !important;
     }
@@ -879,6 +890,9 @@ p.user-point.float-price {
         width: 40%;
     }
     .loader {
+        margin-top: 210px;
+    }
+    .search {
         margin-top: 210px;
     }
     .leaderboard-participants.ui-content {
@@ -1003,6 +1017,9 @@ p.user-point.float-price {
         height: 48px;
     }
     .loader {
+        margin-top: 0px;
+    }
+    .search {
         margin-top: 0px;
     }
     .loader-gif {
