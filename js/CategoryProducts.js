@@ -1,12 +1,33 @@
+var product;
 $(document).ready(function() {
     var pathname = window.location.pathname;
+    product = getUrlParam("id","Empty");
+    product = product.split("%")[0];
     if (pathname.includes("fashion")) {
         loadCategoryProducts();
     }
 });
 
+
+
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+}
 function loadCategoryProducts() {
-    $(".header-title").html(sessionStorage.category);
+    $(".header-title").html(product);
 
     var categories = "";
 
@@ -15,7 +36,7 @@ function loadCategoryProducts() {
             async: true,
             crossDomain: true,
             url: "https://retaily-api.herokuapp.com/categoryProducts?category=" +
-                sessionStorage.category,
+            product,
             method: "GET",
             headers: {
                 "cache-control": "no-cache",
@@ -30,8 +51,9 @@ function loadCategoryProducts() {
                     response[i].name,
                     response[i].price,
                     response[i].image,
-                    response[i].name,
-                    response[i].productId
+                    response[i].hasDiscount,
+                    response[i].productId,
+                    response[i].discountPrice,
                 );
             }
             $("#drop-select").html(` <select name="select-native-2" id="select-native-3" data-iconpos="right">
@@ -50,8 +72,41 @@ function loadCategoryProducts() {
     }
 }
 
-function addProducts(name, price, image, promotion, productId) {
-    try {
+function addProducts(name, price, image, promotion, productId,discountPrice) {
+
+    var popPrice = "";
+    var mainPrice = "";
+    var totalPrice = ""
+
+    if(name.length >17){
+        name = name.substr(0,17);
+        name += "...";
+    }
+
+    if(promotion){
+        popPrice += `
+        <p class="price">Product Price :</p>
+                  <p class="price float-price">$${price}</p>
+                  <br>
+                  <p class="price">Promotion Price :</p>
+                  <p class="price float-price">$${discountPrice}</p>
+        `;
+
+        mainPrice += `  <p style="display: inline; text-decoration: line-through;" class="Product-Price">$${price}</p>
+        <p style="display: inline;" class="Product-Price"><b>${discountPrice}</b></p>`
+        totalPrice += ` <p class="price float-price">$<span  id="total-${productId}">${discountPrice}</span><span id="incr-${productId}" style="display:none">${discountPrice}</span></p>`
+    }else{
+        popPrice += `<p class="price">Product Price :</p>
+                  <p class="price float-price">$${price}</p>
+                  <br></br>`;
+
+        mainPrice += `  <p style="display: inline;" class="Product-Price">$${price}</p>`
+        totalPrice += ` <p class="price float-price">$<span  id="total-${productId}">${price}</span><span id="incr-${productId}"  style="display:none">${price}</span></p>`
+    }
+
+
+
+
         var productItem = `
         <div class="item">
           <div class="align-favourite">
@@ -61,10 +116,11 @@ function addProducts(name, price, image, promotion, productId) {
                   src="../Resources/images/icons/heart (1).png" border="0" /></a>  
             </div>
           </div>
-          <img class="product-image-items-display" onclick='addProductToSessionStorage("${productId}")' src="${image}" alt=" PS4" />
-          <p style="display: inline; text-decoration: line-through;" class="Product-Price">$ ${price}</p>
-          <p style="display: inline;" class="Product-Price"><b>$399</b></p>
-          <p class="Product-Price Product-Name" onclick='addProductToSessionStorage("${productId}")'>${name}</p>
+          <a style="font-weight:300;color:black"   href='ProductPage.html?id=${productId}' rel='external'><img class="product-image-items-display" src="${image}" alt=" PS4" /></a>
+        ${mainPrice}
+
+
+          <a style="font-weight:300;color:black"  href='ProductPage.html?id=${productId}' rel='external'><p class="Product-Price Product-Name">${name}</p></a>
           <div class="align-addtocart">
             <div class="add-to-cart-button-div">
               <a href="#${productId}" data-rel="popup" data-position-to="window"
@@ -73,21 +129,17 @@ function addProducts(name, price, image, promotion, productId) {
               <div data-role="popup" id="${productId}" data-theme="" class="ui-corner-all">
                 <div style="padding:10px 20px; width: 200px;">
                               <h3 class="product-addtocart-popup">${name} </h3>
-                  <p class="price">Product Price :</p>
-                  <p class="price float-price">$ ${price}</p>
-                  <br>
-                  <p class="price">Promotion Price :</p>
-                  <p class="price float-price">$399</p>
+                  ${popPrice}
                   <br>
                   <br>
                   <p class="price">Quantity :</p>
-                  <button onclick="decrementQuantity('qty-${productId}')" class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
+                  <button onclick="decrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')" class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                     data-theme="none">
                     <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
                       width="35px" height="35px" />
                   </button>
                   <p class="price float-price" id="qty-${productId}">1</p>
-                  <button onclick="incrementQuantity('qty-${productId}')"  class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
+                  <button onclick="incrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')"  class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                     data-theme="none">
                     <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
                       height="35px" />
@@ -95,7 +147,7 @@ function addProducts(name, price, image, promotion, productId) {
                   <br>
                   <br>
                   <p class="price">Total :</p>
-                  <p class="price float-price">$399</p>
+                    ${totalPrice}
                     <div class=" button-container">
                     <button onclick=addToCart("${productId}") type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
                   </div>
@@ -111,18 +163,8 @@ function addProducts(name, price, image, promotion, productId) {
         `;
 
         return productItem;
-    } catch (err) {
-        console.log("addProducts failed");
-        console.log(err);
-    }
 }
 
-function addProductToSessionStorage(productId) {
-    console.log(productId);
-    sessionStorage.product = productId;
-
-    window.location = "ProductPage.html";
-}
 
 
 function addToCart(productid) {
@@ -167,20 +209,41 @@ function addToCart(productid) {
     });
 }
 
-function incrementQuantity(id) {
+function incrementQuantity(id,total,incr) {
     var currentQuantity = document
         .getElementById(id)
         .innerHTML.valueOf();
+        var price = document
+        .getElementById(total)
+        .innerHTML.valueOf();   
+        price =   parseInt(price)
+        var incr = document
+        .getElementById(incr)
+        .innerHTML.valueOf();   
+        incr =   parseInt(incr)
+        price +=  incr; 
     currentQuantity++;
     document.getElementById(id).innerHTML = currentQuantity;
+    document.getElementById(total).innerHTML = price;
+
 }
 
-function decrementQuantity(id) {
+function decrementQuantity(id,total,incr) {
     var currentQuantity = document
         .getElementById(id)
         .innerHTML.valueOf();
+        var price = document
+        .getElementById(total)
+        .innerHTML.valueOf();  
+        price =   parseInt(price)
+        var incr = document
+        .getElementById(incr)
+        .innerHTML.valueOf();   
+        incr =   parseInt(incr)
+        price -=  incr; 
     if (!(currentQuantity == 1)) {
         currentQuantity--;
         document.getElementById(id).innerHTML = currentQuantity;
+        document.getElementById(total).innerHTML = price;
     }
 }

@@ -42,7 +42,7 @@ function addCategoryItem(name, image) {
                     <div class="align-favourite">
 
                     </div>
-                    <a style="text-decoration: none;" onclick='addToSessionStorage("${name}")'>
+                    <a style="text-decoration: none;" href='fashion.html?id=${name}' rel='external'>
 
 
                         <img class="catagories category-image-items-display" src=${image}
@@ -59,8 +59,3 @@ function addCategoryItem(name, image) {
   }
 }
 
-function addToSessionStorage(categoryId) {
-  console.log(categoryId);
-  sessionStorage.category = categoryId;
-  window.location = "fashion.html";
-}

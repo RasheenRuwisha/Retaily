@@ -1,18 +1,36 @@
-$(document).ready(function() {
+var product;
+    $(document).ready(function () {
     var pathname = window.location.pathname;
     if (pathname.includes("ProductPage")) {
+        product = getUrlParam("id","Empty");
+        product = product.split("%")[0];
         loadProduct();
         loadReviews();
-
     }
 });
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
+
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+}
 
 function loadReviews() {
     var settings = {
         "async": true,
         "crossDomain": true,
         "url": "https://retaily-api.herokuapp.com/getReviews?productId=" +
-            sessionStorage.product,
+        product,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
@@ -50,8 +68,9 @@ function loadProduct() {
     var settings = {
         async: true,
         crossDomain: true,
-        url: "https://retaily-api.herokuapp.com/product?productId=" +
-            sessionStorage.product,
+        url:
+        "https://retaily-api.herokuapp.com/product?productId=" +
+        product,
         method: "GET",
         headers: {
             "cache-control": "no-cache",
@@ -73,6 +92,27 @@ function loadProduct() {
 function addProducts(response) {
     var images = "";
     var dots = "";
+
+
+    var popPrice = "";
+
+
+    if(response.hasDiscount){
+        popPrice += `
+        <p class="single-product price">Product Price :</p>
+                    <p class="single-product price float-price">$${response.price}</p>
+                    <br>
+                    <p class="single-product price">Promotion Price :</p>
+                    <p class="single-product price float-price">$${response.discountPrice}</p>
+        `;
+
+    }else{
+        popPrice += ` <p class="single-product price">Product Price :</p>
+        <p class="single-product price float-price">$ ${response.price}</p>
+        <br>`;
+
+    }
+
 
     for (var i = 0; i < response.image.length; i++) {
         images += `
@@ -114,11 +154,10 @@ function addProducts(response) {
                 </p>
 
                 <div>
-                    <p class="single-product price">Product Price :</p>
-                    <p class="single-product price float-price">$ ${response.price}</p>
-                    <br>
-                    <p class="single-product price">Promotion Price :</p>
-                    <p class="single-product price float-price">$399</p>
+                   
+
+        ${popPrice}
+
                     <br>
                     <br>
                     <p class="single-product price">Quantity :</p>
@@ -313,7 +352,7 @@ function addReview() {
                 "Postman-Token": "2d243d6a-6eca-4124-ac3c-1a4c84cf7fac"
             },
             "processData": false,
-            "data": "{\n\t\"email\":\"sheen.ruwisha@gmail.com\",\n\t\"productId\":\"" + sessionStorage.product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
+            "data": "{\n\t\"email\":\"sheen.ruwisha@gmail.com\",\n\t\"productId\":\"" + product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
         }
 
         $.ajax(settings).done(function(response) {
