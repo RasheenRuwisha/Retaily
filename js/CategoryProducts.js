@@ -10,7 +10,9 @@ $(document).ready(function() {
 
 
 function sortHighLow(){
-        $(".header-title").html(product);
+    $(".loader").css("display","block");
+    $(".products-items").css("display","none");
+    $("#drop-select").css("display","none");
     
         var categories = "";
     
@@ -41,7 +43,8 @@ function sortHighLow(){
                 }
                 $("#drop-select").css("display","inline");
 
-                $(".loader").remove();
+                $(".loader").css("display","none");
+                $(".products-items").css("display","grid");
                 $(".products-items").html(categories);
                 $("#drop-select").trigger("create");
                 $(".products-items").trigger("create");
@@ -53,7 +56,9 @@ function sortHighLow(){
 }
 
 function sortLowtoHigh(){
-    $(".header-title").html(product);
+    $(".loader").css("display","block");
+    $(".products-items").css("display","none");
+    $("#drop-select").css("display","none");
 
     var categories = "";
 
@@ -84,7 +89,8 @@ function sortLowtoHigh(){
             }
             $("#drop-select").css("display","inline");
 
-            $(".loader").remove();
+            $(".loader").css("display","none");
+            $(".products-items").css("display","grid");
             $(".products-items").html(categories);
             $("#drop-select").trigger("create");
             $(".products-items").trigger("create");
@@ -115,6 +121,9 @@ function getUrlParam(parameter, defaultvalue){
 
 function loadCategoryProducts() {
     $(".header-title").html(product);
+    $(".loader").css("display","block");
+    $(".products-items").css("display","none");
+    $("#drop-select").css("display","none");
 
     var categories = "";
 
@@ -144,7 +153,8 @@ function loadCategoryProducts() {
                 );
             }
             $("#drop-select").css("display","inline");
-            $(".loader").remove();
+            $(".loader").css("display","none");
+            $(".products-items").css("display","grid");
             $(".products-items").html(categories);
             $("#drop-select").trigger("create");
             $(".products-items").trigger("create");
