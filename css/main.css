@@ -71,6 +71,7 @@ input {
     display: none;
 }
 
+
 /*Sheen css ends*/
 
 button.login-button.rounded-button.ui-btn.ui-btn-inline {
@@ -439,12 +440,10 @@ h3.heading.ui-content {
 .promotion-card {
     border-radius: 10%;
     padding: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
 .pr-card {
-    height: 250px;
+    height: 300px;
     width: 350px;
     margin-top: 20px;
     margin-left: 9%;
@@ -741,7 +740,28 @@ p.user-point.float-price {
     height: 60px;
 }
 
+img.promotion-card-image {
+    max-width: 310px;
+    border-radius: 10%;
+}
 
+h6.promotion-name.login-labels {
+    margin: 0px;
+    font-size: 20px !important;
+    margin-bottom: -18px;
+}
+
+.promotions-page-thing.ui-content {
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+}
+
+span.payment-lable-name {
+    font-weight: 700;
+}
+
+labe
 /*Start of media queries/
 /*Ipad Landcaoe*/
 

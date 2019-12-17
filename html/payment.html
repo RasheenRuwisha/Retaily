@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fashion</title>
+    <title>Payment</title>
     <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
     <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
     <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
@@ -19,50 +19,59 @@
 <body>
     <div data-role="page" data-theme="d" id="page-content">
         <div data-role="header" class="header-class">
-            <button class="btn-home" data-role="button" data-shadow="false" data-theme="none">
-            <img src="../Resources/images/Logos/Transparent.png" border="0"/>
-        </button>
-            <h1 class="header-title"></h1>
+            <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
+                <button class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                <img src="../Resources/images/logos/Transparent.png" border="0">
+            </button>
 
-            <button class="btn-userprofile" data-role="button" data-shadow="false" data-theme="none">
-            <img src="../Resources/images/icons/header-userprofile.png" border="0"/>
-        </button>
+                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Payment</h3>
+
+                <button class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+            </button>
+                <button class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                <img src="../Resources/images/icons/header-userprofile.png" border="0">
+            </button>
+            </div>
         </div>
 
 
-        <div role="main" class="favourites ui-content">
+
+        <div role="main" class=" ui-content">
             <script src="https://js.stripe.com/v3/"></script>
+            <br>
+            <br>
             <form>
                 <label>
-                <span>Name</span>
+                <span class="payment-lable-name">Name</span>
                 <input name="cardholder-name" placeholder="Jane Doe" />
             </label>
                 <label>
-                <span>Email</span>
+                <span class="payment-lable-name">Email</span>
                 <input  placeholder="(123) 456-7890" type="email" />
             </label>
                 <label>
-                <span>Address Line 1</span>
+                <span class="payment-lable-name">Address Line 1</span>
                 <input name="address-line1" placeholder="94110" />
             </label>
                 <label>
-                <span>Address Line 2</span>
+                <span class="payment-lable-name">Address Line 2</span>
                 <input name="address-line2" placeholder="94110" />
             </label>
                 <label>
-                <span>State</span>
+                <span class="payment-lable-name">State</span>
                 <input name="address-state" placeholder="94110" />
             </label>
                 <label>
-                <span>Sity</span>
+                <span class="payment-lable-name">Sity</span>
                 <input name="address-city" placeholder="94110" />
             </label>
                 <label>
-                <span>ZIP code</span>
+                <span class="payment-lable-name">ZIP code</span>
                 <input name="address-zip" placeholder="94110" />
             </label>
                 <label>
-                <span>Card</span>
+                <span class="payment-lable-name">Card</span>
                 <div id="card-element" class="field"></div>
             </label>
                 <button type="submit">Pay $ <span id="price">25</span></button>
