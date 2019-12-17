@@ -9,6 +9,92 @@ $(document).ready(function() {
 });
 
 
+function sortHighLow(){
+        $(".header-title").html(product);
+    
+        var categories = "";
+    
+        try {
+            var settings = {
+                async: true,
+                crossDomain: true,
+                url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
+                product,
+                method: "GET",
+                headers: {
+                    "cache-control": "no-cache",
+                    "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+                }
+            };
+    
+            $.ajax(settings).done(function(response) {
+                console.log(response);
+                for (var i = 0; i < response.length; i++) {
+                    categories += addProducts(
+                        response[i].name,
+                        response[i].price,
+                        response[i].image,
+                        response[i].hasDiscount,
+                        response[i].productId,
+                        response[i].discountPrice,
+                    );
+                }
+                $("#drop-select").css("display","inline");
+
+                $(".loader").remove();
+                $(".products-items").html(categories);
+                $("#drop-select").trigger("create");
+                $(".products-items").trigger("create");
+            });
+        } catch (err) {
+            console.log("loadCategoryProducts failed");
+            console.log(err);
+        }
+}
+
+function sortLowtoHigh(){
+    $(".header-title").html(product);
+
+    var categories = "";
+
+    try {
+        var settings = {
+            async: true,
+            crossDomain: true,
+            url: "https://retaily-api.herokuapp.com/sortLow?category=" +
+            product,
+            method: "GET",
+            headers: {
+                "cache-control": "no-cache",
+                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+            }
+        };
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            for (var i = 0; i < response.length; i++) {
+                categories += addProducts(
+                    response[i].name,
+                    response[i].price,
+                    response[i].image,
+                    response[i].hasDiscount,
+                    response[i].productId,
+                    response[i].discountPrice,
+                );
+            }
+            $("#drop-select").css("display","inline");
+
+            $(".loader").remove();
+            $(".products-items").html(categories);
+            $("#drop-select").trigger("create");
+            $(".products-items").trigger("create");
+        });
+    } catch (err) {
+        console.log("loadCategoryProducts failed");
+        console.log(err);
+    }
+}
+
 
 
 function getUrlVars() {
@@ -26,6 +112,7 @@ function getUrlParam(parameter, defaultvalue){
     }
     return urlparameter;
 }
+
 function loadCategoryProducts() {
     $(".header-title").html(product);
 
@@ -56,11 +143,7 @@ function loadCategoryProducts() {
                     response[i].discountPrice,
                 );
             }
-            $("#drop-select").html(` <select name="select-native-2" id="select-native-3" data-iconpos="right">
-                    <option value="1" style="width: 100px !important;">Price From Lowest to the Highest</option>
-                    <option value="2" style="width: 100px !important;">Price From Highest to the Lowest
-            </option>
-                </select>`)
+            $("#drop-select").css("display","inline");
             $(".loader").remove();
             $(".products-items").html(categories);
             $("#drop-select").trigger("create");
@@ -93,7 +176,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
         `;
 
         mainPrice += `  <p style="display: inline; text-decoration: line-through;" class="Product-Price">$${price}</p>
-        <p style="display: inline;" class="Product-Price"><b>${discountPrice}</b></p>`
+        <p style="display: inline;" class="Product-Price"><b>$${discountPrice}</b></p>`
         totalPrice += ` <p class="price float-price">$<span  id="total-${productId}">${discountPrice}</span><span id="incr-${productId}" style="display:none">${discountPrice}</span></p>`
     }else{
         popPrice += `<p class="price">Product Price :</p>
@@ -247,3 +330,13 @@ function decrementQuantity(id,total,incr) {
         document.getElementById(total).innerHTML = price;
     }
 }
+
+
+$("#select-native-3").change(function () {
+    var end = this.value;
+    if(end == 1){
+        sortLowtoHigh()
+    }else if(end == 2){
+        sortHighLow()
+    }
+});
