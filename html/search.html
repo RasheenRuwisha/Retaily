@@ -19,38 +19,40 @@
     <div data-role="page" data-theme="d">
         <div data-role="header" class="header-class">
             <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
-                <button class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/logos/Transparent.png" border="0">
-            </button>
-
+                <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/logos/Transparent.png" border="0">
+                </a>
                 <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
 
-                <button class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
-            </button>
-                <button class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/header-userprofile.png" border="0">
-            </button>
+                <a href="Ar.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+                </a>
+
+
+                <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
+                </a>
+
             </div>
         </div>
 
         <div class="navbar-header" data-role="navbar">
             <!-- /navbar -->
             <ul>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Food</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Fashion</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Games</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Manga</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Food" rel="external">Food</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Fashion" rel="external">Fashion</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Games" rel="external">Games</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Manga" rel="external">Manga</a></li>
             </ul>
         </div>
         <div role="main" class="favourites ui-content">
 
 
             <div style="padding: 10px !important;" class="search-container">
-                <form  id="search-from">
+                <form id="search-from">
                     <input type="search" id="search-text" placeholder="Search for an item" title="Type item name" />
                 </form>
-             
+
             </div>
 
             <div class="search">
@@ -124,4 +126,5 @@
     <!-- /content -->
 </body>
 <script src='../js/Search.js'></script>
+
 </html>

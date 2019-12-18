@@ -1,8 +1,8 @@
 var product;
-    $(document).ready(function () {
+$(document).ready(function() {
     var pathname = window.location.pathname;
     if (pathname.includes("ProductPage")) {
-        product = getUrlParam("id","Empty");
+        product = getUrlParam("id", "Empty");
         product = product.split("%")[0];
         loadProduct();
         loadReviews();
@@ -11,15 +11,15 @@ var product;
 
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
         vars[key] = value;
     });
     return vars;
 }
 
-function getUrlParam(parameter, defaultvalue){
+function getUrlParam(parameter, defaultvalue) {
     var urlparameter = defaultvalue;
-    if(window.location.href.indexOf(parameter) > -1){
+    if (window.location.href.indexOf(parameter) > -1) {
         urlparameter = getUrlVars()[parameter];
     }
     return urlparameter;
@@ -30,7 +30,7 @@ function loadReviews() {
         "async": true,
         "crossDomain": true,
         "url": "https://retaily-api.herokuapp.com/getReviews?productId=" +
-        product,
+            product,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
@@ -68,9 +68,8 @@ function loadProduct() {
     var settings = {
         async: true,
         crossDomain: true,
-        url:
-        "https://retaily-api.herokuapp.com/product?productId=" +
-        product,
+        url: "https://retaily-api.herokuapp.com/product?productId=" +
+            product,
         method: "GET",
         headers: {
             "cache-control": "no-cache",
@@ -97,7 +96,7 @@ function addProducts(response) {
     var popPrice = "";
 
 
-    if(response.hasDiscount){
+    if (response.hasDiscount) {
         popPrice += `
         <p class="single-product price">Product Price :</p>
                     <p class="single-product price float-price">$${response.price}</p>
@@ -106,7 +105,7 @@ function addProducts(response) {
                     <p class="single-product price float-price">$${response.discountPrice}</p>
         `;
 
-    }else{
+    } else {
         popPrice += ` <p class="single-product price">Product Price :</p>
         <p class="single-product price float-price">$ ${response.price}</p>
         <br>`;
@@ -162,7 +161,8 @@ function addProducts(response) {
             <img class="single-product single-product-margin  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
               width="35px" height="35px" />
           </button>
-                    <p id="productQuantity" class="single-product single-product-margin price float-price">1</p>
+                    <p id="productQuantity" class="quantity-label single-product single-product-margin price float-price">1</p>
+
                     <button class="minus-icon btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="decrementQuantity()">
             <img class="single-product single-product-margin product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
               width="35px" height="35px" />
@@ -283,7 +283,7 @@ function addToCart(productid) {
             "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
         },
         processData: false,
-        data: '{\n\t"email":"'+localStorage.email+'",\n\t"productId":"' +
+        data: '{\n\t"email":"' + localStorage.email + '",\n\t"productId":"' +
             productid +
             '",\n     "qty":' +
             parseInt(value) +
@@ -349,7 +349,7 @@ function addReview() {
                 "Postman-Token": "2d243d6a-6eca-4124-ac3c-1a4c84cf7fac"
             },
             "processData": false,
-            "data": "{\n\t\"email\":\""+localStorage.email+"\",\n\t\"productId\":\"" + product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
+            "data": "{\n\t\"email\":\"" + localStorage.email + "\",\n\t\"productId\":\"" + product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
         }
 
         $.ajax(settings).done(function(response) {

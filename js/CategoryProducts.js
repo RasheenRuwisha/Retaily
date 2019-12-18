@@ -3,7 +3,7 @@ var fav = [];
 
 $(document).ready(function() {
     var pathname = window.location.pathname;
-    product = getUrlParam("id","Empty");
+    product = getUrlParam("id", "Empty");
     product = product.split("%")[0];
     if (pathname.includes("fashion")) {
         getFav();
@@ -11,56 +11,10 @@ $(document).ready(function() {
 });
 
 
-function sortHighLow(){
-    $(".loader").css("display","block");
-    $(".products-items").css("display","none");
-    $("#drop-select").css("display","none");
-    
-        var categories = "";
-    
-        try {
-            var settings = {
-                async: true,
-                crossDomain: true,
-                url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
-                product,
-                method: "GET",
-                headers: {
-                    "cache-control": "no-cache",
-                    "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-                }
-            };
-    
-            $.ajax(settings).done(function(response) {
-                console.log(response);
-                for (var i = 0; i < response.length; i++) {
-                    categories += addProducts(
-                        response[i].name,
-                        response[i].price,
-                        response[i].image,
-                        response[i].hasDiscount,
-                        response[i].productId,
-                        response[i].discountPrice,
-                    );
-                }
-                $("#drop-select").css("display","inline");
-
-                $(".loader").css("display","none");
-                $(".products-items").css("display","grid");
-                $(".products-items").html(categories);
-                $("#drop-select").trigger("create");
-                $(".products-items").trigger("create");
-            });
-        } catch (err) {
-            console.log("loadCategoryProducts failed");
-            console.log(err);
-        }
-}
-
-function sortLowtoHigh(){
-    $(".loader").css("display","block");
-    $(".products-items").css("display","none");
-    $("#drop-select").css("display","none");
+function sortHighLow() {
+    $(".loader").css("display", "block");
+    $(".products-items").css("display", "none");
+    $("#drop-select").css("display", "none");
 
     var categories = "";
 
@@ -68,8 +22,8 @@ function sortLowtoHigh(){
         var settings = {
             async: true,
             crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/sortLow?category=" +
-            product,
+            url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
+                product,
             method: "GET",
             headers: {
                 "cache-control": "no-cache",
@@ -89,10 +43,55 @@ function sortLowtoHigh(){
                     response[i].discountPrice,
                 );
             }
-            $("#drop-select").css("display","inline");
+            $("#drop-select").css("display", "block");
+            $(".loader").css("display", "none");
+            $(".products-items").css("display", "grid");
+            $(".products-items").html(categories);
+            $("#drop-select").trigger("create");
+            $(".products-items").trigger("create");
+        });
+    } catch (err) {
+        console.log("loadCategoryProducts failed");
+        console.log(err);
+    }
+}
 
-            $(".loader").css("display","none");
-            $(".products-items").css("display","grid");
+function sortLowtoHigh() {
+    $(".loader").css("display", "block");
+    $(".products-items").css("display", "none");
+    $("#drop-select").css("display", "none");
+
+    var categories = "";
+
+    try {
+        var settings = {
+            async: true,
+            crossDomain: true,
+            url: "https://retaily-api.herokuapp.com/sortLow?category=" +
+                product,
+            method: "GET",
+            headers: {
+                "cache-control": "no-cache",
+                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+            }
+        };
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            for (var i = 0; i < response.length; i++) {
+                categories += addProducts(
+                    response[i].name,
+                    response[i].price,
+                    response[i].image,
+                    response[i].hasDiscount,
+                    response[i].productId,
+                    response[i].discountPrice,
+                );
+            }
+            $("#drop-select").css("display", "block");
+
+            $(".loader").css("display", "none");
+            $(".products-items").css("display", "grid");
             $(".products-items").html(categories);
             $("#drop-select").trigger("create");
             $(".products-items").trigger("create");
@@ -107,15 +106,15 @@ function sortLowtoHigh(){
 
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
         vars[key] = value;
     });
     return vars;
 }
 
-function getUrlParam(parameter, defaultvalue){
+function getUrlParam(parameter, defaultvalue) {
     var urlparameter = defaultvalue;
-    if(window.location.href.indexOf(parameter) > -1){
+    if (window.location.href.indexOf(parameter) > -1) {
         urlparameter = getUrlVars()[parameter];
     }
     return urlparameter;
@@ -123,9 +122,9 @@ function getUrlParam(parameter, defaultvalue){
 
 function loadCategoryProducts() {
     $(".header-title").html(product);
-    $(".loader").css("display","block");
-    $(".products-items").css("display","none");
-    $("#drop-select").css("display","none");
+    $(".loader").css("display", "block");
+    $(".products-items").css("display", "none");
+    $("#drop-select").css("display", "none");
 
     var categories = "";
 
@@ -134,7 +133,7 @@ function loadCategoryProducts() {
             async: true,
             crossDomain: true,
             url: "https://retaily-api.herokuapp.com/categoryProducts?category=" +
-            product,
+                product,
             method: "GET",
             headers: {
                 "cache-control": "no-cache",
@@ -154,9 +153,9 @@ function loadCategoryProducts() {
                     response[i].discountPrice,
                 );
             }
-            $("#drop-select").css("display","inline");
-            $(".loader").css("display","none");
-            $(".products-items").css("display","grid");
+            $("#drop-select").css("display", "block");
+            $(".loader").css("display", "none");
+            $(".products-items").css("display", "grid");
             $(".products-items").html(categories);
             $("#drop-select").trigger("create");
             $(".products-items").trigger("create");
@@ -167,14 +166,14 @@ function loadCategoryProducts() {
     }
 }
 
-function addProducts(name, price, image, promotion, productId,discountPrice) {
+function addProducts(name, price, image, promotion, productId, discountPrice) {
 
     var popPrice = "";
     var mainPrice = "";
     var totalPrice = ""
 
-    if(name.length >17){
-        name = name.substr(0,17);
+    if (name.length > 17) {
+        name = name.substr(0, 17);
         name += "...";
     }
 
@@ -182,17 +181,17 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
 
 
 
-    if(fav.includes(productId)){
+    if (fav.includes(productId)) {
         favIcon += `
          <div onclick="removeFav('${localStorage.email}${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
-              <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
+              <img style="z-index:998 !important;" id="${productId}-fav-image" class="add-to-cart-plus-icon"
                   src="../Resources/images/icons/valentines-heart.png" border="0" />
             </div>
         `
-    }else{
+    } else {
         favIcon += `
          <div onclick="addToFav('${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
-              <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
+              <img style="z-index:998 !important;" id="${productId}-fav-image" class="add-to-cart-plus-icon"
                   src="../Resources/images/icons/heart%20(1).png" border="0" />
             </div>
         `
@@ -200,7 +199,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
 
 
 
-    if(promotion){
+    if (promotion) {
         popPrice += `
         <p class="price">Product Price :</p>
                   <p class="price float-price">$${price}</p>
@@ -212,7 +211,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
         mainPrice += `  <p style="display: inline; text-decoration: line-through;" class="Product-Price">$${price}</p>
         <p style="display: inline;" class="Product-Price"><b>$${discountPrice}</b></p>`
         totalPrice += ` <p class="price float-price">$<span  id="total-${productId}">${discountPrice}</span><span id="incr-${productId}" style="display:none">${discountPrice}</span></p>`
-    }else{
+    } else {
         popPrice += `<p class="price">Product Price :</p>
                   <p class="price float-price">$${price}</p>
                   <br></br>`;
@@ -224,7 +223,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
 
 
 
-        var productItem = `
+    var productItem = `
         <div class="item">
           <div class="align-favourite">
            ${favIcon}
@@ -275,7 +274,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
         </div>
         `;
 
-        return productItem;
+    return productItem;
 }
 
 
@@ -293,7 +292,7 @@ function addToCart(productid) {
             "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
         },
         processData: false,
-        data: '{\n\t"email":"'+localStorage.email+'",\n\t"productId":"' +
+        data: '{\n\t"email":"' + localStorage.email + '",\n\t"productId":"' +
             productid +
             '",\n     "qty":' +
             parseInt(value) +
@@ -322,38 +321,38 @@ function addToCart(productid) {
     });
 }
 
-function incrementQuantity(id,total,incr) {
+function incrementQuantity(id, total, incr) {
     var currentQuantity = document
         .getElementById(id)
         .innerHTML.valueOf();
-        var price = document
+    var price = document
         .getElementById(total)
-        .innerHTML.valueOf();   
-        price =   parseInt(price)
-        var incr = document
+        .innerHTML.valueOf();
+    price = parseInt(price)
+    var incr = document
         .getElementById(incr)
-        .innerHTML.valueOf();   
-        incr =   parseInt(incr)
-        price +=  incr; 
+        .innerHTML.valueOf();
+    incr = parseInt(incr)
+    price += incr;
     currentQuantity++;
     document.getElementById(id).innerHTML = currentQuantity;
     document.getElementById(total).innerHTML = price;
 
 }
 
-function decrementQuantity(id,total,incr) {
+function decrementQuantity(id, total, incr) {
     var currentQuantity = document
         .getElementById(id)
         .innerHTML.valueOf();
-        var price = document
+    var price = document
         .getElementById(total)
-        .innerHTML.valueOf();  
-        price =   parseInt(price)
-        var incr = document
+        .innerHTML.valueOf();
+    price = parseInt(price)
+    var incr = document
         .getElementById(incr)
-        .innerHTML.valueOf();   
-        incr =   parseInt(incr)
-        price -=  incr; 
+        .innerHTML.valueOf();
+    incr = parseInt(incr)
+    price -= incr;
     if (!(currentQuantity == 1)) {
         currentQuantity--;
         document.getElementById(id).innerHTML = currentQuantity;
@@ -361,7 +360,7 @@ function decrementQuantity(id,total,incr) {
     }
 }
 
-function addToFav(id,image){
+function addToFav(id, image) {
 
 
     var settings = {
@@ -375,25 +374,25 @@ function addToFav(id,image){
             "Postman-Token": "35686857-d8f7-4365-83a3-369093e39814"
         },
         "processData": false,
-        "data": "{\n\t\"email\":\""+localStorage.email+"\",\n\t\"productId\":\""+id+"\"\n}\n"
+        "data": "{\n\t\"email\":\"" + localStorage.email + "\",\n\t\"productId\":\"" + id + "\"\n}\n"
     }
 
 
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
-        if(response === 2009){
-            $(image).attr("src","../Resources/images/icons/valentines-heart.png");
+        if (response === 2009) {
+            $(image).attr("src", "../Resources/images/icons/valentines-heart.png");
         }
     });
 
 }
 
-function removeFav(id,image){
+function removeFav(id, image) {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/removeFav?id="+id,
+        "url": "https://retaily-api.herokuapp.com/removeFav?id=" + id,
         "method": "POST",
         "headers": {
             "cache-control": "no-cache",
@@ -401,20 +400,20 @@ function removeFav(id,image){
         }
     }
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
-        if(response === 2009){
-            $(image).attr("src","../Resources/images/icons/heart%20(1).png");
+        if (response === 2009) {
+            $(image).attr("src", "../Resources/images/icons/heart%20(1).png");
         }
     });
 }
 
 
-function getFav(){
+function getFav() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url":"https://retaily-api.herokuapp.com/getFav?email="+localStorage.email,
+        "url": "https://retaily-api.herokuapp.com/getFav?email=" + localStorage.email,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",
@@ -422,8 +421,8 @@ function getFav(){
         }
     }
 
-    $.ajax(settings).done(function (response) {
-        for(var i=0;i<response.length;i++){
+    $.ajax(settings).done(function(response) {
+        for (var i = 0; i < response.length; i++) {
             fav.push(response[i].productId);
         }
         loadCategoryProducts();
@@ -434,11 +433,11 @@ function getFav(){
 
 
 
-$("#select-native-3").change(function () {
+$("#select-native-3").change(function() {
     var end = this.value;
-    if(end == 1){
+    if (end == 1) {
         sortLowtoHigh()
-    }else if(end == 2){
+    } else if (end == 2) {
         sortHighLow()
     }
 });

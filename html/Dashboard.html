@@ -25,28 +25,31 @@
     <div data-role="page" data-theme="d">
         <div data-role="header" class="header-class">
             <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
-                <button class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/logos/Transparent.png" border="0">
-            </button>
 
-                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
+                <a href="#" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/logos/Transparent.png" border="0">
+                </a>
+                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Dashboard</h3>
 
-                <button class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
-            </button>
-                <button class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                <img src="../Resources/images/icons/header-userprofile.png" border="0">
-            </button>
+                <a href="Ar.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+                </a>
+
+
+                <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
+                </a>
+
             </div>
         </div>
 
         <div class="navbar-header" data-role="navbar">
             <!-- /navbar -->
             <ul>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Food</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Fashion</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Games</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="#">Manga</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Food" rel="external">Food</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Fashion" rel="external">Fashion</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Games" rel="external">Games</a></li>
+                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Manga" rel="external">Manga</a></li>
             </ul>
         </div>
 
@@ -57,7 +60,7 @@
             <div class="slideshow-container">
 
                 <div class=" mySlides fade">
-                    <img class="front-page-slides" src="../images/background1.png">
+                    <img class="front-page-slides" src="../Resources/images/items/1.png">
                 </div>
 
                 <div class="mySlides fade">
@@ -85,117 +88,115 @@
         <div class="main">
             <div class="item">
                 <div class="align-favourite">
-                    <div class="add-to-cart-button-div style=" Style="background: none !important;">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window" class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/heart (1).png" border="0" /></a>
+
+                    <div onclick="removeFav('sheen.ruwisha12@gmail.comQ0SwAg1ugm','#Q0SwAg1ugm-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="Q0SwAg1ugm-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
                     </div>
+
                 </div>
-                <img class="product-image-items-display" src="../Resources/images/items/ps4 png.png" alt=" PS4" style="width:100%" />
-                <p style="display: inline; text-decoration: line-through;" class="Product-Price">$400</p>
-                <p style="display: inline;" class="Product-Price"><b>$399</b></p>
-                <p class="Product-Price Product-Name">PlayStation 4</p>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=Q0SwAg1ugm" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/yyBuWWG.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$30</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=Q0SwAg1ugm" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">Toaster Pastries</p>
+                </a>
                 <div class="align-addtocart">
                     <div class="add-to-cart-button-div">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window" class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0" /></a>
-                        <div data-role="popup" id="popupLogin" data-theme="" class="ui-corner-all">
-                            <div style="padding:10px 20px; width: 200px;">
-
-                                <h3 class="product-addtocart-popup">PlayStation 4 </h3>
-                                <p class="price">Product Price :</p>
-                                <p class="price float-price">$400</p>
-                                <br>
-                                <p class="price">Promotion Price :</p>
-                                <p class="price float-price">$399</p>
-                                <br>
-                                <br>
-                                <p class="price">Quantity :</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
-                    width="35px" height="35px" />
-                </button>
-                                <p class="price float-price">1</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
-                    height="35px" />
-                </button>
-                                <br>
-                                <br>
-                                <p class="price">Total :</p>
-                                <p class="price float-price">$399</p>
-
-                                <div class=" button-container">
-                                    <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
-                                </div>
-
-                            </div>
+                        <a href="#Q0SwAg1ugm" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="Q0SwAg1ugm" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="Q0SwAg1ugm-placeholder">
+                            <!-- placeholder for Q0SwAg1ugm -->
                         </div>
-
+                        &nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
 
 
             </div>
-
             <div class="item">
+                <div class="align-favourite">
+
+                    <div onclick="addToFav('cou8iVyWAJ','#cou8iVyWAJ-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="cou8iVyWAJ-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
+                    </div>
+
+                </div>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=cou8iVyWAJ" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/XRvxfPR.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$20</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=cou8iVyWAJ" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">Red Alert 5</p>
+                </a>
+                <div class="align-addtocart">
+                    <div class="add-to-cart-button-div">
+                        <a href="#cou8iVyWAJ" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="cou8iVyWAJ" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="cou8iVyWAJ-placeholder">
+                            <!-- placeholder for cou8iVyWAJ -->
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+
 
             </div>
-
         </div>
 
         <h3 class="heading ui-content">Hot Deals</h3>
         <div class="main">
             <div class="item">
                 <div class="align-favourite">
-                    <div class="add-to-cart-button-div style=" Style="background: none !important;">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window" class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/heart (1).png" border="0" /></a>
+
+                    <div onclick="removeFav('sheen.ruwisha12@gmail.comJimEsuiD3w','#JimEsuiD3w-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="JimEsuiD3w-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/valentines-heart.png" border="0">
                     </div>
+
                 </div>
-                <img class="product-image-items-display" src="../Resources/images/items/ps4 png.png" alt=" PS4" style="width:100%" />
-                <p style="display: inline; text-decoration: line-through;" class="Product-Price">$400</p>
-                <p style="display: inline;" class="Product-Price"><b>$399</b></p>
-                <p class="Product-Price Product-Name">PlayStation 4</p>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=JimEsuiD3w" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/Bhnohgv.png" alt=" PS4"></a>
+                <p style="display: inline; text-decoration: line-through;" class="Product-Price">$40</p>
+                <p style="display: inline;" class="Product-Price"><b>$30</b></p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=JimEsuiD3w" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">Alpha Protocol</p>
+                </a>
                 <div class="align-addtocart">
                     <div class="add-to-cart-button-div">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window" class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0" /></a>
-                        <div data-role="popup" id="popupLogin" data-theme="" class="ui-corner-all">
-                            <div style="padding:10px 20px; width: 200px;">
-
-                                <h3 class="product-addtocart-popup">PlayStation 4 </h3>
-                                <p class="price">Product Price :</p>
-                                <p class="price float-price">$400</p>
-                                <br>
-                                <p class="price">Promotion Price :</p>
-                                <p class="price float-price">$399</p>
-                                <br>
-                                <br>
-                                <p class="price">Quantity :</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
-                    width="35px" height="35px" />
-                </button>
-                                <p class="price float-price">1</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
-                    height="35px" />
-                </button>
-                                <br>
-                                <br>
-                                <p class="price">Total :</p>
-                                <p class="price float-price">$399</p>
-
-                                <div class=" button-container">
-                                    <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
-                                </div>
-
-                            </div>
+                        <a href="#JimEsuiD3w" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="JimEsuiD3w" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="JimEsuiD3w-placeholder">
+                            <!-- placeholder for JimEsuiD3w -->
                         </div>
-
+                        &nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
 
 
             </div>
-
             <div class="item">
+                <div class="align-favourite">
+
+                    <div onclick="addToFav('8hfyc3Hvf1','#8hfyc3Hvf1-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="8hfyc3Hvf1-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
+                    </div>
+
+                </div>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=8hfyc3Hvf1" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/HyK6mFY.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$100</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=8hfyc3Hvf1" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">Chuunibayo</p>
+                </a>
+                <div class="align-addtocart">
+                    <div class="add-to-cart-button-div">
+                        <a href="#8hfyc3Hvf1" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="8hfyc3Hvf1" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="8hfyc3Hvf1-placeholder">
+                            <!-- placeholder for 8hfyc3Hvf1 -->
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+
 
             </div>
 
@@ -205,62 +206,118 @@
         <div class="main">
             <div class="item">
                 <div class="align-favourite">
-                    <div class="add-to-cart-button-div style=" Style="background: none !important;">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window" class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/heart (1).png" border="0" /></a>
+
+                    <div onclick="addToFav('heCLJCaG79','#heCLJCaG79-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="heCLJCaG79-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
                     </div>
+
                 </div>
-                <img class="product-image-items-display" src="../Resources/images/items/ps4 png.png" alt=" PS4" style="width:100%" />
-                <p style="display: inline; text-decoration: line-through;" class="Product-Price">$400</p>
-                <p style="display: inline;" class="Product-Price"><b>$399</b></p>
-                <p class="Product-Price Product-Name">PlayStation 4</p>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/xaGCzve.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$300</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">GO Sports Shirt</p>
+                </a>
                 <div class="align-addtocart">
                     <div class="add-to-cart-button-div">
-                        <a href="#popupLogin" data-rel="popup" data-position-to="window" class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0" /></a>
-                        <div data-role="popup" id="popupLogin" data-theme="" class="ui-corner-all">
-                            <div style="padding:10px 20px; width: 200px;">
-
-                                <h3 class="product-addtocart-popup">PlayStation 4 </h3>
-                                <p class="price">Product Price :</p>
-                                <p class="price float-price">$400</p>
-                                <br>
-                                <p class="price">Promotion Price :</p>
-                                <p class="price float-price">$399</p>
-                                <br>
-                                <br>
-                                <p class="price">Quantity :</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
-                    width="35px" height="35px" />
-                </button>
-                                <p class="price float-price">1</p>
-                                <button class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
-                    height="35px" />
-                </button>
-                                <br>
-                                <br>
-                                <p class="price">Total :</p>
-                                <p class="price float-price">$399</p>
-
-                                <div class=" button-container">
-                                    <button type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
-                                </div>
-
-                            </div>
+                        <a href="#heCLJCaG79" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="heCLJCaG79" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="heCLJCaG79-placeholder">
+                            <!-- placeholder for heCLJCaG79 -->
                         </div>
-
+                        &nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
 
 
             </div>
-
             <div class="item">
+                <div class="align-favourite">
+
+                    <div onclick="addToFav('heCLJCaG79','#heCLJCaG79-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="heCLJCaG79-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
+                    </div>
+
+                </div>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/xaGCzve.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$300</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">GO Sports Shirt</p>
+                </a>
+                <div class="align-addtocart">
+                    <div class="add-to-cart-button-div">
+                        <a href="#heCLJCaG79" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="heCLJCaG79" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="heCLJCaG79-placeholder">
+                            <!-- placeholder for heCLJCaG79 -->
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="item">
+                <div class="align-favourite">
+
+                    <div onclick="addToFav('heCLJCaG79','#heCLJCaG79-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="heCLJCaG79-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
+                    </div>
+
+                </div>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/xaGCzve.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$300</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">GO Sports Shirt</p>
+                </a>
+                <div class="align-addtocart">
+                    <div class="add-to-cart-button-div">
+                        <a href="#heCLJCaG79" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="heCLJCaG79" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="heCLJCaG79-placeholder">
+                            <!-- placeholder for heCLJCaG79 -->
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="item">
+                <div class="align-favourite">
+
+                    <div onclick="addToFav('heCLJCaG79','#heCLJCaG79-fav-image')" class="add-to-cart-button-div style=" style="background: none !important;">
+                        <img style="z-index:998 !important;" id="heCLJCaG79-fav-image" class="add-to-cart-plus-icon" src="../Resources/images/icons/heart%20(1).png" border="0">
+                    </div>
+
+                </div>
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link"><img class="product-image-items-display" src="https://i.imgur.com/xaGCzve.png" alt=" PS4"></a>
+                <p style="display: inline;" class="Product-Price">$300</p>
+
+
+                <a style="font-weight:300;color:black" href="ProductPage.html?id=heCLJCaG79" rel="external" class="ui-link">
+                    <p class="Product-Price Product-Name">GO Sports Shirt</p>
+                </a>
+                <div class="align-addtocart">
+                    <div class="add-to-cart-button-div">
+                        <a href="#heCLJCaG79" data-rel="popup" data-position-to="window" class="ui-corner-all  ui-btn-inline ui-btn-a ui-link" data-transition="pop" aria-haspopup="true" aria-owns="heCLJCaG79" aria-expanded="false"><img class="add-to-cart-plus-icon" src="../Resources/images/icons/001-add White.png" border="0"></a>
+                        <div style="display: none;" id="heCLJCaG79-placeholder">
+                            <!-- placeholder for heCLJCaG79 -->
+                        </div>
+                        &nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+
 
             </div>
 
 
         </div>
+        <br>
+        <h3 class="heading ui-content">Leader Board</h3>
+        <br>
         <div class="leaderboard-participants-dashboard ui-content">
             <div class="user-leaderboard">
                 <p class="price">4th</p>
