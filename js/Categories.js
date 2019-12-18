@@ -42,12 +42,12 @@ function addCategoryItem(name, image) {
                     <div class="align-favourite">
 
                     </div>
-                    <a style="text-decoration: none;" href='fashion.html?id=${name}' rel='external'>
+                    <a style="color:black;text-decoration: none;" href='fashion.html?id=${name}' rel='external'>
 
 
                         <img class="catagories category-image-items-display" src=${image}
                             alt=" PS4" />
-                        <p style="text-align: center;margin-left: 0px; margin-top:20px ;"
+                        <p style="color:black;text-align: center;margin-left: 0px; margin-top:20px ;"
                             class="Product-Price Product-Name">${name}</p>
                     </a>
                 </div>

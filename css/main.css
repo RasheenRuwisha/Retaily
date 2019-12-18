@@ -1,6 +1,23 @@
 /* @font-face{
 src: url(..//Resources/Fonts/Nexa light.otf);
 } */
+@font-face {
+    font-family: nexa-light;
+    src: url(../Resources/Fonts/NexaLight.otf);
+}
+
+@font-face {
+    font-family: nexa-bold;
+    src: url(../Resources/Fonts/NexaBold.otf);
+}
+
+h1,h2,h3,h4{
+    font-family: nexa-bold !important;;
+}
+
+p{
+    font-family: nexa-light !important;
+}
 
 .ui-content {
     width: 90% !important;
@@ -71,6 +88,19 @@ input {
     display: none;
 }
 
+#btn-checkout{
+    position: fixed;
+    bottom: 3%;
+    width: 95% !important;
+    z-index: 99;
+    left: 50%;
+    transform: translate(-50%, -3%);
+    background: none;
+}
+
+.coupons{
+    max-width: 65% !important;
+}
 
 /*Sheen css ends*/
 
@@ -561,8 +591,7 @@ p.order-product-desctiption {
 }
 
 .checkout-btn-cart {
-    padding: none !important;
-    background: white;
+    padding: 0 !important;
 }
 
 p.payment-button0pay-label {
@@ -682,7 +711,7 @@ button.checkout-button-std-sht.login-button.ui-btn.ui-btn-inline.rounded-button 
 }
 
 img.leaderboard-user-icon.logo-image {
-    width: 85%;
+    width: 68%;
     margin-top: 10px;
 }
 
@@ -1276,5 +1305,8 @@ img.leaderboard-image {
     }
     .btn-camera img {
         padding-right: 0px;
+    }
+    .coupons{
+        max-width: 39% !important;
     }
 }

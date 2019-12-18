@@ -41,29 +41,14 @@
     position: absolute;
     width: 80%;
     margin: 0 auto;
-    bottom: 0px;
+    top: 0px;
     right: 10px;
     left: 10px;
-    min-height: 20%;
-    background: #004431;
-    color: #0f4;
+    min-height: 40px;
+    background: #d8fce3;
+    color: #8ae037;
     font-size: 28px;
     border-radius: .4em;
     padding: 20px;
     display: none;
-}
-
-.notification:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: 50px solid transparent;
-    border-top-color: #004431;
-    border-bottom: 0;
-    border-left: 0;
-    margin-left: -50px;
-    margin-bottom: -50px;
 }

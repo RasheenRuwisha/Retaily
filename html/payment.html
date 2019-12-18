@@ -2,126 +2,179 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Payment</title>
-    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
-    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
-    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/stripe.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
+    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css"/>
+    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/stripe.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-    <div data-role="page" data-theme="d" id="page-content">
-        <div data-role="header" class="header-class">
-            <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
-                <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/logos/Transparent.png" border="0">
-                </a>
-                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
+<div data-role="page" data-theme="d" id="page-content">
+    <div data-role="header" class="header-class">
+        <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
+            <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button"
+               data-shadow="false" data-theme="none">
+                <img src="../Resources/images/logos/Transparent.png" border="0">
+            </a>
+            <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Checkout</h3>
 
-                <a href="Ar.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
-                </a>
+            <a href="Ar.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button"
+               data-shadow="false" data-theme="none">
+                <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+            </a>
 
 
-                <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
-                </a>
-            </div>
+            <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all"
+               data-role="button" data-shadow="false" data-theme="none">
+                <img src="../Resources/images/icons/header-userprofile.png" border="0">
+            </a>
         </div>
+    </div>
 
 
-
-        <div role="main" class=" ui-content">
+    <div role="main" class=" ui-content">
+        <div id="checkokut-form">
             <script src="https://js.stripe.com/v3/"></script>
             <br>
             <br>
             <form>
+                <br>
+
                 <label>
-                <span class="payment-lable-name">Name</span>
-                <input name="cardholder-name" placeholder="Jane Doe" />
-            </label>
+                    <span id="card-name-label">Name</span><span id="card-name-error" class="error-message">Name cannot be empty</span>
+                    <input name="cardholder-name" id="card-name" placeholder="Jane Doe"/>
+                </label>
                 <label>
-                <span class="payment-lable-name">Email</span>
-                <input  placeholder="(123) 456-7890" type="email" />
-            </label>
+                    <span id="card-email-label">Email</span><span id="card-email-error" class="error-message">Email cannot be empty</span>
+                    <input name="cardholder-email" id="card-email" placeholder="Email" type="email"/>
+                </label>
                 <label>
-                <span class="payment-lable-name">Address Line 1</span>
-                <input name="address-line1" placeholder="94110" />
-            </label>
+                    <span id="card-address-line-1-label">Address Line 1</span><span id="card-address-line-1-error" class="error-message">Address Line 1 cannot be empty</span>
+                    <input name="address-line1" id="card-address-line-1" placeholder="Address Line 1"/>
+                </label>
                 <label>
-                <span class="payment-lable-name">Address Line 2</span>
-                <input name="address-line2" placeholder="94110" />
-            </label>
+                    <span id="card-address-line-2-label">Address Line 1</span><span id="card-address-line-2-error" class="error-message">Address Line 1 cannot be empty</span>
+                    <input name="address-line2" id="card-address-line-2" placeholder="Address Line 2"/>
+                </label>
                 <label>
-                <span class="payment-lable-name">State</span>
-                <input name="address-state" placeholder="94110" />
-            </label>
+                    <span id="card-address-state-label">State</span><span id="card-address-state-error" class="error-message">State cannot be empty</span>
+                    <input name="address-state" id="card-address-state" placeholder="State"/>
+                </label>
                 <label>
-                <span class="payment-lable-name">Sity</span>
-                <input name="address-city" placeholder="94110" />
-            </label>
+                    <span id="card-address-city-label">City</span><span id="card-address-city-error" class="error-message">City cannot be empty</span>
+                    <input name="address-city" id="card-address-city" placeholder="City"/>
+                </label>
+
                 <label>
-                <span class="payment-lable-name">ZIP code</span>
-                <input name="address-zip" placeholder="94110" />
-            </label>
-                <label>
-                <span class="payment-lable-name">Card</span>
-                <div id="card-element" class="field"></div>
-            </label>
-                <button type="submit">Pay $ <span id="price">25</span></button>
+                    <span class="payment-lable-name">Card</span>
+                    <div id="card-element" class="field"></div>
+                </label>
+                <button type="submit" id="payment-btn">Pay $ <span id="price">25</span></button>
+                <div id="processing-btn" onclick="addReview()"
+                     class="ui-btn ui-shadow ui-corner-all login-processing login-button" >
+                    <img src="../Resources/images/loader.gif"
+                         style="display: inline-block;width: 33px;height: 33px;" alt="">
+                    <p class="processing-text">Processing</p>
+                </div>
             </form>
 
-
-
-            <br>
-            <br>
-            <br>
-            <br>
-
-
         </div>
 
-        <div class="page-footer footer-class" data-role="footer" style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
-            <div data-role="navbar" data-iconpos="bottom">
-                <ul>
-                    <li>
-                        <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                        <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                </ul>
+        <div id="checkout-success" style="display: none">
+            <br>
+            <br>
+
+            <h3 style="color:#3ebf3d">Checkout Successful</h3>
+            <div class="address-details">
+                <p>Ship to</p>
+                <p class="payment-p" id="Name"></p>
+                <p class="payment-p" id="Addres-Line-1"></p>
+                <p class="payment-p" id="Addres-Line-2"></p>
+                <p class="payment-p" id="Email"></p>
+            </div>
+
+            <div class="address-details">
+                <p>Payment Information</p>
+                <p class="payment-p" id="">**** **** **** <span id="Card"></span></p>
+                <p class="payment-p" style="font-size: 11px;"> Your order will be processed in lkr</p>
+            </div>
+
+            <p style="
+    font-size: 18px;
+    padding: 7px;
+">Purchased Items
+            </p>
+            <div class="order-main">
+
+
             </div>
         </div>
+
+
+        <div id="checkout-fail">
+            <br>
+            <br>
+
+        </div>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
     </div>
-    <!-- /content -->
+
+    <div class="page-footer footer-class" data-role="footer"
+         style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+        <div data-role="navbar" data-iconpos="bottom">
+            <ul>
+                <li>
+                    <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+                    <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px"
+                             height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /content -->
 </body>
 <script type="text/javascript" src="../js/CategoryProducts.js"></script>
 <script type="text/javascript" src="../js/Categories.js"></script>
@@ -129,7 +182,7 @@
 <script type="text/javascript" src="../js/stripe.js"></script>
 
 <script>
-    $("#page-content").on("swiperight", function(e) {
+    $("#page-content").on("swiperight", function (e) {
         $.mobile.back();
     });
 </script>

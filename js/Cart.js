@@ -1,3 +1,4 @@
+var applycount = 0;
 $(document).ready(function() {
     var pathname = window.location.pathname;
     if (pathname.includes("Cart")) {
@@ -22,13 +23,28 @@ function loadCart() {
     };
 
     $.ajax(settings).done(function(response) {
+        localStorage.total = response.total;
         console.log(response);
         if (response.cartItemsList.length > 0) {
             for (var i = 0; i < response.cartItemsList.length; i++) {
                 categories += addProducts(response.cartItemsList[i]);
             }
-            $("#btn-checkout").html(`  <div class="payment-button-div">  <div class="checkout-btn-cart">
-            <button onclick="proceedToPayment()" class="checkout-button-std-sht login-button ui-btn ui-btn-inline rounded-button"><p class="this-will-work "> Total : $<span id="price" s>${response.total}</span></p> <p class="payment-button0pay-label">CheckOut ></p></button></div>
+            $("#btn-checkout").html(`
+                            <div class="payment-button-div">  
+                            <div class="checkout-btn-cart">
+                            <a href="#coupons-pop" data-rel="popup" class="login-button ui-btn ui-btn-inline rounded-button">
+                            <img class="coupons" src="../Resources/images/icons8-ticket-100.png" alt="">
+                            </a>
+                            </div>
+                            </div>
+                            <div class="payment-button-div">  
+                            <div class="checkout-btn-cart">
+                            <button onclick="proceedToPayment()" class="login-button ui-btn ui-btn-inline rounded-button">
+                            <p class="this-will-work "> Total : $<span id="price" s>${response.total}</span></p> 
+                            <p class="payment-button0pay-label">CheckOut ></p>
+                            </button>
+                            </div>
+                            </div>
             `);
         } else {
             categories += `
@@ -49,6 +65,7 @@ function loadCart() {
 }
 
 function addProducts(response) {
+
     try {
         var productItem = `
 <div class="order-item">
@@ -100,5 +117,38 @@ function removeCartItem(id) {
 
 function proceedToPayment() {
     window.location = "payment.html"
-    localStorage.total = $("#price").text();
 }
+
+var toast=function(msg) {
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
+        .css({
+            display: "block",
+            opacity: 0.90,
+            position: "fixed",
+            padding: "7px",
+            "text-align": "center",
+            width: "270px",
+            left: ($(window).width() - 284) / 2,
+            top: $(window).height() / 2
+        })
+        .appendTo($.mobile.pageContainer).delay(1500)
+        .fadeOut(400, function () {
+            $(this).remove();
+        });
+}
+
+function ApplyCoupons(){
+    if(applycount == 0){
+        localStorage.total = parseInt(localStorage.total) * 0.50;
+        $("#price").text(localStorage.total);
+        $("#price").text(localStorage.total);
+        $("#coupons-pop").popup("close");
+        applycount+=1;
+        toast("Coupon Applied");
+    }else{
+        $("#coupons-pop").popup("close");
+        toast("Coupon Already Applied")
+    }
+
+}
+

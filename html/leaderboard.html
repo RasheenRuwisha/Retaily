@@ -3,135 +3,147 @@
 
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
-    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
-    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
+    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css"/>
+    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-    <div data-role="page" data-theme="d" idPag="page-content">
-        <div data-role="header" class="header-class">
-            <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
-                <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/logos/Transparent.png" border="0">
-                </a>
-                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
+<div data-role="page" data-theme="d" idPag="page-content">
+    <div data-role="header" class="header-class">
+        <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
+            <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button"
+               data-shadow="false" data-theme="none">
+                <img src="../Resources/images/logos/Transparent.png" border="0">
+            </a>
+            <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Leaderboard</h3>
 
-                <a href="Ar.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
-                </a>
+            <a href="Ar.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button"
+               data-shadow="false" data-theme="none">
+                <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+            </a>
 
 
-                <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
-                </a>
+            <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all"
+               data-role="button" data-shadow="false" data-theme="none">
+                <img src="../Resources/images/icons/header-userprofile.png" border="0">
+            </a>
+
+        </div>
+    </div>
+
+    <div role="main" class="leaderboard ui-content">
+        <div class="shinny-header">
+            <p style="text-align: center;">SCAN & WIN</p>
+
+            <img class="leaderboard-image" src="../Resources/images/items/91-1.png" alt="User Icon">
+            <p style=" margin: 0px 15px;">
+                Scan AR Markers spread through out the local stores and win coupons for each completed objective. Keep
+                scanning to increase points and get a chance to take part in "Anything you can carry, you get it for
+                free" at the end of each month"
+            </p>
+        </div>
+        <div class="main-grid-for-topuser">
+            <div class="item">
+                <img class="leaderboard-user-icon  logo-image" src="../Resources/images/SeasonalRankTop4.png"
+                     alt="User Icon">
+                <h4 class="user-game-points" style="line-height: 0px;" id="first-place-name"></h4>
+                <h4 class="user-game-points" style="line-height: 0px;">Points : <span id="first-place-point"></span>
+                </h4>
 
             </div>
         </div>
-
-        <div class="navbar-header" data-role="navbar">
-            <!-- /navbar -->
-            <ul>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Food" rel="external">Food</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Fashion" rel="external">Fashion</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Games" rel="external">Games</a></li>
-                <li class="second-nav-header"><a class="second-nav-header-radius" href="fashion.html?id=Manga" rel="external">Manga</a></li>
-            </ul>
-        </div>
-
-
-        <div role="main" class="leaderboard ui-content">
-            <div class="shinny-header">
-                <img class="leaderboard-image" src="../Resources/images/items/91-1.png" alt="User Icon">
+        <div class="main-grid-for-second-third-user">
+            <div class="item--second-third">
+                <img class="leaderboard-user-icon-second-third   logo-image" src="../Resources/images/SeasonalRank7-1.png"
+                     alt="User Icon">
+                <h4 class="user-game-points" style="line-height: 0px;" id="second-place-name">Rasheen</h4>
+                <h4 class="user-game-points" style="line-height: 0px;">Points : <span id="second-place-point"></span>
+                </h4>
             </div>
-            <div class="main-grid-for-topuser">
-                <div class="item">
-                    <img class="leaderboard-user-icon  logo-image" src="../Resources/images/icons/header-userprofile.png" alt="User Icon">
-                    <h4 class="user-game-points" style="line-height: 0px;" id="first-place-name"></h4>
-                    <h4 class="user-game-points" style="line-height: 0px;">Points : <span id="first-place-point"></span> </h4>
 
-                </div>
-            </div>
-            <div class="main-grid-for-second-third-user">
-                <div class="item--second-third">
-                    <img class="leaderboard-user-icon-second-third   logo-image" src="../Resources/images/icons/user.png" alt="User Icon">
-                    <h4 class="user-game-points" style="line-height: 0px;" id="second-place-name">Rasheen</h4>
-                    <h4 class="user-game-points" style="line-height: 0px;">Points : <span id="second-place-point"></span> </h4>
-                </div>
-
-                <div class="item--second-third">
-                    <img class="leaderboard-user-icon-second-third  logo-image" src="../Resources/images/icons/user.png" alt="User Icon">
-                    <h4 class="user-game-points" style="line-height: 0px;" id="third-place-name">Rasheen</h4>
-                    <h4 class="user-game-points" style="line-height: 0px;">Points : <span id="third-place-point"></span> </h4>
-                    <br>
-                </div>
-            </div>
-            <div class="leaderboard-participants ui-content">
-                <div class="user-leaderboard">
-                    <p class="price">4th</p>
-                    <p class="price">Rasheen Ruwisha</p>
-                    <p class="user-point  float-price" style="color: #EF963A;">100000</p>
-                </div>
-
+            <div class="item--second-third">
+                <img class="leaderboard-user-icon-second-third  logo-image" src="../Resources/images/SeasonalRank6-1.png"
+                     alt="User Icon">
+                <h4 class="user-game-points" style="line-height: 0px;" id="third-place-name">Rasheen</h4>
+                <h4 class="user-game-points" style="line-height: 0px;">Points : <span id="third-place-point"></span>
+                </h4>
                 <br>
-                <div class="user-leaderboard">
-                    <p class="price">4th</p>
-                    <p class="price">Rasheen Ruwisha</p>
-                    <p class="user-point  float-price" style="color: #EF963A;m">100000</p>
-                </div>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
+        <div class="leaderboard-participants ui-content">
+            <div class="user-leaderboard">
+                <p class="price">4th</p>
+                <p class="price">Rasheen Ruwisha</p>
+                <p class="user-point  float-price" style="color: #EF963A;">100000</p>
+            </div>
 
-        <div class="page-footer footer-class" data-role="footer" style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
-            <div data-role="navbar" data-iconpos="bottom">
-                <ul>
-                    <li>
-                        <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                        <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
-                        </a>
-                    </li>
-                </ul>
+            <br>
+            <div class="user-leaderboard">
+                <p class="price">4th</p>
+                <p class="price">Rasheen Ruwisha</p>
+                <p class="user-point  float-price" style="color: #EF963A;m">100000</p>
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="page-footer footer-class" data-role="footer"
+         style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+        <div data-role="navbar" data-iconpos="bottom">
+            <ul>
+                <li>
+                    <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+                    <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px"
+                             height="35px"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
+                       data-theme="none">
+                        <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="../js/Leaderboard.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
 <script>
-    $("#page-content").on("swiperight", function(e) {
+    $("#page-content").on("swiperight", function (e) {
         $.mobile.back();
     });
 </script>

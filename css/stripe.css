@@ -1,58 +1,45 @@
+/**
+* The CSS shown here will not be introduced in the Quickstart guide, but
+* shows how you can use CSS to style your Element's container.
+*/
+input,
+.StripeElement {
+    height: 40px;
 
-label > span {
-    width: 115px;
+    color: #32325d;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
-.field {
-    background: white;
-    box-sizing: border-box;
-    font-weight: 400;
-    border: 1px solid #CFD7DF;
-    border-radius: 24px;
-    color: #32315E;
-    outline: none;
-    flex: 1;
-    height: 48px;
-    line-height: 48px;
-    padding: 0 20px;
-    cursor: text;
+input {
+    padding: 10px 12px;
 }
 
-.field::-webkit-input-placeholder { color: #CFD7DF; }
-.field::-moz-placeholder { color: #CFD7DF; }
-
-.field:focus,
-.field.StripeElement--focus {
-    border-color: #F99A52;
+input:focus,
+.StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
-.outcome {
-    float: left;
-    width: 100%;
-    padding-top: 8px;
-    min-height: 20px;
-    text-align: center;
+.StripeElement--invalid {
+    border-color: #fa755a;
 }
 
-.success, .error {
-    display: none;
-    font-size: 13px;
+.StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
 }
 
-.success.visible, .error.visible {
-    display: inline;
+.address-details{
+    border: 1px solid black;
+    border-radius: 18px;
+    padding: 0px 17px;
+    margin-bottom: 20px;
 }
 
-.error {
-    color: #E4584C;
+.payment-p{
+    margin: 0rem 0rem;
 }
-
-.success {
-    color: #F8B563;
-}
-
-.success .token {
-    font-weight: 500;
-    font-size: 13px;
-}
-
