@@ -69,6 +69,6 @@ function addProducts(promotionId, name, description, image) {
 
 function addToSessionStorage(promotionId) {
     console.log(promotionId);
-    sessionStorage.promotion = promotionId;
+    localStorage.promotion = promotionId;
     window.location = "PromotionProducts.html";
 }

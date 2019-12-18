@@ -33,26 +33,26 @@ function initiateModels() {
     var buildersArray = [
       {
         name: 'pyra',
-        dialogue: 'Hi there, I\'m the steve...! I have lost my chicken',
-        tool: new Tool('hammer', 'You have found Pyra\'s hammer!'),
-        successDialogue: 'Thanks for my hammer!'
+        dialogue: 'Hi there, I\'m steve...! I have lost my chicken. Can you help me find it',
+        tool: new Tool('hammer', 'You have found Steve\'s chicken! Return it to Steve.'),
+        successDialogue: 'Thanks for finding my chicken! I have added a coupon to your account'
       },
       {
         name: 'biggie',
-        dialogue: 'You have found the diamond pick axe',
-        tool: new Tool('blocks', 'You have found Biggie\'s blocks!'),
-        successDialogue: 'My blocks have been found!'
+        dialogue: 'Hi there, I\'m sbeve...! I have lost my cow. Can you help me find it ',
+        tool: new Tool('blocks', 'You have found Biggie\'s blocks! Return it to Sbeve.'),
+        successDialogue: 'Thanks for finding my chicken! I have added a coupon to your account'
       },
       {
         name: 'frenchie',
-        dialogue: 'Je suis Frenchie! I\'ve misplaced my favorite builder hat right before the party. Merde!',
-        tool: new Tool('hat', 'You have found Frenchie\'s hat!'),
-        successDialogue: 'Merci!'
+        dialogue: 'Hi there, I\'m merc...! I have lost my horse. Can you help me find it ',
+        tool: new Tool('hat', 'You have found Mercs\'s horse! Return it to Merc.'),
+        successDialogue: 'Thanks for finding my horse! I have added a coupon to your account'
       },
       {
         name: 'lil',
-        dialogue: 'I\'m short so they call me Lil! I have to finish my project, but I can\'t find my screwdriver...',
-        tool: new Tool('screwdriver', 'You have found Lil\'s screwdriver!'),
+        dialogue: 'Hi there, I\'m the sherrif of minecraft...! The witch in custody has escaped. Can you help us capture her ',
+        tool: new Tool('screwdriver', 'You have captured the witch! Return her to the sherrif.'),
         successDialogue: 'Thanks for the screwdriver!'
       },
       {

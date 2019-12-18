@@ -67,9 +67,9 @@ function chargeUser(token){
             "Postman-Token": "058190e0-a2fb-462f-abdf-50f5612ffc77"
         },
         "data": {
-            "amount": sessionStorage.total * 100,
+            "amount": localStorage.total * 100,
             "currency": "usd",
-            "description": "Checkout by sheen.ruwisha12@gmail.com",
+            "description": "Checkout by "+localStorage.email,
             "source": token,
             "statement_descriptor": "Custom descriptor",
             "": ""
@@ -86,5 +86,5 @@ function chargeUser(token){
 
 
 $(document).ready(function () {
-  $("#price").html(sessionStorage.total)
+  $("#price").html(localStorage.total)
 });

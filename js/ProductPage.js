@@ -117,7 +117,7 @@ function addProducts(response) {
     for (var i = 0; i < response.image.length; i++) {
         images += `
             <img
-                        class="mySlides"
+                        class="mySlides  prd-image "
                         src=${response.image[i]}
                         style="width:100%"
                 />
@@ -136,13 +136,11 @@ function addProducts(response) {
                 <div class="single-product-background w3-content w3-display-container">
                    ${images}
                    
-                    <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:80%">
-                        <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">
+                        <div class="prev" style="top: 33%; margin-left: -30px;" onclick="plusDivs(-1)">
                             &#10094;
                         </div>
-                        <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">
+                        <div class="next" style="top: 33%; margin-right: 22px;" onclick="plusDivs(1)">
                             &#10095;
-                        </div>
  ${dots}
                     </div>
                 </div>
@@ -159,15 +157,14 @@ function addProducts(response) {
         ${popPrice}
 
                     <br>
-                    <br>
-                    <p class="single-product price">Quantity :</p>
+                    <p class="single-product single-product-margin price">Quantity :</p>
                     <button class="plus-icon btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="incrementQuantity()">
-            <img class="single-product  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
+            <img class="single-product single-product-margin  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
               width="35px" height="35px" />
           </button>
-                    <p id="productQuantity" class="single-product price float-price">1</p>
+                    <p id="productQuantity" class="single-product single-product-margin price float-price">1</p>
                     <button class="minus-icon btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="decrementQuantity()">
-            <img class="single-product product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+            <img class="single-product single-product-margin product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
               width="35px" height="35px" />
           </button>
                 </div>
@@ -286,7 +283,7 @@ function addToCart(productid) {
             "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
         },
         processData: false,
-        data: '{\n\t"email":"sheen.ruwisha12@gmail.com",\n\t"productId":"' +
+        data: '{\n\t"email":"'+localStorage.email+'",\n\t"productId":"' +
             productid +
             '",\n     "qty":' +
             parseInt(value) +
@@ -352,7 +349,7 @@ function addReview() {
                 "Postman-Token": "2d243d6a-6eca-4124-ac3c-1a4c84cf7fac"
             },
             "processData": false,
-            "data": "{\n\t\"email\":\"sheen.ruwisha@gmail.com\",\n\t\"productId\":\"" + product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
+            "data": "{\n\t\"email\":\""+localStorage.email+"\",\n\t\"productId\":\"" + product + "\",\n\t\"rating\": 4,\n\t\"comment\":\"" + review + "\",\n\t\"title\":\"" + title + "\"\n}"
         }
 
         $.ajax(settings).done(function(response) {

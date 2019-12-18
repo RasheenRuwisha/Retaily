@@ -6,14 +6,14 @@ $(document).ready(function() {
 });
 
 function loadCart() {
-    $(".header-title").html(sessionStorage.category);
+    $(".header-title").html(localStorage.category);
 
     var categories = "";
 
     var settings = {
         async: true,
         crossDomain: true,
-        url: "https://retaily-api.herokuapp.com/getCart?email=sheen.ruwisha12@gmail.com",
+        url: "https://retaily-api.herokuapp.com/getCart?email="+localStorage.email,
         method: "GET",
         headers: {
             "cache-control": "no-cache",
@@ -100,5 +100,5 @@ function removeCartItem(id) {
 
 function proceedToPayment() {
     window.location = "payment.html"
-    sessionStorage.total = $("#price").text();
+    localStorage.total = $("#price").text();
 }

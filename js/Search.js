@@ -10,13 +10,16 @@
 
 
     function loadCategoryProducts(searchText) {
+        $(".error").css("display","none");
         $(".search").css("display","none");
         $(".loader").css("display","block");
         $(".products-items").css("display","none");
         $("#drop-select").css("display","none");
-    
+        $(".products-items").html("");
+
+
         var categories = "";
-    
+
         try {
             var settings = {
                 async: true,
@@ -32,20 +35,25 @@
     
             $.ajax(settings).done(function(response) {
                 console.log(response);
-                for (var i = 0; i < response.length; i++) {
-                    categories += addProducts(
-                        response[i].name,
-                        response[i].price,
-                        response[i].image,
-                        response[i].hasDiscount,
-                        response[i].productId,
-                        response[i].discountPrice,
-                    );
+                if(response.length > 0){
+                    for (var i = 0; i < response.length; i++) {
+                        categories += addProducts(
+                            response[i].name,
+                            response[i].price,
+                            response[i].image,
+                            response[i].hasDiscount,
+                            response[i].productId,
+                            response[i].discountPrice,
+                        );
+                    }
+                    $(".products-items").html(categories);
+                }else{
+                    $(".error").css("display","block");
                 }
+
                 $("#drop-select").css("display","inline");
                 $(".loader").css("display","none");
                 $(".products-items").css("display","grid");
-                $(".products-items").html(categories);
                 $("#drop-select").trigger("create");
                 $(".products-items").trigger("create");
             });

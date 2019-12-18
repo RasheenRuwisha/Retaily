@@ -184,7 +184,7 @@ function addProducts(name, price, image, promotion, productId,discountPrice) {
 
     if(fav.includes(productId)){
         favIcon += `
-         <div onclick="removeFav('sheen.ruwisha12@gmail.com${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
+         <div onclick="removeFav('${localStorage.email}${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
               <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
                   src="../Resources/images/icons/valentines-heart.png" border="0" />
             </div>
@@ -293,7 +293,7 @@ function addToCart(productid) {
             "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
         },
         processData: false,
-        data: '{\n\t"email":"sheen.ruwisha12@gmail.com",\n\t"productId":"' +
+        data: '{\n\t"email":"'+localStorage.email+'",\n\t"productId":"' +
             productid +
             '",\n     "qty":' +
             parseInt(value) +
@@ -375,7 +375,7 @@ function addToFav(id,image){
             "Postman-Token": "35686857-d8f7-4365-83a3-369093e39814"
         },
         "processData": false,
-        "data": "{\n\t\"email\":\"sheen.ruwisha12@gmail.com\",\n\t\"productId\":\""+id+"\"\n}\n"
+        "data": "{\n\t\"email\":\""+localStorage.email+"\",\n\t\"productId\":\""+id+"\"\n}\n"
     }
 
 
@@ -414,7 +414,7 @@ function getFav(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url":"https://retaily-api.herokuapp.com/getFav?email=sheen.ruwisha12@gmail.com",
+        "url":"https://retaily-api.herokuapp.com/getFav?email="+localStorage.email,
         "method": "GET",
         "headers": {
             "cache-control": "no-cache",

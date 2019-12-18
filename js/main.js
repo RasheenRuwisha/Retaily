@@ -79,7 +79,7 @@ function doRegister() {
         $.ajax(settings).done(function(response) {
             console.log(response);
             if (response === 2000) {
-                sessionStorage.email =  $("#email").val()
+                localStorage.email =  $("#email").val()
                 window.location = ("Dashboard.html");
             }else if (response === 3001) {
                 $("#error-message").css("display","inline")
@@ -152,7 +152,7 @@ function doLogin() {
         $.ajax(settings).done(function(response) {
 
             if (response === 2001) {
-                sessionStorage.email =  $("#email").val()
+                localStorage.email =  $("#email").val()
                 window.location = ("Dashboard.html");
             }else if(response === 3003) {
                 $("#error-message").css("display","inline")

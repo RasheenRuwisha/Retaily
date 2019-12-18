@@ -16,7 +16,7 @@ function loadPromotionProducts() {
       crossDomain: true,
       url:
         "https://retaily-api.herokuapp.com/getPromotionsItems?id=" +
-        sessionStorage.promotion,
+        localStorage.promotion,
       method: "GET",
       headers: {
         "cache-control": "no-cache",
@@ -122,7 +122,7 @@ function addProducts(
 
 function addProductToSessionStorage(productId) {
   console.log(productId);
-  sessionStorage.product = productId;
+    localStorage.product = productId;
 
   window.location = "ProductPage.html";
 }

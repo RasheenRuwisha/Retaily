@@ -1,7 +1,7 @@
 AFRAME.registerComponent('accepts-clicks', {
   init: function() {
     this.el.addEventListener('touchend', handleClickEvent);
-    this.el.addEventListener('click', handleClickEvent);
+    this.el.addEventListener('markerFound', handleClickEvent);
   },
   tick: function() {
     hideSpeechBubbleIfNoMarker();
@@ -80,7 +80,7 @@ function updateProgress(){
       "Postman-Token": "540e1b4c-027e-4ea4-b7f0-9d3769c7ad40"
     },
     "processData": false,
-    "data": "{\n    \"email\": \"sheen.ruwisha12@gmail.com\",\n    \"completion\": [\"true\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"]\n}"
+    "data": "{\n    \"email\": \""+localStorage.email+"\",\n    \"completion\": [\"true\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"]\n}"
   }
   
   $.ajax(settings).done(function (response) {
