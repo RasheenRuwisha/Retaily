@@ -497,8 +497,7 @@ img.single-product.product-popup-icon {
 }
 
 .single-product {
-    font-size: 20px !important;
-    padding: 5px !important;
+    font-size: 16px !important;
 }
 
 button.single-product-page.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
@@ -672,8 +671,8 @@ button.checkout-button-std-sht.login-button.ui-btn.ui-btn-inline.rounded-button 
     margin: 13px;
     background: #6060602e;
     border-radius: 20px;
-    width: 130px;
-    height: 140px;
+    width: 140px;
+    height: 160px;
 }
 
 .main-grid-for-second-third-user {
@@ -684,6 +683,7 @@ button.checkout-button-std-sht.login-button.ui-btn.ui-btn-inline.rounded-button 
 
 img.leaderboard-user-icon.logo-image {
     width: 85%;
+    margin-top: 10px;
 }
 
 .leaderboard-user-icon-second-third {
@@ -705,6 +705,7 @@ h4.user-game-points {
 
 .user-leaderboard {
     border-bottom: 1px solid;
+    padding: 7px;
 }
 
 p.user-point.float-price {
@@ -815,6 +816,10 @@ img.review-rating-star {
 img.bulletproof.order-product.product-image-items-display {
     margin-left: -22px;
     margin-top: 22px;
+}
+
+img.leaderboard-image {
+    max-width: 100%;
 }
 
 
@@ -962,6 +967,10 @@ img.bulletproof.order-product.product-image-items-display {
     .review-rating-star-legends {
         width: 22%;
     }
+    img.leaderboard-image {
+        /* max-width: 101%; */
+        width: 100%;
+    }
 }
 
 
@@ -1035,9 +1044,14 @@ img.bulletproof.order-product.product-image-items-display {
     .products-item {
         display: grid;
         grid-template-columns: 40% 60%;
+        grid-gap: 1rem;
     }
     .single-product-margin {
         margin-top: 0px !important;
+    }
+    .single-product {
+        font-size: 20px !important;
+        margin-top: 10px;
     }
     button.btn-nav-bar.addmore-button-quantity-popup.ui-btn.ui-btn-none.ui-corner-all {
         margin-top: 0px;
