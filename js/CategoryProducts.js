@@ -11,6 +11,7 @@ $(document).ready(function() {
 });
 
 
+
 function sortHighLow() {
     $(".loader").css("display", "block");
     $(".products-items").css("display", "none");
@@ -432,12 +433,13 @@ function getFav() {
 
 
 
-
-$("#select-native-3").change(function() {
-    var end = this.value;
-    if (end == 1) {
+function filterApply(){
+    var choice = ($("input[name=radio-choice-1]:checked").val());
+    $("#filter-popup").popup("close");
+    if(choice === "low-to-high"){
         sortLowtoHigh()
-    } else if (end == 2) {
+    }else if(choice === "high-to-low"){
         sortHighLow()
     }
-});
+}
+
