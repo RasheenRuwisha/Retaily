@@ -270,45 +270,72 @@ function decrementQuantity() {
 }
 
 function addToCart(productid) {
-    var value = $("#productQuantity").text();
-
-    var settings = {
-        async: true,
-        crossDomain: true,
-        url: "https://retaily-api.herokuapp.com/addToCart",
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "cache-control": "no-cache",
-            "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
-        },
-        processData: false,
-        data: '{\n\t"email":"' + localStorage.email + '",\n\t"productId":"' +
-            productid +
-            '",\n     "qty":' +
-            parseInt(value) +
-            "\n}\n"
-    };
-
-    $.ajax(settings).done(function(response) {
-        console.log(response);
-        if (response === 2005) {
-            $("#cart-success").popup("open");
-            setTimeout(function() {
-                $("#cart-success").popup("close");
-            }, 2000);
-        } else if (response === 3006) {
-            $("#cart-error").popup("open");
-            setTimeout(function() {
-                $("#cart-error").popup("close");
-            }, 2000);
-        }
-    }).error(function() {
+    if(localStorage.email === undefined){
         $("#cart-error").popup("open");
         setTimeout(function() {
             $("#cart-error").popup("close");
         }, 2000);
-    });
+    }else{
+        var value = $("#productQuantity").text();
+
+        var settings = {
+            async: true,
+            crossDomain: true,
+            url: "https://retaily-api.herokuapp.com/addToCart",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
+            },
+            processData: false,
+            data: '{\n\t"email":"' + localStorage.email + '",\n\t"productId":"' +
+            productid +
+            '",\n     "qty":' +
+            parseInt(value) +
+            "\n}\n"
+        };
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            if (response === 2005) {
+                $("#cart-success").popup("open");
+                setTimeout(function() {
+                    $("#cart-success").popup("close");
+                }, 2000);
+            } else if (response === 3006) {
+                $("#cart-error").popup("open");
+                setTimeout(function() {
+                    $("#cart-error").popup("close");
+                }, 2000);
+            }
+        }).error(function() {
+            toast("Please Login to continue...");
+            window.location = "Login.html";
+        });
+    }
+
+}
+
+
+
+
+var toast=function(msg) {
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
+        .css({
+            display: "block",
+            opacity: 0.90,
+            position: "fixed",
+            padding: "7px",
+            "text-align": "center",
+            width: "270px",
+            left: ($(window).width() - 284) / 2,
+            top: $(window).height() / 2
+        })
+        .appendTo($.mobile.pageContainer).delay(1500)
+        .fadeOut(400, function () {
+            $(this).remove();
+        });
 }
 
 

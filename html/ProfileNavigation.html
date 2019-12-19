@@ -31,12 +31,19 @@
             </ul>
 
         </div>
-        <p class="UserNavigation logout User-Profile-Edit Register-Account-Text"><a href="Login.html" rel="external">Logout</a></p>
+        <p class="UserNavigation logout User-Profile-Edit Register-Account-Text"><a onclick="logout()">Logout</a></p>
         <p class="UserNavigation User-Profile-Edit Register-Account-Text"><a href="Dashboard.html" rel="external">Back to Home</a></p>
 
     </div>
 
     <!-- /content -->
 </body>
+
+<script>
+    function logout(){
+       localStorage.removeItem("email");
+       window.location = "Login.html"
+    }
+</script>
 
 </html>

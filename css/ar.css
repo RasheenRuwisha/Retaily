@@ -41,7 +41,7 @@
     position: absolute;
     width: 80%;
     margin: 0 auto;
-    top: 0px;
+    top: 68px;
     right: 10px;
     left: 10px;
     min-height: 40px;
@@ -51,4 +51,22 @@
     border-radius: .4em;
     padding: 20px;
     display: none;
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    .speech-bubble {
+        min-height: 10%;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+    .speech-bubble {
+        min-height: 10%;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+    .speech-bubble {
+        min-height: 10%;
+    }
 }

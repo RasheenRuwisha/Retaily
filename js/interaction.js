@@ -1,3 +1,5 @@
+
+
 AFRAME.registerComponent('accepts-clicks', {
     init: function() {
         this.el.addEventListener('touchend', handleClickEvent);
@@ -32,10 +34,8 @@ function handleClickEvent() {
         if (builderMarker && builderMarker.object3D.visible) {
             if (searchForBuilderTool(builder)) {
                 toggleSpeechBubble(builder.successDialogue);
-                if (builder.name === "pyra") {
                     updateProgress();
                     toggleNotification();
-                }
             } else {
                 toggleSpeechBubble(builder.dialogue);
             }
@@ -75,7 +75,6 @@ function searchForBuilderTool(builder) {
         return tool.name === builder.tool.name;
     });
 };
-
 
 
 function updateProgress() {
