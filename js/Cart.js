@@ -33,7 +33,7 @@ function loadCart() {
                             <div class="payment-button-div">  
                             <div class="checkout-btn-cart">
                             <a href="#coupons-pop" data-rel="popup" class="login-button ui-btn ui-btn-inline rounded-button">
-                            <img class="coupons" src="../Resources/images/icons8-ticket-100.png" alt="">
+                            <img class="coupons" src="../images/icons8-ticket-100.png" alt="">
                             </a>
                             </div>
                             </div>

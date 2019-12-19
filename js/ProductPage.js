@@ -1,6 +1,7 @@
 var product;
 $(document).ready(function() {
     var pathname = window.location.pathname;
+    $("#link-share").val(window.location)
     if (pathname.includes("ProductPage")) {
         product = getUrlParam("id", "Empty");
         product = product.split("%")[0];
@@ -43,11 +44,11 @@ function loadReviews() {
         var reviews = "";
         for (var i = 0; i < response.length; i++) {
             reviews += `<div class="comment-section-background">
-                <img class="comment-user-icon  product-popup-icon" src="../Resources/images/icons/header-userprofile.png"
+                <img class="comment-user-icon  product-popup-icon" src="../images/icons/header-userprofile.png"
             border="0"/>
                 <p class=" price"><b>${response[i].email}</b></p>
             <br>
-            <img class="comment-rating-icon  product-popup-icon" src="../Resources/images/icons/Stars png.png"
+            <img class="comment-rating-icon  product-popup-icon" src="../images/icons/Stars png.png"
             border="0"/>
                 <br>
                 <p class="comment-title price review-title"><b>${response[i].title}</b></p>
@@ -135,11 +136,7 @@ function addProducts(response) {
                 <div class="single-product-background w3-content w3-display-container">
                    ${images}
                    
-                        <div class="prev" style="top: 33%; margin-left: -30px;" onclick="plusDivs(-1)">
-                            &#10094;
-                        </div>
-                        <div class="next" style="top: 33%; margin-right: 22px;" onclick="plusDivs(1)">
-                            &#10095;
+               
  ${dots}
                     </div>
                 </div>
@@ -158,13 +155,13 @@ function addProducts(response) {
                     <br>
                     <p class="single-product single-product-margin price">Quantity :</p>
                     <button class="plus-icon btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="incrementQuantity()">
-            <img class="single-product single-product-margin  product-popup-icon" src="../Resources/images/icons/001-add.png" border="0"
+            <img class="single-product single-product-margin  product-popup-icon" src="../images/icons/001-add.png" border="0"
               width="35px" height="35px" />
           </button>
                     <p id="productQuantity" class="quantity-label single-product single-product-margin price float-price">1</p>
 
                     <button class="minus-icon btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="decrementQuantity()">
-            <img class="single-product single-product-margin product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+            <img class="single-product single-product-margin product-popup-icon" src="../images/icons/002-substract.png" border="0"
               width="35px" height="35px" />
           </button>
                 </div>
@@ -398,3 +395,4 @@ function addReview() {
     $("#add-review-btn").css("display", "block");
 
 }
+

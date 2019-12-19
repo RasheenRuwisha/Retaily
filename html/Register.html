@@ -20,17 +20,17 @@
 
             <div data-role="popup" id="server-error"  class="ui-corner-all">
                 <div style="padding:10px 20px;">
-                    <img style="width: 200px;margin: auto;display: block;" src="../Resources/images/fail.gif"
+                    <img style="width: 200px;margin: auto;display: block;" src="../images/fail.gif"
                          alt="">
                     <h2 style="color: #ff647c;text-align: center">Something went wrong. Its not you it's us!</h2>
                 </div>
             </div>
 
 
-            <img class="register Ipad-logo-size logo-image" src="../Resources/images/Logos/Transparent.png" alt="">
+            <img class="register Ipad-logo-size logo-image" src="../images/Logos/Transparent.png" alt="">
 
 
-            <p class="error-message" id="error"></p>
+            <p class="error-message" id="error-message"></p>
 
             <label class="login-labels orange-label" for="username"><span id="username-label">Username</span> <span class="error-message" id="username-error">Username Cannot be empty</span></label>
             <input class="input-white-background" type="text" name="Username" id="username" placeholder="Username"
@@ -40,17 +40,17 @@
             <input class="input-white-background" type="text" name="Email" id="email" placeholder="Email" value="">
 
             <label class="login-labels orange-label" for="password"><span id="password-label">Password</span> <span class="error-message" id="password-error">Password Cannot be empty</span></label>
-            <input class="input-white-background" type="text" name="password" id="password" placeholder="Password"
+            <input class="input-white-background" type="password" name="password" id="password" placeholder="Password"
                 value="">
             <label class="login-labels orange-label" for="password"><span id="confpassword-label">Confirm Password</span> <span class="error-message" id="confpassword-error">Confirm Password Cannot be empty</span> <span class="error-message" id="confpassword-error-mis">Passwords do nnot match</span></label>
-            <input class="input-white-background" type="text" name="Confirm Password" id="confpassword"
+            <input class="input-white-background" type="password" name="Confirm Password" id="confpassword"
                 placeholder="Confirm Password" value="">
 
             <div class=" button-container">
                 <button onclick="doRegister()"  id="login-btn"  class="login-button ui-btn ui-btn-inline rounded-button">Register</button>
                 <div id="processing-btn" onclick="addReview()"
                      class="ui-btn ui-shadow ui-corner-all login-processing login-button" >
-                    <img src="../Resources/images/loader.gif"
+                    <img src="../images/loader.gif"
                          style="display: inline-block;width: 33px;height: 33px;" alt="">
                     <p class="processing-text">Processing</p>
                 </div>

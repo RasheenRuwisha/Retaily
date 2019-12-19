@@ -20,15 +20,15 @@
 
             <div data-role="popup" id="server-error"  class="ui-corner-all">
                 <div style="padding:10px 20px;">
-                    <img style="width: 200px;margin: auto;display: block;" src="../Resources/images/fail.gif"
+                    <img style="width: 200px;margin: auto;display: block;" src="../images/fail.gif"
                          alt="">
                     <h2 style="color: #ff647c;text-align: center">Something went wrong. Its not you it's us!</h2>
                 </div>
             </div>
 
-            <img class="Ipad-logo-size logo-image" src="../Resources/images/Logos/Transparent.png" alt="">
+            <img class="Ipad-logo-size logo-image" src="../images/Logos/Transparent.png" alt="">
 
-            <p class="error-message" id="error"></p>
+            <p class="error-message" id="error-message"></p>
 
             <label class="login-labels orange-label" for="email"><span id="username-label">Email</span> <span class="error-message" id="username-error">Email Cannot be empty</span></label>
             <input class="input-white-background" type="text" min="1" name="email" id="email" placeholder="Email"
@@ -41,7 +41,7 @@
                 <button onclick="doLogin()" id="login-btn" class="login-button ui-btn ui-btn-inline rounded-button">Login</button>
                 <div id="processing-btn" onclick="addReview()"
                      class="ui-btn ui-shadow ui-corner-all login-processing login-button" >
-                    <img src="../Resources/images/loader.gif"
+                    <img src="../images/loader.gif"
                          style="display: inline-block;width: 33px;height: 33px;" alt="">
                     <p class="processing-text">Processing</p>
                 </div>

@@ -66,14 +66,14 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
         favIcon += `
        <div onclick="removeFav('${localStorage.email}${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
             <img style="z-index:998 !important;" id="${productId}-fav-image" class="add-to-cart-plus-icon"
-                src="../Resources/images/icons/valentines-heart.png" border="0" />
+                src="../images/icons/valentines-heart.png" border="0" />
           </div>
       `
     } else {
         favIcon += `
        <div onclick="addToFav('${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
             <img style="z-index:998 !important;" id="${productId}-fav-image" class="add-to-cart-plus-icon"
-                src="../Resources/images/icons/heart%20(1).png" border="0" />
+                src="../images/icons/heart%20(1).png" border="0" />
           </div>
       `
     }
@@ -118,7 +118,7 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
           <div class="add-to-cart-button-div">
             <a href="#${productId}" data-rel="popup" data-position-to="window"
               class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
-                src="../Resources/images/icons/001-add White.png" border="0" /></a>
+                src="../images/icons/001-add White.png" border="0" /></a>
             <div data-role="popup" id="${productId}" data-theme="" class="ui-corner-all">
               <div style="padding:10px 20px; width: 200px;">
                             <h3 class="product-addtocart-popup">${name} </h3>
@@ -128,13 +128,13 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
                 <p class="price">Quantity :</p>
                 <button onclick="decrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')" class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                   data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+                  <img class="product-popup-icon" src="../images/icons/002-substract.png" border="0"
                     width="35px" height="35px" />
                 </button>
                 <p class="price float-price" id="qty-${productId}">1</p>
                 <button onclick="incrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')"  class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                   data-theme="none">
-                  <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
+                  <img class="product-popup-icon" src="../images/icons/001-add.png" border="0" width="35px"
                     height="35px" />
                 </button>
                 <br>
@@ -263,7 +263,7 @@ function addToFav(id, image) {
     $.ajax(settings).done(function(response) {
         console.log(response);
         if (response === 2009) {
-            $(image).attr("src", "../Resources/images/icons/valentines-heart.png");
+            $(image).attr("src", "../images/icons/valentines-heart.png");
         }
     });
 
@@ -284,7 +284,7 @@ function removeFav(id, image) {
     $.ajax(settings).done(function(response) {
         console.log(response);
         if (response === 2009) {
-            $(image).attr("src", "../Resources/images/icons/heart%20(1).png");
+            $(image).attr("src", "../images/icons/heart%20(1).png");
         }
     });
 }

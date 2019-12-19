@@ -23,17 +23,17 @@
         <div data-role="header" class="header-class">
             <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;">
                 <a data-rel="back"  class="btn-home ui-btn-none ui-btn ui-corner-all"  data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/icons8-back-arrow-96.png" style="height: 29px!important;     margin-top: 3px;" border="0">
+                    <img src="../images/icons/icons8-back-arrow-96.png" style="height: 29px!important;     margin-top: 3px;" border="0">
                 </a>
                 <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">Product</h3>
 
                 <a href="ar-scanner.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/icons8-camera-24.png" border="0">
+                    <img src="../images/icons/icons8-camera-24.png" border="0">
                 </a>
 
 
                 <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
-                    <img src="../Resources/images/icons/header-userprofile.png" border="0">
+                    <img src="../images/icons/header-userprofile.png" border="0">
                 </a>
 
             </div>
@@ -54,7 +54,7 @@
             <div id="content" style="display: none">
                 <div style="width: 90%;padding:10px 20px;height: 280px;" data-role="popup" id="add-review" data-theme="" class="ui-corner-all">
                     <div style="padding:10px 20px;">
-                        <label class="login-labels orange-label" for="Rating"><img class="review-rating-star" src="../Resources/images/icons/Stars png.png" border="0"></label>
+                        <label class="login-labels orange-label" for="Rating"><img class="review-rating-star" src="../images/icons/Stars png.png" border="0"></label>
                         <label class="login-labels orange-label" for="title">Title</label>
                         <input class="input-white-background" type="text" name="title" id="title" placeholder="Title" value="">
                         <label class="login-labels orange-label" for="review">Review</label>
@@ -62,15 +62,22 @@
                 </textarea>
                         <button id="add-review-btn" onclick="addReview()">Add Review</button>
                         <div id="processing-btn" class="ui-btn ui-shadow ui-corner-all processing-btn ">
-                            <img src="../Resources/images/loader.gif" style="display: inline-block;width: 33px;height: 33px;" alt="">
+                            <img src="../images/loader.gif" style="display: inline-block;width: 33px;height: 33px;" alt="">
                             <p class="processing-text">Processing</p>
                         </div>
                     </div>
                 </div>
 
+                <div style="width: 90%;padding:10px 20px;height: 280px;" data-role="popup" id="share" data-theme="" class="ui-corner-all">
+                    <div style="padding:10px 20px;">
+                        <p>Copy link to share the product</p>
+                        <input class="input-white-background" type="text" name="title" id="link-share" placeholder="Title" value="">
+                    </div>
+                </div>
+
                 <div data-role="popup" id="cart-success" data-theme="" class="ui-corner-all">
                     <div style="padding:10px 20px;">
-                        <img style=" width: 200px;margin: auto;display: block;" src="../Resources/images/addtocart-success.gif" alt="">
+                        <img style=" width: 200px;margin: auto;display: block;" src="../images/addtocart-success.gif" alt="">
                         <h2 style="color: #93dfca;">Item added to cart.</h2>
                     </div>
                 </div>
@@ -78,7 +85,7 @@
 
                 <div data-role="popup" id="cart-error" data-theme="" class="ui-corner-all">
                     <div style="padding:10px 20px;">
-                        <img style="width: 200px;margin: auto;display: block;" src="../Resources/images/AW331857_12.gif" alt="">
+                        <img style="width: 200px;margin: auto;display: block;" src="../images/AW331857_12.gif" alt="">
                         <h2 style="color: #ff647c;">Something went wrong.</h2>
                     </div>
                 </div>
@@ -91,16 +98,66 @@
                 <div class="review-container">
                     <div class="add-review-container">
                         <button onclick="addReviewProduct()">Add Review</button>
-                        <button onclick="addReviewProduct()">Share</button>
+                        <a  data-rel="popup" href="#share"><button>Share</button></a>
                     </div>
-                    <label class="login-labels orange-label" for="Rating"><img class="review-rating-star-legends" src="../Resources/images/icons/Stars png.png" border="0"></label>
+
+                    <br>
+                    <hr>
+                    <h3>Reviews</h3>
+                    <label class="login-labels orange-label" for="Rating"><img class="review-rating-star-legends" src="../images/icons/Stars png.png" border="0"></label>
                     <div class="share-product">
 
                     </div>
 
 
+
                     <div id="reviews">
 
+                    </div>
+
+
+
+                    <div>
+                        <div class="comment-section-background">
+                            <img class="comment-user-icon  product-popup-icon" src="../images/icons/header-userprofile.png"
+                                 border="0"/>
+                            <p class=" price"><b>Raveen</b></p>
+                            <br>
+                            <img class="comment-rating-icon  product-popup-icon" src="../images/icons/Stars png.png"
+                                 border="0"/>
+                            <br>
+                            <p class="comment-title price review-title"><b>Great Product</b></p>
+                            <br>
+                            <p class="comment-description review-comment">One of the bbest products that i have purchased. Definitely wort a try
+                            </p>
+
+                        </div><div class="comment-section-background">
+                        <img class="comment-user-icon  product-popup-icon" src="../images/icons/header-userprofile.png"
+                             border="0"/>
+                        <p class=" price"><b>Anjula</b></p>
+                        <br>
+                        <img class="comment-rating-icon  product-popup-icon" src="../images/icons/Stars png.png"
+                             border="0"/>
+                        <br>
+                        <p class="comment-title price review-title"><b>Great Products</b></p>
+                        <br>
+                        <p class="comment-description review-comment">The product excedded my expectation. 5/5 for sure.
+                        </p>
+
+                    </div><div class="comment-section-background">
+                        <img class="comment-user-icon  product-popup-icon" src="../images/icons/header-userprofile.png"
+                             border="0"/>
+                        <p class=" price"><b>Ruchila</b></p>
+                        <br>
+                        <img class="comment-rating-icon  product-popup-icon" src="../images/icons/Stars png.png"
+                             border="0"/>
+                        <br>
+                        <p class="comment-title price review-title"><b>Nice Product</b></p>
+                        <br>
+                        <p class="comment-description review-comment">Decided to try it out, and was dissapointed
+                        </p>
+
+                    </div>
                     </div>
                 </div>
 
@@ -110,7 +167,7 @@
         </div>
 
         <div class="loader">
-            <img class="loader-gif" src="./../Resources/images/giphy.gif">
+            <img class="loader-gif" src="./../images/giphy.gif">
             <p> The goodest bois are finding the product details...</p>
         </div>
 
@@ -125,27 +182,27 @@
                     <li>
                         <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
                         <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
+                            <img src="../images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
                         </a>
                     </li>
                     <li>
                         <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/001-search.png" border="0" width="35px" height="35px" />
+                            <img src="../images/icons/001-search.png" border="0" width="35px" height="35px" />
                         </a>
                     </li>
                     <li>
                         <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/002-fire.png" border="0" width="35px" height="35px" />
+                            <img src="../images/icons/002-fire.png" border="0" width="35px" height="35px" />
                         </a>
                     </li>
                     <li>
                         <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
+                            <img src="../images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
                         </a>
                     </li>
                     <li>
                         <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
-                            <img src="../Resources/images/icons/003-menu.png" border="0" width="35px" height="35px" />
+                            <img src="../images/icons/003-menu.png" border="0" width="35px" height="35px" />
                         </a>
                     </li>
                 </ul>

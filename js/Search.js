@@ -106,7 +106,7 @@
                 <div class="add-to-cart-button-div style=" Style="background: none !important;">
                   <a href="#popupLogin" data-rel="popup" data-position-to="window"
                     class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
-                      src="../Resources/images/icons/heart (1).png" border="0" /></a>  
+                      src="../images/icons/heart (1).png" border="0" /></a>  
                 </div>
               </div>
               <a style="font-weight:300;color:black"   href='ProductPage.html?id=${productId}' rel='external'><img class="product-image-items-display" src="${image}" alt=" PS4" /></a>
@@ -118,7 +118,7 @@
                 <div class="add-to-cart-button-div">
                   <a href="#${productId}" data-rel="popup" data-position-to="window"
                     class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
-                      src="../Resources/images/icons/001-add White.png" border="0" /></a>
+                      src="../images/icons/001-add White.png" border="0" /></a>
                   <div data-role="popup" id="${productId}" data-theme="" class="ui-corner-all">
                     <div style="padding:10px 20px; width: 200px;">
                                   <h3 class="product-addtocart-popup">${name} </h3>
@@ -128,13 +128,13 @@
                       <p class="price">Quantity :</p>
                       <button onclick="decrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')" class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                         data-theme="none">
-                        <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+                        <img class="product-popup-icon" src="../images/icons/002-substract.png" border="0"
                           width="35px" height="35px" />
                       </button>
                       <p class="price float-price" id="qty-${productId}">1</p>
                       <button onclick="incrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')"  class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                         data-theme="none">
-                        <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
+                        <img class="product-popup-icon" src="../images/icons/001-add.png" border="0" width="35px"
                           height="35px" />
                       </button>
                       <br>

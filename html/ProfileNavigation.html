@@ -18,9 +18,9 @@
     <div data-role="page">
         <div role="main" class="login ui-content">
 
-            <img class="User-registration Ipad-logo-size logo-image" src="../Resources/images/Logos/Transparent.png" alt="User Icon">
-            <label class="UserNavigation-labels login-labels orange-label" for="username">Username:</label>
-            <label class="UserNavigation-labels login-labels orange-label" for="username">Email:</label>
+            <img class="User-registration Ipad-logo-size logo-image" src="../images/Logos/Transparent.png" alt="User Icon">
+            <label class="UserNavigation-labels login-labels orange-label" for="username">Username: <span id="Username"></span></label>
+            <label class="UserNavigation-labels login-labels orange-label" for="username">Email: <span id="Email"></span></label>
 
             <ul class="Profile-Navigation-List" data-role="listview">
                 <li><a href="AboutUs.html" rel="external">About Us</a></li>
@@ -32,7 +32,7 @@
 
         </div>
         <p class="UserNavigation logout User-Profile-Edit Register-Account-Text"><a onclick="logout()">Logout</a></p>
-        <p class="UserNavigation User-Profile-Edit Register-Account-Text"><a href="Dashboard.html" rel="external">Back to Home</a></p>
+        <p class="UserNavigation User-Profile-Edit Register-Account-Text"><a data-rel="back">Back</a></p>
 
     </div>
 
@@ -44,6 +44,11 @@
        localStorage.removeItem("email");
        window.location = "Login.html"
     }
+
+    $(document).ready(function() {
+        $("#Username").text(localStorage.Username)
+        $("#Email").text(localStorage.email)
+    });
 </script>
 
 </html>

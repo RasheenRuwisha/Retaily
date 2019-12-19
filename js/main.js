@@ -69,7 +69,7 @@ function doRegister() {
             "Postman-Token": "a335e3b8-b1df-4a65-8ec7-6c48448d06d1"
         },
         "processData": false,
-        "data": "{\n\t\"username\":\""+username+"\",\n\t\"email\":\""+email+"\",\n\t\"password\":\""+password+"\",\n\t\"completion\":[\"false\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"]\n}"
+        "data": "{\n\t\"username\":\""+username+"\",\n\t\"email\":\""+email+"\",\n\t\"password\":\""+email+"\",\n\t\"completion\":[\"false\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"],\n\t\"coupons\":[],\n\t\"score\":0\n}"
     }
 
 
@@ -79,7 +79,10 @@ function doRegister() {
         $.ajax(settings).done(function(response) {
             console.log(response);
             if (response === 2000) {
-                localStorage.email =  $("#email").val()
+                localStorage.email =  email;
+                localStorage.Score = 0;
+                localStorage.Username = username;
+                toast("Registration Successful!")
                 window.location = ("Dashboard.html");
             }else if (response === 3001) {
                 $("#error-message").css("display","inline")
@@ -150,11 +153,15 @@ function doLogin() {
         };
 
         $.ajax(settings).done(function(response) {
-
+            console.log(response)
             if (response === 2001) {
-                localStorage.email =  $("#email").val()
-                window.location = ("Dashboard.html");
+                localStorage.email =  $("#email").val();
+                loadDetails()
             }else if(response === 3003) {
+                $("#error-message").css("display","inline")
+                $("#error-message").html("Invalid Email or Password!")
+            }
+            else if(response === 3004) {
                 $("#error-message").css("display","inline")
                 $("#error-message").html("Invalid Email or Password!")
             }
@@ -179,4 +186,44 @@ function navigateToCategories() {
     { transition: "slideup" },
     (event = loadCategories())
   );
+}
+
+
+function loadDetails(){
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://retaily-api.herokuapp.com/details?email="+localStorage.email,
+        "method": "GET",
+        "headers": {
+            "cache-control": "no-cache",
+            "Postman-Token": "a67d016a-64d9-4948-b436-1313714901b1"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        localStorage.Score = response.score;
+        localStorage.Username = response.username;
+        window.location = ("Dashboard.html");
+
+    });
+}
+
+var toast=function(msg) {
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
+        .css({
+            display: "block",
+            opacity: 0.90,
+            position: "fixed",
+            padding: "7px",
+            "text-align": "center",
+            width: "270px",
+            left: ($(window).width() - 284) / 2,
+            top: $(window).height() / 2
+        })
+        .appendTo($.mobile.pageContainer).delay(1500)
+        .fadeOut(400, function () {
+            $(this).remove();
+        });
 }

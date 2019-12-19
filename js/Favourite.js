@@ -11,52 +11,6 @@ $(document).ready(function() {
 });
 
 
-function sortHighLow() {
-    $(".loader").css("display", "block");
-    $(".products-items").css("display", "none");
-    $("#drop-select").css("display", "none");
-
-    var categories = "";
-
-    try {
-        var settings = {
-            async: true,
-            crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
-                product,
-            method: "GET",
-            headers: {
-                "cache-control": "no-cache",
-                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-            }
-        };
-
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-            for (var i = 0; i < response.length; i++) {
-                categories += addProducts(
-                    response[i].name,
-                    response[i].price,
-                    response[i].image,
-                    response[i].hasDiscount,
-                    response[i].productId,
-                    response[i].discountPrice,
-                );
-            }
-            $("#drop-select").css("display", "inline");
-
-            $(".loader").css("display", "none");
-            $(".products-items").css("display", "grid");
-            $(".products-items").html(categories);
-            $("#drop-select").trigger("create");
-            $(".products-items").trigger("create");
-        });
-    } catch (err) {
-        console.log("loadCategoryProducts failed");
-        console.log(err);
-    }
-}
-
 
 function getUrlVars() {
     var vars = {};
@@ -75,49 +29,53 @@ function getUrlParam(parameter, defaultvalue) {
 }
 
 function loadCategoryProducts() {
-    $(".header-title").html(product);
-    $(".loader").css("display", "block");
-    $(".products-items").css("display", "none");
-    $("#drop-select").css("display", "none");
+    if(localStorage.email === undefined){
+        window.location = ("Login.html")
+    }else{
+        $(".loader").css("display", "block");
+        $(".products-items").css("display", "none");
+        $("#drop-select").css("display", "none");
 
-    var categories = "";
+        var categories = "";
 
-    try {
-        var settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://retaily-api.herokuapp.com/getFav?email=" + localStorage.email,
-            "method": "GET",
-            "headers": {
-                "cache-control": "no-cache",
-                "Postman-Token": "441e902d-98ba-422d-8dfb-e1318729a41d"
+        try {
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://retaily-api.herokuapp.com/getFav?email=" + localStorage.email,
+                "method": "GET",
+                "headers": {
+                    "cache-control": "no-cache",
+                    "Postman-Token": "441e902d-98ba-422d-8dfb-e1318729a41d"
+                }
             }
+
+
+            $.ajax(settings).done(function(response) {
+                console.log(response);
+                for (var i = 0; i < response.length; i++) {
+                    categories += addProducts(
+                        response[i].name,
+                        response[i].price,
+                        response[i].image,
+                        response[i].hasDiscount,
+                        response[i].productId,
+                        response[i].discountPrice,
+                    );
+                }
+                $("#drop-select").css("display", "block");
+                $(".loader").css("display", "none");
+                $(".products-items").css("display", "grid");
+                $(".products-items").html(categories);
+                $("#drop-select").trigger("create");
+                $(".products-items").trigger("create");
+            });
+        } catch (err) {
+            console.log("loadCategoryProducts failed");
+            console.log(err);
         }
-
-
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-            for (var i = 0; i < response.length; i++) {
-                categories += addProducts(
-                    response[i].name,
-                    response[i].price,
-                    response[i].image,
-                    response[i].hasDiscount,
-                    response[i].productId,
-                    response[i].discountPrice,
-                );
-            }
-            $("#drop-select").css("display", "block");
-            $(".loader").css("display", "none");
-            $(".products-items").css("display", "grid");
-            $(".products-items").html(categories);
-            $("#drop-select").trigger("create");
-            $(".products-items").trigger("create");
-        });
-    } catch (err) {
-        console.log("loadCategoryProducts failed");
-        console.log(err);
     }
+
 }
 
 function addProducts(name, price, image, promotion, productId, discountPrice) {
@@ -130,8 +88,6 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
         name = name.substr(0, 17);
         name += "...";
     }
-
-
 
     if (promotion) {
         popPrice += `
@@ -162,7 +118,7 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
           <div class="align-favourite">
           <div onclick="removeFav('${localStorage.email}${productId}','#${productId}-fav-image')" class="add-to-cart-button-div style=" Style="background: none !important;">
               <img id="${productId}-fav-image" class="add-to-cart-plus-icon"
-                  src="../Resources/images/icons/valentines-heart.png" border="0" />
+                  src="../images/icons/valentines-heart.png" border="0" />
             </div>
           </div>
           <a style="font-weight:300;color:black"   href='ProductPage.html?id=${productId}' rel='external'><img class="product-image-items-display" src="${image}" alt=" PS4" /></a>
@@ -174,7 +130,7 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
             <div class="add-to-cart-button-div">
               <a href="#${productId}" data-rel="popup" data-position-to="window"
                 class=" ui-corner-all  ui-btn-inline ui-btn-a" data-transition="pop"><img class="add-to-cart-plus-icon"
-                  src="../Resources/images/icons/001-add White.png" border="0" /></a>
+                  src="../images/icons/001-add White.png" border="0" /></a>
               <div data-role="popup" id="${productId}" data-theme="" class="ui-corner-all">
                 <div style="padding:10px 20px; width: 200px;">
                               <h3 class="product-addtocart-popup">${name} </h3>
@@ -184,13 +140,13 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
                   <p class="price">Quantity :</p>
                   <button onclick="decrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')" class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                     data-theme="none">
-                    <img class="product-popup-icon" src="../Resources/images/icons/002-substract.png" border="0"
+                    <img class="product-popup-icon" src="../images/icons/002-substract.png" border="0"
                       width="35px" height="35px" />
                   </button>
                   <p class="price float-price" id="qty-${productId}">1</p>
                   <button onclick="incrementQuantity('qty-${productId}','total-${productId}','incr-${productId}')"  class="btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false"
                     data-theme="none">
-                    <img class="product-popup-icon" src="../Resources/images/icons/001-add.png" border="0" width="35px"
+                    <img class="product-popup-icon" src="../images/icons/001-add.png" border="0" width="35px"
                       height="35px" />
                   </button>
                   <br>
@@ -319,7 +275,7 @@ function addToFav(id, image) {
     $.ajax(settings).done(function(response) {
         console.log(response);
         if (response === 2009) {
-            $(image).attr("src", "../Resources/images/icons/valentines-heart.png");
+            $(image).attr("src", "../images/icons/valentines-heart.png");
         }
     });
 
@@ -340,7 +296,7 @@ function removeFav(id, image) {
     $.ajax(settings).done(function(response) {
         console.log(response);
         if (response === 2009) {
-            $(image).attr("src", "../Resources/images/icons/heart%20(1).png");
+            $(image).attr("src", "../images/icons/heart%20(1).png");
         }
     });
 }
