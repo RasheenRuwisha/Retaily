@@ -2,6 +2,7 @@ var product;
 var fav = [];
 
 $(document).ready(function() {
+    $("#link-share").val(localStorage.getItem("email"));
     var pathname = window.location.pathname;
     product = getUrlParam("id", "Empty");
     product = product.split("%")[0];
@@ -53,21 +54,33 @@ function loadCategoryProducts() {
 
             $.ajax(settings).done(function(response) {
                 console.log(response);
-                for (var i = 0; i < response.length; i++) {
-                    categories += addProducts(
-                        response[i].name,
-                        response[i].price,
-                        response[i].image,
-                        response[i].hasDiscount,
-                        response[i].productId,
-                        response[i].discountPrice,
-                    );
+                if(response.length >0 ){
+                    for (var i = 0; i < response.length; i++) {
+                        categories += addProducts(
+                            response[i].name,
+                            response[i].price,
+                            response[i].image,
+                            response[i].hasDiscount,
+                            response[i].productId,
+                            response[i].discountPrice,
+                        );
+                    }
+                    $(".products-items").css("display", "grid");
+                    $(".ui-content").append(`    <a class="checkout-btn-cart" href="#email" data-rel="popup">
+                <button class="checkout-button-std-sht login-button ui-btn ui-btn-inline rounded-button">Email List</button>
+            </a>
+`)
+
+                }else{
+                    $(".products-items").css("display", "block");
+                    categories +=  `  <div class="loader">
+                    <img class="loader-gif" src="../images/ezgif.com-gif-maker.gif">
+                    <p>This pupper is lonely because you have no favourites! Add some now...</p>
+                </div>`
                 }
-                $("#drop-select").css("display", "block");
+
                 $(".loader").css("display", "none");
-                $(".products-items").css("display", "grid");
                 $(".products-items").html(categories);
-                $("#drop-select").trigger("create");
                 $(".products-items").trigger("create");
             });
         } catch (err) {
@@ -311,3 +324,55 @@ $("#select-native-3").change(function() {
         sortHighLow()
     }
 });
+
+
+function sendEmail(){
+    $("#send-btn").css("display", "none");
+    $("#processing-btn").addClass("processing-btn-important");
+    var link = $("#link-share").val().trim();
+    if(link === ""){
+        $("#link-share").addClass("text-box-error");
+    }else{
+        $("#link-share").removeClass("text-box-error");
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://retaily-api.herokuapp.com/emailFav?email="+localStorage.getItem("email")+"&senderEmail="+link,
+            "method": "GET",
+            "headers": {
+                "cache-control": "no-cache",
+                "Postman-Token": "ae6d47ce-1660-4ecc-a50b-f828f3f40a98"
+            }
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            if(response.length >0){
+                toast("Email Sent!")
+                $("#send-btn").css("display", "block");
+                $("#processing-btn").removeClass("processing-btn-important");
+            }
+
+            $("#email").popup("close");
+        });
+    }
+
+}
+
+var toast=function(msg) {
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
+        .css({
+            display: "block",
+            opacity: 0.90,
+            position: "fixed",
+            padding: "7px",
+            "text-align": "center",
+            width: "270px",
+            left: ($(window).width() - 284) / 2,
+            top: $(window).height() / 2
+        })
+        .appendTo($.mobile.pageContainer).delay(1500)
+        .fadeOut(400, function () {
+            $(this).remove();
+        });
+}

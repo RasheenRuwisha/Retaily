@@ -19,7 +19,7 @@
     <div data-role="page" data-theme="d">
         <div data-role="popup" id="coupons-pop" data-theme="" class="ui-corner-all">
             <div style="padding:10px 20px;">
-                <fieldset data-role="controlgroup">
+                <fieldset data-theme="a" data-role="controlgroup">
                     <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked">
                     <label for="radio-choice-1">Merc's Coupon(50% off)</label>
                     <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2">
@@ -124,5 +124,10 @@
 </body>
 <script type="text/javascript" src="../js/Cart.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
+<script>
+    $(document).on("popupafteropen", function() {
+        $('#coupons-pop').popup('reposition', 'positionTo: window');
+    });
+</script>
 
 </html>

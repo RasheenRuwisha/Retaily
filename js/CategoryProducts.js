@@ -2,6 +2,7 @@ var product;
 var fav = [];
 
 $(document).ready(function() {
+    $("#drop-select").css("display", "none");
     var pathname = window.location.pathname;
     product = getUrlParam("id", "Empty");
     product = product.split("%")[0];
@@ -122,7 +123,7 @@ function getUrlParam(parameter, defaultvalue) {
 }
 
 function loadCategoryProducts() {
-    $(".header-title").html(product);
+    $(".header-title").html(product.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-'));
     $(".loader").css("display", "block");
     $(".products-items").css("display", "none");
     $("#drop-select").css("display", "none");
@@ -440,6 +441,8 @@ function filterApply(){
         sortLowtoHigh()
     }else if(choice === "high-to-low"){
         sortHighLow()
+    }else if(choice === "none"){
+        loadCategoryProducts();
     }
 }
 

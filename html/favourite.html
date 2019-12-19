@@ -53,6 +53,18 @@
             </div>
         </div>
 
+        <div style="width: 130%!important;padding:10px 20px;height: 180px;" data-role="popup" id="email" data-theme="" class="ui-corner-all">
+            <div style="padding:10px 20px;">
+                <p>Send Email To :</p>
+                <input class="input-white-background" type="text" name="title" id="link-share" placeholder="Title" value="">
+                <button onclick="sendEmail()" class="login-button ui-btn ui-btn-inline rounded-button" id="send-btn">Send</button>
+                <div id="processing-btn" class="ui-btn ui-shadow ui-corner-all processing-btn ">
+                    <img src="../images/loader.gif" style="display: inline-block;width: 33px;height: 33px;" alt="">
+                    <p class="processing-text">Processing</p>
+                </div>
+            </div>
+        </div>
+
 
         <div data-role="popup" id="cart-error" data-theme="" class="ui-corner-all">
             <div style="padding:10px 20px;">
@@ -77,9 +89,6 @@
 
             <br>
             <br><br>
-            <div class="checkout-btn-cart">
-                <button class="checkout-button-std-sht login-button ui-btn ui-btn-inline rounded-button">Email List</button>
-            </div>
 
             <br>
             <br>
@@ -119,8 +128,11 @@
                 </div>
             </div>
         </div>
+    </div>
         <!-- /content -->
 </body>
 <script src="../js/Favourite.js"></script>
+<script>
+</script>
 
 </html>

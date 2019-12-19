@@ -72,17 +72,20 @@
                 <div data-role="popup" id="filter-popup" data-theme="" class="ui-corner-all">
 
                         <div class="form-filter" style="padding:10px 20px;">
-                            <fieldset data-role="controlgroup">
-                                <input type="radio" name="radio-choice-1" id="radio-choice-1" value="low-to-high" checked="checked">
+                            <fieldset data-theme="a" data-role="controlgroup">
+                                <label for="radio-choice-0">No Filter</label>
+                                <input type="radio" name="radio-choice-1" id="radio-choice-0" value="none" checked="checked">
+                                <input type="radio" name="radio-choice-1" id="radio-choice-1" value="low-to-high">
                                 <label for="radio-choice-1">Price From Lowest to the Highest</label>
                                 <input type="radio" name="radio-choice-1" id="radio-choice-2" value="high-to-low">
                                 <label for="radio-choice-2">Price From Highest to the Lowest</label>
                             </fieldset>
-                            <div data-role="rangeslider">
                                 <label for="range-1a">Price Range:</label>
-                                <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
-                                <label for="range-1b">Rangeslider:</label>
-                                <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+                            <div class="" style="width: 30% !important;display: inline-block;">
+                                <input type="text" name="range-1b" id="range" min="0" value="0">
+                            </div>
+                            <div style="width: 30% !important;display: inline-block;">
+                                <input type="text" name="range-1b" id="range-2" min="0" value="100">
                             </div>
                             <button onclick="filterApply()" class="login-button ui-btn ui-btn-inline rounded-button">Filter Products</button>
 

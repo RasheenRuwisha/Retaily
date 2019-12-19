@@ -158,7 +158,7 @@ function addProducts(response) {
             <img class="single-product single-product-margin  product-popup-icon" src="../images/icons/001-add.png" border="0"
               width="35px" height="35px" />
           </button>
-                    <p id="productQuantity" class="quantity-label single-product single-product-margin price float-price">1</p>
+                    <p id="productQuantity" class="quantity-label single-product single-product-margin price float-price" style="    padding: 0px 10px;">1</p>
 
                     <button class="minus-icon btn-nav-bar addmore-button-quantity-popup" data-role="button" data-shadow="false" data-theme="none" onclick="decrementQuantity()">
             <img class="single-product single-product-margin product-popup-icon" src="../images/icons/002-substract.png" border="0"
