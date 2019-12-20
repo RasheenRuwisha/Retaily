@@ -159,7 +159,7 @@ function addProducts(response) {
     <div class="order-item-image">
     <img class="order-product product-image-items-display" src="${response.productImage}" alt=" PS4" style="width:70%; float: left;" />
     </div>
-    <div class="order-item-text">
+    <div class="order-item-text width-73">
     <p style="margin-top: 2px;"><b>${response.name}</b></p>
 <p class="price">Product Price :</p>
 <p class="price float-price">$ ${response.price}</p>

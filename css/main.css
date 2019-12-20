@@ -1081,7 +1081,11 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
         max-width: 33% !important;
         margin-top: -3px;
     }
+    .width-73{
+        width: 73% !important;
+    }
 }
+
 
 
 /*Ipad Potrait*/
@@ -1175,6 +1179,9 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
     }
     .quantity-label {
         line-height: 18px !important;
+    }
+    .width-73{
+        width: 67% !important;
     }
     .pr-card {
         height: 310px;
