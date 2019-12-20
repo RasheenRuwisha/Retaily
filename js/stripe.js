@@ -93,7 +93,7 @@ function chargeUser(token){
         $("#Name").text(localStorage.checkoutName);
         $("#Addres-Line-1").text(response.source.address_line1);
         $("#Addres-Line-2").text(response.source.address_state + ", " + response.source.address_city);
-        $("#Addres-Line-3").text(response.source.address_country + "," + response.source.zip);
+        $("#Addres-Line-3").text(response.source.address_country + "," + response.source.address_zip);
         $("#Email").text(localStorage.checkoutEmail);
 
         $("#Card").text(response.source.last4);

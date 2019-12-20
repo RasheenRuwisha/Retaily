@@ -28,7 +28,9 @@ function loadCategories() {
       }
       $(".category-items").html(categories);
       $(".category-items").trigger("create");
+        $(".loader").remove();
     });
+
   } catch (err) {
     console.log("loadCategories failed");
     console.log(err);

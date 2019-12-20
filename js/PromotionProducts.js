@@ -184,21 +184,24 @@ function addToCart(productid) {
         console.log(response);
         if (response === 2005) {
             $(`#${productid}`).popup("close");
-            $("#cart-success").popup("open");
-            setTimeout(function() {
-                $("#cart-success").popup("close");
-            }, 10000);
+            $(`#${productid}`).on({
+                popupafterclose: function() {
+                    setTimeout(function() { $("#cart-success").popup('open') }, 100);
+                }
+            });
         } else if (response === 3006) {
-            $("#cart-error").popup("open");
-            setTimeout(function() {
-                $("#cart-error").popup("close");
-            }, 2000);
+            $(`#${productid}`).on({
+                popupafterclose: function() {
+                    setTimeout(function() { $("#cart-error").popup('open') }, 100);
+                }
+            });
         }
     }).error(function() {
-        $("#cart-error").popup("open");
-        setTimeout(function() {
-            $("#cart-error").popup("close");
-        }, 2000);
+        $(`#${productid}`).on({
+            popupafterclose: function() {
+                setTimeout(function() { $("#cart-error").popup('open') }, 100);
+            }
+        });
     });
 }
 
