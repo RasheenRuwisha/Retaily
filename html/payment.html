@@ -5,6 +5,19 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Payment</title>
+    <script>
+        $("#page-content").on("swiperight", function (e) {
+            $.mobile.back();
+        });
+
+        $(document).on("mobileinit", function () {
+            $.mobile.ignoreContentEnabled=true;
+        });
+        $(document).bind('mobileinit',function(){
+            $.mobile.keepNative = "select,input"; /* jQuery Mobile 1.4 and higher */
+            //$.mobile.page.prototype.options.keepNative = "select, input"; /* jQuery Mobile 1.4 and lower */
+        });
+    </script>
     <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
     <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css"/>
     <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css"/>
@@ -40,50 +53,71 @@
     </div>
 
 
-    <div role="main" class=" ui-content">
-        <div id="checkokut-form">
+    <div role="main" class=" ui-content ipad-ui">
+        <div data-role="popup" id="cart-error" data-theme="" class="ui-corner-all">
+            <div style="padding:10px 20px;">
+                <img style="width: 200px;margin: auto;display: block;" src="../images/AW331857_12.gif" alt="">
+            </div>
+        </div>
+
+        <div id="checkokut-form" data-enhance="false">
             <script src="https://js.stripe.com/v3/"></script>
             <br>
             <br>
-            <form>
-                <br>
+            <form id="payment-form">
+                <section>
+                    <h2>Shipping &amp; Billing Information</h2>
+                    <fieldset class="with-state">
+                        <label>
+                            <span>Name</span>
+                            <input data-role="none" id="cardholder-name" name="cardholder-name" class="field" placeholder="Jenny Rosen" required>
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input data-role="none" id="cardholder-email" data-enhance="false" name="cardholder-email" type="email" class="field" placeholder="jenny@example.com" required>
+                        </label>
+                        <label>
+                            <span>Address</span>
+                            <input data-role="none" id="cardholder-address" name="cardholder-address" class="field" placeholder="185 Berry Street Suite 550">
+                        </label>
+                        <label>
+                            <span>City</span>
+                            <input data-role="none" id="cardholder-city" name="cardholder-city" class="field" placeholder="San Francisco">
+                        </label>
+                        <label class="state">
+                            <span>State</span>
+                            <input data-role="none" id="cardholder-state" name="cardholder-state" class="field" placeholder="CA">
+                        </label>
+                        <label class="zip">
+                            <span>ZIP</span>
+                            <input data-role="none" id="cardholder-postal" name="cardholder-postalcode" class="field" placeholder="94107">
+                        </label>
+                        <label>
+                            <span>Country</span>
+                            <input data-role="none" id="cardholder-country" name="cardholder-country" class="field" placeholder="Sri Lanka">
+                        </label>
+                    </fieldset>
+                </section>
+                <section>
 
-                <label>
-                    <span id="card-name-label">Name</span><span id="card-name-error" class="error-message">Name cannot be empty</span>
-                    <input name="cardholder-name" id="card-name" placeholder="Jane Doe"/>
-                </label>
-                <label>
-                    <span id="card-email-label">Email</span><span id="card-email-error" class="error-message">Email cannot be empty</span>
-                    <input name="cardholder-email" id="card-email" placeholder="Email" type="email"/>
-                </label>
-                <label>
-                    <span id="card-address-line-1-label">Address Line 1</span><span id="card-address-line-1-error" class="error-message">Address Line 1 cannot be empty</span>
-                    <input name="address-line1" id="card-address-line-1" placeholder="Address Line 1"/>
-                </label>
-                <label>
-                    <span id="card-address-line-2-label">Address Line 1</span><span id="card-address-line-2-error" class="error-message">Address Line 1 cannot be empty</span>
-                    <input name="address-line2" id="card-address-line-2" placeholder="Address Line 2"/>
-                </label>
-                <label>
-                    <span id="card-address-state-label">State</span><span id="card-address-state-error" class="error-message">State cannot be empty</span>
-                    <input name="address-state" id="card-address-state" placeholder="State"/>
-                </label>
-                <label>
-                    <span id="card-address-city-label">City</span><span id="card-address-city-error" class="error-message">City cannot be empty</span>
-                    <input name="address-city" id="card-address-city" placeholder="City"/>
-                </label>
 
-                <label>
-                    <span class="payment-lable-name">Card</span>
-                    <div id="card-element" class="field"></div>
-                </label>
-                <button type="submit" id="payment-btn">Pay $ <span id="price">25</span></button>
-                <div id="processing-btn" onclick="addReview()"
-                     class="ui-btn ui-shadow ui-corner-all login-processing login-button" >
-                    <img src="../images/loader.gif"
-                         style="display: inline-block;width: 33px;height: 33px;" alt="">
-                    <p class="processing-text">Processing</p>
+                    <div class="payment-info card visible">
+                        <fieldset>
+                            <label>
+                                <span>Card</span>
+                                <div id="card-element" class="field"></div>
+                            </label>
+                        </fieldset>
+                    </div>
+                </section>
+                <button class="payment-button" id="pay-btn" type="submit">Pay $<span id="price" style="color: white !important;">25</span></button>
+                <div id="processing-btn" class="ui-btn ui-shadow ui-corner-all processing-btn">
+                    <img src="../images/loader.gif" style="display: inline-block;width: 33px;height: 33px;" alt="">
+                    <p class="processing-text" style="color: white">Processing</p>
                 </div>
+                <br>
+                <br>
+                <p class="powered-by" style="color: #272D42 !important;">Payments powered by Stripe</p>
             </form>
 
         </div>
@@ -98,6 +132,7 @@
                 <p class="payment-p" id="Name"></p>
                 <p class="payment-p" id="Addres-Line-1"></p>
                 <p class="payment-p" id="Addres-Line-2"></p>
+                <p class="payment-p" id="Addres-Line-3"></p>
                 <p class="payment-p" id="Email"></p>
             </div>
 
@@ -181,10 +216,6 @@
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../js/stripe.js"></script>
 
-<script>
-    $("#page-content").on("swiperight", function (e) {
-        $.mobile.back();
-    });
-</script>
+
 
 </html>

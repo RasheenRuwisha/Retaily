@@ -26,6 +26,7 @@ function loadCart() {
         localStorage.total = response.total;
         console.log(response);
         if (response.cartItemsList.length > 0) {
+            categories += "                <p onclick='removeCart()' style=\"margin: 0rem !important;text-align: right\">Remove all items</p>\n"
             for (var i = 0; i < response.cartItemsList.length; i++) {
                 categories += addProducts(response.cartItemsList[i]);
             }
@@ -152,3 +153,22 @@ function ApplyCoupons(){
 
 }
 
+
+function removeCart(){
+    localStorage.total = 0;
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://retaily-api.herokuapp.com/removeAllCart?email="+localStorage.email,
+        "method": "DELETE",
+        "headers": {
+            "cache-control": "no-cache",
+            "Postman-Token": "1da53742-d26b-4263-b87e-55f462df6d95"
+        }
+    }
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        location.reload()
+    });
+}

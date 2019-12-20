@@ -271,7 +271,7 @@ function addToCart(productid) {
         $("#cart-error").popup("open");
         setTimeout(function() {
             $("#cart-error").popup("close");
-        }, 2000);
+        }, 3000);
     }else{
         var value = $("#productQuantity").text();
 

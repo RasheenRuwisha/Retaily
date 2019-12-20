@@ -315,9 +315,14 @@ h1.header-title.ui-title {
 }
 
 .btn-home img {
-    margin-top: -17px;
+    margin-top: -17px !important;
     margin-left: -21px;
     height: 64px;
+}
+
+.btn-home-removemgn img{
+    margin-top: 0px !important;
+
 }
 
 .btn-userprofile {
@@ -443,6 +448,10 @@ img.product-popup-icon {
     padding: 7px;
 }
 
+
+.header-title{
+    color: #ef963a !important;
+}
 img.add-to-cart-plus-icon {
     width: 25px;
     padding-left: 2px;
@@ -1061,6 +1070,13 @@ img.leaderboard-image {
         /* max-width: 101%; */
         width: 100%;
     }
+
+    .ipad-ui{
+        width: 47% !important;
+    }
+    .header-grid{
+        grid-template-columns: 9% 75% 8% 8% !important;
+    }
 }
 
 /*Ipad Potrait*/
@@ -1214,6 +1230,18 @@ img.leaderboard-image {
 
     .btn-camera img {
         padding-right: 0px;
+    }
+
+    .ipad-ui{
+        width: 58% !important;
+    }
+
+    .header-grid{
+        grid-template-columns: 9% 69% 12% 12%  !important;
+    }
+
+    #checkokut-form{
+        margin-top:105px;
     }
 }
 

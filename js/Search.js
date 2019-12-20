@@ -62,7 +62,70 @@
             console.log(err);
         }
     }
-    
+
+    function addToCart(productid) {
+        var value = $(`#qty-${productid}`).text();
+        $(`#btn-${productid}`).css("display","none");
+        $(`#processing-btn-${productid}`).addClass("processing-btn-important");
+
+
+        var settings = {
+            async: true,
+            crossDomain: true,
+            url: "https://retaily-api.herokuapp.com/addToCart",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "cache-control": "no-cache",
+                "Postman-Token": "0db2443e-4c0b-437a-a10e-5e0659219599"
+            },
+            processData: false,
+            data: '{\n\t"email":"' + localStorage.email + '",\n\t"productId":"' +
+            productid +
+            '",\n     "qty":' +
+            parseInt(value) +
+            "\n}\n"
+        };
+
+        $.ajax(settings).done(function(response) {
+            console.log(response);
+            $(`#${productid}`).popup("close");
+            if (response === 2005) {
+                $( `#${productid}`).on({
+                    popupafterclose: function() {
+                        setTimeout( function(){ $("#cart-success-message" ).popup( 'open' ) }, 100 );
+                    }
+                });
+                setTimeout(function() {
+                    $("#cart-success-message").popup("close");
+                }, 2000);
+            } else if (response === 3006) {
+                $( `#${productid}`).on({
+                    popupafterclose: function() {
+                        setTimeout( function(){ $("#cart-error" ).popup( 'open' ) }, 100 );
+                    }
+                });
+                setTimeout(function() {
+                    $("#cart-error").popup("close");
+                }, 2000);
+            }
+            $(`#btn-${productid}`).css("display","block");
+            $(`#processing-btn-${productid}`).removeClass("processing-btn-important");
+        }).error(function() {
+            $( `#${productid}`).on({
+                popupafterclose: function() {
+                    setTimeout( function(){ $("#cart-error" ).popup( 'open' ) }, 100 );
+                }
+            });
+            setTimeout(function() {
+                $("#cart-error").popup("close");
+            }, 2000);
+            $(`#btn-${productid}`).css("display","block");
+            $(`#processing-btn-${productid}`).removeClass("processing-btn-important");
+        });
+
+
+    }
 
 
     function addProducts(name, price, image, promotion, productId,discountPrice) {

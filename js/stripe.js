@@ -47,16 +47,17 @@ document.querySelector('form').addEventListener('submit', function(e) {
     e.preventDefault();
     if(doValidations()){
         var form = document.querySelector('form');
-        localStorage.setItem("checkoutName",$("#card-name").val());
-        localStorage.setItem("checkoutEmail",$("#card-email").val());
+        localStorage.setItem("checkoutName",$("#cardholder-name").val());
+        localStorage.setItem("checkoutEmail",$("#cardholder-email").val());
 
         var extraDetails = {
             name: form.querySelector('input[name=cardholder-name]').value,
             email: form.querySelector('input[name=cardholder-email]').value,
-            address_line1: form.querySelector('input[name=address-line1]').value,
-            address_line2: form.querySelector('input[name=address-line2]').value,
-            address_state: form.querySelector('input[name=address-state]').value,
-            address_city: form.querySelector('input[name=address-city]').value,
+            address_line1: form.querySelector('input[name=cardholder-address]').value,
+            address_zip: form.querySelector('input[name=cardholder-postalcode]').value,
+            address_state: form.querySelector('input[name=cardholder-state]').value,
+            address_city: form.querySelector('input[name=cardholder-city]').value,
+            address_country: form.querySelector('input[name=cardholder-country]').value,
         };
         stripe.createToken(card, extraDetails).then(setOutcome);
     }
@@ -65,7 +66,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 
 function chargeUser(token){
-    $("#payment-btn").css("display", "none");
+    $("#pay-btn").addClass("hide-payment-btn");
     $("#processing-btn").addClass("processing-btn-important");
     var settings = {
         "async": true,
@@ -89,19 +90,25 @@ function chargeUser(token){
     $.ajax(settings).done(function (response) {
         console.log(response);
         loadCart();
-        $("#Name").text(localStorage.checkoutName)
+        $("#Name").text(localStorage.checkoutName);
         $("#Addres-Line-1").text(response.source.address_line1);
-        $("#Addres-Line-2").text(response.source.address_line2 + "," + response.source.address_state + ", " + response.source.address_city);
+        $("#Addres-Line-2").text(response.source.address_state + ", " + response.source.address_city);
+        $("#Addres-Line-3").text(response.source.address_country + "," + response.source.zip);
         $("#Email").text(localStorage.checkoutEmail);
 
         $("#Card").text(response.source.last4);
 
         $("#checkokut-form").css("display","none");
         $("#checkout-success").css("display","block");
-        $("#payment-btn").css("display", "inline");
+        $("#payment-btn").css("display", "block");
         $("#processing-btn").removeClass("processing-btn-important");
     }).fail(function (jqXHR, textStatus) {
-        alert("Payment failed")
+        $("#cart-error").popup("open");
+        setTimeout(function() {
+            $("#cart-error").popup("close");
+        }, 2000);
+        $("#pay-btn").removeClass("hide-payment-btn");
+        $("#processing-btn").removeClass("processing-btn-important");
     });
 }
 
@@ -180,7 +187,7 @@ function removeCart(){
         "async": true,
         "crossDomain": true,
         "url": "https://retaily-api.herokuapp.com/removeAllCart?email="+localStorage.email,
-        "method": "GET",
+        "method": "DELETE",
         "headers": {
             "cache-control": "no-cache",
             "Postman-Token": "1da53742-d26b-4263-b87e-55f462df6d95"
@@ -194,15 +201,14 @@ function removeCart(){
 
 
 function doValidations(){
-    var name = $("#card-name").val().trim();
-    var email = $("#card-email").val().trim();
-    var addressline1 = $("#card-address-line-1").val().trim();
-    var addressline2 = $("#card-address-line-2").val().trim();
-    var state = $("#card-address-state").val().trim();
-    var city = $("#card-address-city").val().trim();
+    var name = $("#cardholder-name").val().trim();
+    var email = $("#cardholder-email").val().trim();
+    var addressline2 = $("#cardholder-address").val().trim();
+    var state = $("#cardholder-state").val().trim();
+    var city = $("#cardholder-city").val().trim();
 
     if (name === "") {
-        $("#card-name").addClass("text-box-error");
+        $("#cardholder-name").addClass("text-box-error");
         $("#card-name-error").css("display","inline")
         $("#card-name-label").css("display","none")
     } else {
@@ -221,15 +227,6 @@ function doValidations(){
         $("#card-email-label").css("display","inline")
     }
 
-    if (addressline1 === "") {
-        $("#card-address-line-1").addClass("text-box-error");
-        $("#card-address-line-1-error").css("display","inline")
-        $("#card-address-line-1-label").css("display","none")
-    } else {
-        $("#card-address-line-1").removeClass("text-box-error")
-        $("#card-address-line-1-error").css("display","none")
-        $("#card-address-line-1-label").css("display","inline")
-    }
 
     if (addressline2 === "") {
         $("#card-address-line-2").addClass("text-box-error")
@@ -264,7 +261,7 @@ function doValidations(){
         $("#card-address-city-label").css("display","inline")
     }
 
-    if(name !== "" && email !== "" && addressline1 !== "" && addressline2 !== "" && city !== "" && state !== ""){
+    if(name !== "" && email !== "" && addressline2 !== "" && city !== "" && state !== ""){
       return true;
     }else{
         return false;

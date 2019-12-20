@@ -28,6 +28,7 @@ function doRegister() {
     }
 
     if (email === "") {
+        alert(email);
         $("#email").addClass("text-box-error");
         $("#email-error").css("display","inline")
         $("#email-label").css("display","none")
@@ -69,7 +70,7 @@ function doRegister() {
             "Postman-Token": "a335e3b8-b1df-4a65-8ec7-6c48448d06d1"
         },
         "processData": false,
-        "data": "{\n\t\"username\":\""+username+"\",\n\t\"email\":\""+email+"\",\n\t\"password\":\""+email+"\",\n\t\"completion\":[\"false\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"],\n\t\"coupons\":[],\n\t\"score\":0\n}"
+        "data": "{\n\t\"username\":\""+username+"\",\n\t\"email\":\""+email+"\",\n\t\"password\":\""+password+"\",\n\t\"completion\":[\"false\",\"false\",\"false\",\"false\",\"false\",\"false\",\"false\"],\n\t\"coupons\":[],\n\t\"score\":0\n}"
     }
 
 

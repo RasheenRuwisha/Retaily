@@ -263,7 +263,13 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
                   <p class="price">Total :</p>
                     ${totalPrice}
                     <div class=" button-container">
-                    <button onclick=addToCart("${productId}") type="submit" class="login-button ui-btn ui-btn-inline rounded-button">Add to Cart</button>
+                    <button onclick=addToCart("${productId}") type="submit" class="login-button ui-btn ui-btn-inline rounded-button" id='btn-${productId}'>Add to Cart</button>
+                    <div id="processing-btn-${productId}" onclick="addReview()"
+                     class="ui-btn ui-shadow ui-corner-all login-processing login-button" style="grid-template-columns: 11% 51%;">
+                    <img src="../images/loader.gif"
+                         style="display: inline-block;width: 33px;height: 33px;" alt="">
+                    <p class="processing-text">Processing</p>
+                </div>
                   </div>
                           
                 </div>
@@ -283,6 +289,10 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
 
 function addToCart(productid) {
     var value = $(`#qty-${productid}`).text();
+    $(`#btn-${productid}`).css("display","none");
+    $(`#processing-btn-${productid}`).addClass("processing-btn-important");
+
+    
     var settings = {
         async: true,
         crossDomain: true,
@@ -303,24 +313,42 @@ function addToCart(productid) {
 
     $.ajax(settings).done(function(response) {
         console.log(response);
+        $(`#${productid}`).popup("close");
         if (response === 2005) {
-            $(`#${productid}`).popup("close");
-            $("#cart-success").popup("open");
+            $( `#${productid}`).on({
+                popupafterclose: function() {
+                    setTimeout( function(){ $("#cart-success-message" ).popup( 'open' ) }, 100 );
+                }
+            });
             setTimeout(function() {
-                $("#cart-success").popup("close");
-            }, 10000);
+                $("#cart-success-message").popup("close");
+            }, 2000);
         } else if (response === 3006) {
-            $("#cart-error").popup("open");
+            $( `#${productid}`).on({
+                popupafterclose: function() {
+                    setTimeout( function(){ $("#cart-error" ).popup( 'open' ) }, 100 );
+                }
+            });
             setTimeout(function() {
                 $("#cart-error").popup("close");
             }, 2000);
         }
+        $(`#btn-${productid}`).css("display","block");
+        $(`#processing-btn-${productid}`).removeClass("processing-btn-important");
     }).error(function() {
-        $("#cart-error").popup("open");
+        $( `#${productid}`).on({
+            popupafterclose: function() {
+                setTimeout( function(){ $("#cart-error" ).popup( 'open' ) }, 100 );
+            }
+        });
         setTimeout(function() {
             $("#cart-error").popup("close");
         }, 2000);
+        $(`#btn-${productid}`).css("display","block");
+        $(`#processing-btn-${productid}`).removeClass("processing-btn-important");
     });
+
+
 }
 
 function incrementQuantity(id, total, incr) {
