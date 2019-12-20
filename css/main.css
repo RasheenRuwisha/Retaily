@@ -894,6 +894,12 @@ img.leaderboard-image {
     width: 370px;
     height: 290px;
 }
+p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Account-Text {
+    left: 68%;
+    padding: 0;
+    bottom: 0%;
+    position: absolute;
+}
 
 
 /*Start of media queries/
@@ -1055,6 +1061,12 @@ img.leaderboard-image {
         width: 510px;
         height: 260px;
     }
+    p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        left: 63%;
+        padding: 0;
+        position: absolute;
+        padding-bottom: 10px;
+    }
 }
 
 
@@ -1189,6 +1201,12 @@ img.leaderboard-image {
     .mainvideo {
         width: 690px;
         height: 360px;
+    }
+    p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        left: 75%;
+        padding: 0;
+        bottom: 0%;
+        position: absolute;
     }
 }
 
@@ -1391,6 +1409,7 @@ img.leaderboard-image {
     img.single-product.product-popup-icon {
         margin-top: 8px !important;
     }
+
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
@@ -1486,6 +1505,12 @@ img.leaderboard-image {
         border-radius: 20px;
         padding: 0px;
     }
+    p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        left: 63%;
+        padding: 0;
+        bottom: 0%;
+        position: absolute;
+    }
 }
 
 
@@ -1549,5 +1574,12 @@ img.leaderboard-image {
     .mainvideo {
         width: 440px;
         height: 240px;
+    }
+    p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Account-Text {
+        left: 65%;
+        padding: 0;
+        bottom: -10%;
+        position: absolute;
+        padding-bottom: 10px;
     }
 }
