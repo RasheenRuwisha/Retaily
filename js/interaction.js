@@ -1,5 +1,5 @@
 
-
+var closeNotification = false;
 AFRAME.registerComponent('accepts-clicks', {
     init: function() {
         this.el.addEventListener('touchend', handleClickEvent);
@@ -12,6 +12,8 @@ AFRAME.registerComponent('accepts-clicks', {
 
 function hideSpeechBubbleIfNoMarker() {
     var speechBubble = document.querySelector(".speech-bubble");
+    var notification =  document.querySelector(".notification");
+
     if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
 
     var shouldHide = true;
@@ -25,7 +27,13 @@ function hideSpeechBubbleIfNoMarker() {
         if (toolMarker && toolMarker.object3D.visible) shouldHide = false;
     });
 
-    if (shouldHide) speechBubble.style.display = 'none';
+
+    if (shouldHide) {
+        speechBubble.style.display = 'none';
+        if (notification.style.display === 'block') {
+            notification.style.display = 'none';
+        }
+    }
 };
 
 function handleClickEvent() {
@@ -36,6 +44,7 @@ function handleClickEvent() {
                 toggleSpeechBubble(builder.successDialogue);
                     updateProgress();
                     toggleNotification();
+                closeNotification = true;
             } else {
                 toggleSpeechBubble(builder.dialogue);
             }
@@ -52,6 +61,7 @@ function handleClickEvent() {
 }
 
 function toggleSpeechBubble(dialogue) {
+
     var speechBubble = document.querySelector(".speech-bubble");
     if (speechBubble.style.display === 'none' || !speechBubble.style.display) {
         speechBubble.innerHTML = dialogue;
