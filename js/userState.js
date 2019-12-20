@@ -1,13 +1,13 @@
 function UserState() {
-    this.tools = [];
+    this.lostitems = [];
 }
 
-UserState.prototype.addTool = function(tool) {
-    this.tools.push(tool);
+UserState.prototype.addTool = function(lostitem) {
+    this.lostitems.push(lostitem);
 }
 
-UserState.prototype.hasBuilderTool = function(builder) {
-    return builder.tool && this.tools.includes(builder.tool.name);
+UserState.prototype.hasBuilderTool = function(citizen) {
+    return citizen.lostitem && this.lostitems.includes(citizen.lostitem.name);
 }
 
 var userState = new UserState();

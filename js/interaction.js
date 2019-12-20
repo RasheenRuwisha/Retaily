@@ -2,8 +2,8 @@
 var closeNotification = false;
 AFRAME.registerComponent('accepts-clicks', {
     init: function() {
-        this.el.addEventListener('touchend', handleClickEvent);
-        this.el.addEventListener('markerFound', handleClickEvent);
+        this.el.addEventListener('touchend', handleMarkerEvent);
+        this.el.addEventListener('markerFound', handleMarkerEvent);
     },
     tick: function() {
         hideSpeechBubbleIfNoMarker();
@@ -17,14 +17,14 @@ function hideSpeechBubbleIfNoMarker() {
     if (speechBubble.style.display === 'none' || !speechBubble.style.display) return;
 
     var shouldHide = true;
-    builders.forEach(function(builder) {
-        var builderMarker = document.querySelector("#" + builder.name + "-marker");
-        if (builderMarker && builderMarker.object3D.visible) shouldHide = false;
+    citizens.forEach(function(citizen) {
+        var citizenMarker = document.querySelector("#" + citizen.name + "-marker");
+        if (citizenMarker && citizenMarker.object3D.visible) shouldHide = false;
     });
 
-    tools.forEach(function(tool) {
-        var toolMarker = document.querySelector("#" + tool.name + "-marker");
-        if (toolMarker && toolMarker.object3D.visible) shouldHide = false;
+    lostitems.forEach(function(lostitem) {
+        var lostitemMarker = document.querySelector("#" + lostitem.name + "-marker");
+        if (lostitemMarker && lostitemMarker.object3D.visible) shouldHide = false;
     });
 
 
@@ -36,26 +36,26 @@ function hideSpeechBubbleIfNoMarker() {
     }
 };
 
-function handleClickEvent() {
-    builders.forEach(function(builder) {
-        var builderMarker = document.querySelector("#" + builder.name + "-marker");
-        if (builderMarker && builderMarker.object3D.visible) {
-            if (searchForBuilderTool(builder)) {
-                toggleSpeechBubble(builder.successDialogue);
+function handleMarkerEvent() {
+    citizens.forEach(function(citizen) {
+        var citizenMarker = document.querySelector("#" + citizen.name + "-marker");
+        if (citizenMarker && citizenMarker.object3D.visible) {
+            if (searchForBuilderTool(citizen)) {
+                toggleSpeechBubble(citizen.successDialogue);
                     updateProgress();
                     toggleNotification();
                 closeNotification = true;
             } else {
-                toggleSpeechBubble(builder.dialogue);
+                toggleSpeechBubble(citizen.dialogue);
             }
         }
     });
 
-    tools.forEach(function(tool) {
-        var toolMarker = document.querySelector("#" + tool.name + "-marker");
-        if (toolMarker && toolMarker.object3D.visible) {
-            toggleSpeechBubble(tool.dialogue);
-            if (!userState.hasBuilderTool(tool)) userState.addTool(tool);
+    lostitems.forEach(function(lostitem) {
+        var lostitemMarker = document.querySelector("#" + lostitem.name + "-marker");
+        if (lostitemMarker && lostitemMarker.object3D.visible) {
+            toggleSpeechBubble(lostitem.dialogue);
+            if (!userState.hasBuilderTool(lostitem)) userState.addTool(lostitem);
         }
     });
 }
@@ -80,9 +80,9 @@ function toggleNotification() {
     }
 }
 
-function searchForBuilderTool(builder) {
-    return userState.tools.some(function(tool) {
-        return tool.name === builder.tool.name;
+function searchForBuilderTool(citizen) {
+    return userState.lostitems.some(function(lostitem) {
+        return lostitem.name === citizen.lostitem.name;
     });
 };
 
