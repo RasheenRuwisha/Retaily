@@ -117,7 +117,7 @@ function addProducts(response) {
     for (var i = 0; i < response.image.length; i++) {
         images += `
             <img
-                        class="mySlides  prd-image "
+                        class="mySlides  prd-image prd-image-ld"
                         src=${response.image[i]}
                         style="width:100%"
                 />
@@ -166,7 +166,7 @@ function addProducts(response) {
           </button>
                 </div>
 
-                <button onclick="addToCart('${response.productId}')">Add to cart</button>
+                <button onclick="addToCart('${response.productId}')" class="add-tocart-btn">Add to cart</button>
             </div>
         `;
 

@@ -50,7 +50,7 @@ function addProducts(promotionId, name, description, image) {
                 <img class="promotion-card-image"src="${image}"/>
               </div>
 
-              <div class="promotion-views-two-slides-boom-work">
+              <div class="promotion-views-two-slides-boom-work padding-20">
                 <h6 class="promotion-name login-labels">${name}</h6>
                 <p class="sunflower promotion-text">${description}</p>
                 <a onclick='addToSessionStorage("${promotionId}")' style="color: #c29a0c;">View</a>
