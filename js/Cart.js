@@ -14,7 +14,7 @@ function loadCart() {
     var settings = {
         async: true,
         crossDomain: true,
-        url: "https://retaily-api.herokuapp.com/getCart?email="+localStorage.email,
+        url: "https://retaily-api.herokuapp.com/getCart?email=" + localStorage.email,
         method: "GET",
         headers: {
             "cache-control": "no-cache",
@@ -71,7 +71,7 @@ function addProducts(response) {
         var productItem = `
 <div class="order-item">
     <div class="order-item-image">
-    <img class="order-product product-image-items-display" src="${response.productImage}" alt=" PS4" style="width:70%; float: left;" />
+    <img class="s-h-i-t-g-i-t-h-u-b order-product product-image-items-display" src="${response.productImage}" alt=" PS4" style="width:70%; float: left;" />
     </div>
     <div class="order-item-text">
     <p style="margin-top: 2px;"><b>${response.name}</b></p>
@@ -120,8 +120,8 @@ function proceedToPayment() {
     window.location = "payment.html"
 }
 
-var toast=function(msg) {
-    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>"+msg+"</h3></div>")
+var toast = function(msg) {
+    $("<div class='ui-loader ui-overlay-shadow ui-body-e ui-corner-all'><h3>" + msg + "</h3></div>")
         .css({
             display: "block",
             opacity: 0.90,
@@ -133,20 +133,20 @@ var toast=function(msg) {
             top: $(window).height() / 2
         })
         .appendTo($.mobile.pageContainer).delay(1500)
-        .fadeOut(400, function () {
+        .fadeOut(400, function() {
             $(this).remove();
         });
 }
 
-function ApplyCoupons(){
-    if(applycount == 0){
+function ApplyCoupons() {
+    if (applycount == 0) {
         localStorage.total = parseInt(localStorage.total) * 0.50;
         $("#price").text(localStorage.total);
         $("#price").text(localStorage.total);
         $("#coupons-pop").popup("close");
-        applycount+=1;
+        applycount += 1;
         toast("Coupon Applied");
-    }else{
+    } else {
         $("#coupons-pop").popup("close");
         toast("Coupon Already Applied")
     }
@@ -154,12 +154,12 @@ function ApplyCoupons(){
 }
 
 
-function removeCart(){
+function removeCart() {
     localStorage.total = 0;
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://retaily-api.herokuapp.com/removeAllCart?email="+localStorage.email,
+        "url": "https://retaily-api.herokuapp.com/removeAllCart?email=" + localStorage.email,
         "method": "DELETE",
         "headers": {
             "cache-control": "no-cache",
@@ -167,7 +167,7 @@ function removeCart(){
         }
     }
 
-    $.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function(response) {
         console.log(response);
         location.reload()
     });

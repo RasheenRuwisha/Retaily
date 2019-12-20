@@ -894,11 +894,17 @@ img.leaderboard-image {
     width: 370px;
     height: 290px;
 }
+
 p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Account-Text {
     left: 68%;
     padding: 0;
     bottom: 0%;
     position: absolute;
+}
+
+.videosection {
+    border: 2px solid #ef963a;
+    margin-right: -6px;
 }
 
 
@@ -1067,6 +1073,14 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
         position: absolute;
         padding-bottom: 10px;
     }
+    img.s-h-i-t-g-i-t-h-u-b.order-product.product-image-items-display {
+        margin: 0;
+        margin-left: -18px;
+    }
+    .coupons {
+        max-width: 33% !important;
+        margin-top: -3px;
+    }
 }
 
 
@@ -1076,6 +1090,13 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
     .main {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+    }
+    .coupons {
+        max-width: 41% !important;
+    }
+    img.s-h-i-t-g-i-t-h-u-b.order-product.product-image-items-display {
+        margin: 0;
+        margin-left: -18px;
     }
     .item {
         margin-left: 35px;
@@ -1162,7 +1183,7 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
         margin-left: 20px;
     }
     img.promotion-card-image {
-        max-width: 310px;
+        max-width: 340px;
         border-radius: 25px;
     }
     .promotion-views-two-slides {
@@ -1171,11 +1192,10 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
         grid-gap: 1rem;
     }
     .promotion-views-two-slides-boom-work {
-        width: 40%;
+        width: 36%;
     }
     .promotion-card {
         border-radius: 20px;
-        padding: 20px;
     }
     .sunflower {
         margin-top: 26px;
@@ -1409,7 +1429,6 @@ p.LOGIN-page-back-to-home-thing.UserNavigation.User-Profile-Edit.Register-Accoun
     img.single-product.product-popup-icon {
         margin-top: 8px !important;
     }
-
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) {
