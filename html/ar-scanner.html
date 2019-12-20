@@ -2,97 +2,85 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Payment</title>
-    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css"/>
-    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css"/>
-    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css"/>
-    <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../css/stripe.css"/>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"/>
+    <link rel="stylesheet" href="../Resources/themes/main/Main-Theme.css" />
+    <link rel="stylesheet" href="../Resources/themes/innerTheme/HomePage.css" />
+    <link rel="stylesheet" href="../Resources/themes/main/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/stripe.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
-<div data-role="page" data-theme="d" id="page-content">
-    <div data-role="header" class="header-class">
-       <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;" class="header-grid">
-            <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button"
-               data-shadow="false" data-theme="none">
-                <img src="../images/logos/Transparent.png" border="0">
-            </a>
-            <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">AR</h3>
+    <div data-role="page" data-theme="d" id="page-content">
+        <div data-role="header" class="header-class">
+            <div style="display: grid;grid-template-columns: 20% 40% 20% 20%;" class="header-grid">
+                <a href="Dashboard.html" rel="external" class="btn-home ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../images/logos/Transparent.png" border="0">
+                </a>
+                <h3 class="header-title" style="margin-bottom: 0 !important; margin-top: 18px !important;">AR</h3>
 
-            <a href="ar-scanner.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button"
-               data-shadow="false" data-theme="none">
-                <img src="../images/icons/icons8-camera-24.png" border="0">
-            </a>
+                <a href="ar-scanner.html" rel="external" class="btn-camera ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../images/icons/icons8-camera-24.png" border="0">
+                </a>
 
 
-            <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all"
-               data-role="button" data-shadow="false" data-theme="none">
-                <img src="../images/icons/header-userprofile.png" border="0">
-            </a>
+                <a href="ProfileNavigation.html" rel="external" class="btn-userprofile ui-btn-none ui-btn ui-corner-all" data-role="button" data-shadow="false" data-theme="none">
+                    <img src="../images/icons/header-userprofile.png" border="0">
+                </a>
+            </div>
+        </div>
+
+
+        <div id="ar" role="main" class="ui-content" style="width: 100% !important;padding: 0px!important;">
+
+        </div>
+
+        <div class="page-footer footer-class" data-role="footer" style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li>
+                        <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
+                        <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../images/icons/icons8-home-24.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../images/icons/001-search.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../images/icons/002-fire.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../images/icons/003-shopping-cart.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false" data-theme="none">
+                            <img src="../images/icons/003-menu.png" border="0" width="35px" height="35px" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
-
-    <div id="ar" role="main" class="ui-content" style="width: 100% !important;padding: 0px!important;">
-
-    </div>
-
-    <div class="page-footer footer-class" data-role="footer"
-         style="position:absolute; bottom:0px; left:0px; right:0px; overflow:hidden;">
-        <div data-role="navbar" data-iconpos="bottom">
-            <ul>
-                <li>
-                    <!-- <a href="#" data-role="button" data-icon="homeicon"></a> -->
-                    <a href="Dashboard.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
-                       data-theme="none">
-                        <img src="../images/icons/icons8-home-24.png" border="0" width="35px" height="35px"/>
-                    </a>
-                </li>
-                <li>
-                    <a href="search.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
-                       data-theme="none">
-                        <img src="../images/icons/001-search.png" border="0" width="35px" height="35px"/>
-                    </a>
-                </li>
-                <li>
-                    <a href="Promotions.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
-                       data-theme="none">
-                        <img src="../images/icons/002-fire.png" border="0" width="35px" height="35px"/>
-                    </a>
-                </li>
-                <li>
-                    <a href="Cart.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
-                       data-theme="none">
-                        <img src="../images/icons/003-shopping-cart.png" border="0" width="35px"
-                             height="35px"/>
-                    </a>
-                </li>
-                <li>
-                    <a href="Catagories.html" rel="external" class="btn-nav-bar" data-role="button" data-shadow="false"
-                       data-theme="none">
-                        <img src="../images/icons/003-menu.png" border="0" width="35px" height="35px"/>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- /content -->
+    <!-- /content -->
 </body>
-<script type="text/javascript" src="../js/CategoryProducts.js"></script>
-<script type="text/javascript" src="../js/Categories.js"></script>
 <script type="text/javascript" src="../js/main.js"></script>
 
 <script>
-    document.getElementById("ar").innerHTML='<object width="100%" height="'+screen.height+'" type="text/html" data="Ar.html" ></object>'
-    $("#page-content").on("swiperight", function (e) {
+    document.getElementById("ar").innerHTML = '<object width="100%" height="' + screen.height + '" type="text/html" data="Ar.html" ></object>'
+    $("#page-content").on("swiperight", function(e) {
         $.mobile.back();
     });
 </script>

@@ -6,104 +6,8 @@ $(document).ready(function() {
     var pathname = window.location.pathname;
     product = getUrlParam("id", "Empty");
     product = product.split("%")[0];
-    if (pathname.includes("fashion")) {
-        getFav();
-    }
+    getFav();
 });
-
-
-
-function sortHighLow() {
-    $(".loader").css("display", "block");
-    $(".products-items").css("display", "none");
-    $("#drop-select").css("display", "none");
-
-    var categories = "";
-
-    try {
-        var settings = {
-            async: true,
-            crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/sortHigh?category=" +
-                product,
-            method: "GET",
-            headers: {
-                "cache-control": "no-cache",
-                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-            }
-        };
-
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-            for (var i = 0; i < response.length; i++) {
-                categories += addProducts(
-                    response[i].name,
-                    response[i].price,
-                    response[i].image,
-                    response[i].hasDiscount,
-                    response[i].productId,
-                    response[i].discountPrice,
-                );
-            }
-            $("#drop-select").css("display", "block");
-            $(".loader").css("display", "none");
-            $(".products-items").css("display", "grid");
-            $(".products-items").html(categories);
-            $("#drop-select").trigger("create");
-            $(".products-items").trigger("create");
-        });
-    } catch (err) {
-        console.log("loadCategoryProducts failed");
-        console.log(err);
-    }
-}
-
-function sortLowtoHigh() {
-    $(".loader").css("display", "block");
-    $(".products-items").css("display", "none");
-    $("#drop-select").css("display", "none");
-
-    var categories = "";
-
-    try {
-        var settings = {
-            async: true,
-            crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/sortLow?category=" +
-                product,
-            method: "GET",
-            headers: {
-                "cache-control": "no-cache",
-                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
-            }
-        };
-
-        $.ajax(settings).done(function(response) {
-            console.log(response);
-            for (var i = 0; i < response.length; i++) {
-                categories += addProducts(
-                    response[i].name,
-                    response[i].price,
-                    response[i].image,
-                    response[i].hasDiscount,
-                    response[i].productId,
-                    response[i].discountPrice,
-                );
-            }
-            $("#drop-select").css("display", "block");
-
-            $(".loader").css("display", "none");
-            $(".products-items").css("display", "grid");
-            $(".products-items").html(categories);
-            $("#drop-select").trigger("create");
-            $(".products-items").trigger("create");
-        });
-    } catch (err) {
-        console.log("loadCategoryProducts failed");
-        console.log(err);
-    }
-}
-
 
 
 function getUrlVars() {
@@ -123,7 +27,6 @@ function getUrlParam(parameter, defaultvalue) {
 }
 
 function loadCategoryProducts() {
-    $(".header-title").html(product.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-'));
     $(".loader").css("display", "block");
     $(".products-items").css("display", "none");
     $("#drop-select").css("display", "none");
@@ -134,8 +37,7 @@ function loadCategoryProducts() {
         var settings = {
             async: true,
             crossDomain: true,
-            url: "https://retaily-api.herokuapp.com/categoryProducts?category=" +
-                product,
+            url: "https://retaily-api.herokuapp.com/categoryProducts?category=Fashion",
             method: "GET",
             headers: {
                 "cache-control": "no-cache",
@@ -158,14 +60,94 @@ function loadCategoryProducts() {
             $("#drop-select").css("display", "block");
             $(".loader").css("display", "none");
             $(".products-items").css("display", "grid");
-            $(".products-items").html(categories);
+            $(".hot-deals").html(categories);
             $("#drop-select").trigger("create");
-            $(".products-items").trigger("create");
+            $(".hot-deals").trigger("create");
+
+            categories = "";
+            try {
+                var settings = {
+                    async: true,
+                    crossDomain: true,
+                    url: "https://retaily-api.herokuapp.com/categoryProducts?category=Food",
+                    method: "GET",
+                    headers: {
+                        "cache-control": "no-cache",
+                        "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+                    }
+                };
+
+                $.ajax(settings).done(function(response) {
+                    console.log(response);
+                    for (var i = 0; i < response.length; i++) {
+                        categories += addProducts(
+                            response[i].name,
+                            response[i].price,
+                            response[i].image,
+                            response[i].hasDiscount,
+                            response[i].productId,
+                            response[i].discountPrice,
+                        );
+                    }
+                    $("#drop-select").css("display", "block");
+                    $(".loader").css("display", "none");
+                    $(".products-items").css("display", "grid");
+                    $(".cattttt").html(categories);
+                    $("#drop-select").trigger("create");
+                    $(".cattttt").trigger("create");
+
+
+                    categories = "";
+                    try {
+                        var settings = {
+                            async: true,
+                            crossDomain: true,
+                            url: "https://retaily-api.herokuapp.com/categoryProducts?category=Games",
+                            method: "GET",
+                            headers: {
+                                "cache-control": "no-cache",
+                                "Postman-Token": "bf76efcc-d521-4586-a6cf-db51e1e69225"
+                            }
+                        };
+
+                        $.ajax(settings).done(function(response) {
+                            console.log(response);
+                            for (var i = 0; i < response.length; i++) {
+                                categories += addProducts(
+                                    response[i].name,
+                                    response[i].price,
+                                    response[i].image,
+                                    response[i].hasDiscount,
+                                    response[i].productId,
+                                    response[i].discountPrice,
+                                );
+                            }
+                            $("#drop-select").css("display", "block");
+                            $(".loader").css("display", "none");
+                            $(".products-items").css("display", "grid");
+                            $(".best-seller").html(categories);
+                            $("#drop-select").trigger("create");
+                            $(".best-seller").trigger("create");
+                            $(".dash-content").css("display", "block")
+
+                        });
+                    } catch (err) {
+                        console.log("loadCategoryProducts failed");
+                        console.log(err);
+                    }
+
+                });
+            } catch (err) {
+                console.log("loadCategoryProducts failed");
+                console.log(err);
+            }
         });
     } catch (err) {
         console.log("loadCategoryProducts failed");
         console.log(err);
     }
+
+
 }
 
 function addProducts(name, price, image, promotion, productId, discountPrice) {
@@ -226,7 +208,7 @@ function addProducts(name, price, image, promotion, productId, discountPrice) {
 
 
     var productItem = `
-        <div class="item">
+        <div class="item dashboard-item">
           <div class="align-favourite">
            ${favIcon}
           </div>
